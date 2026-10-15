@@ -1,0 +1,112 @@
+/* design-system(mf/design-system)の D3 はポートフォリオを縛る:
+   ブランド層は無彩色で最大3色、書体は Intel One Mono と Noto Sans JP。
+   区切りは罫線ではなく余白で示し、ダークテーマを既定にする。 */
+
+:root {
+  --ink: #121212;
+  --paper: #e6e6e3;
+  --mute: #8c8c88;
+
+  --font-body: 'Noto Sans JP', system-ui, sans-serif;
+  --font-mono: 'Intel One Mono', 'BIZ UDGothic', ui-monospace, monospace;
+
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2.5rem;
+  --s5: 4rem;
+  --s6: 7rem;
+
+  --text-width: 38rem;
+  --page-width: 68rem;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--mute);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.page {
+  width: min(100% - 2 * var(--s2), var(--page-width));
+  margin-inline: auto;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.mute {
+  color: var(--mute);
+}
+
+/* 見出しラベル: 小さな等幅、余白で区切る */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--mute);
+  letter-spacing: 0;
+  margin-bottom: var(--s3);
+}
+
+.section {
+  margin-top: var(--s6);
+}
+
+/* 本文(作品詳細の markdown) */
+.prose {
+  max-width: var(--text-width);
+}
+
+.prose p {
+  margin: 0 0 var(--s3);
+}
+
+.prose img,
+.prose video {
+  width: 100%;
+  margin: var(--s4) 0;
+}
+
+.prose h2 {
+  font-size: 1rem;
+  margin: var(--s5) 0 var(--s2);
+}

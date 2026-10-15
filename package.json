@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "astro": "^7.4.0"
+  },
+  "private": true
+}
