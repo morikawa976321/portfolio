@@ -5,9 +5,11 @@ import WorkCard from '../components/WorkCard.astro';
 import ItemList from '../components/ItemList.astro';
 import { profile, career, research, awards, visible } from '../data/profile';
 
-const featured = (await getCollection('works', (w) => !w.data.draft && w.data.featured !== undefined)).sort(
-  (a, b) => a.data.featured! - b.data.featured!,
-);
+const all = await getCollection('works', (w) => !w.data.draft);
+const featured = all
+  .filter((w) => w.data.featured !== undefined)
+  .sort((a, b) => a.data.featured! - b.data.featured!);
+const total = all.length;
 
 const headline = profile.headline.confirmed || import.meta.env.DEV ? profile.headline.text : '';
 const sections = [
@@ -25,11 +27,13 @@ const sections = [
   </section>
 
   <section class="section">
-    <h2 class="label">selected works</h2>
+    <div class="head">
+      <h2 class="label">selected works</h2>
+      <a href="/works/" class="label all">all works ({total}) →</a>
+    </div>
     <div class="grid">
       {featured.map((w) => <WorkCard work={w} />)}
     </div>
-    <p class="more mono"><a href="/works/">all works →</a></p>
   </section>
 
   {
@@ -77,9 +81,18 @@ const sections = [
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: var(--s5) var(--s4);
   }
-  .more {
-    margin-top: var(--s4);
-    font-size: 0.875rem;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s2);
+    margin-bottom: var(--s3);
+  }
+  .head .label {
+    margin-bottom: 0;
+  }
+  .all {
+    white-space: nowrap;
   }
   .links {
     list-style: none;
