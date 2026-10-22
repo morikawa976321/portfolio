@@ -1,0 +1,39 @@
+/* 案 gallery — 余白(モック B)。写真が主役で文字は最小、罫線を使わない
+   狙い: 導入は中央に名前と一行だけを置き、最初の作品を幅いっぱいの写真にする。残りは2列。
+   色: 紙色地のまま。写真の下の地だけ --tone を濃くする。 */
+html[data-v="gallery"] {
+  --tone: #cfccc5;
+}
+html[data-v="gallery"] .head { border-bottom: 0; }
+html[data-v="gallery"] .hero { justify-items: center; text-align: center; padding-block: clamp(72px, 12vw, 150px) clamp(48px, 8vw, 100px); gap: 24px; }
+html[data-v="gallery"] .hero .name { justify-items: center; }
+html[data-v="gallery"] .statement { max-width: 26em; font-size: clamp(20px, 2.4vw, 26px); line-height: 2.2; }
+html[data-v="gallery"] .block { border-top: 0; padding-block: 0 80px; gap: 24px; }
+html[data-v="gallery"] .side { display: flex; justify-content: space-between; align-items: baseline; }
+html[data-v="gallery"] .figs { gap: 48px 24px; }
+html[data-v="gallery"] .frame { border: 0; padding: 0; }
+html[data-v="gallery"] .frame:hover .shot { opacity: 0.92; }
+html[data-v="gallery"] .fig { gap: 14px; }
+html[data-v="gallery"] .fig .fig-row { order: 2; color: var(--sub); }
+html[data-v="gallery"] .shot { aspect-ratio: 4 / 3; }
+html[data-v="gallery"] .fig figcaption strong { font-size: 20px; }
+html[data-v="gallery"] .fig figcaption .sum { font-size: 14px; }
+html[data-v="gallery"] .rows { max-width: 760px; }
+html[data-v="gallery"] .ttl { padding-block: 56px 32px; }
+html[data-v="gallery"] .list { border-bottom: 0; }
+html[data-v="gallery"] .list .row { min-height: 96px; }
+html[data-v="gallery"] .list .thumb { width: 128px; }
+html[data-v="gallery"] .plate { border: 0; padding: 0; background: var(--tone); }
+html[data-v="gallery"] .plate .fig-row { padding: 16px 20px 0; }
+html[data-v="gallery"] .plate figcaption { padding: 0 20px 16px; }
+html[data-v="gallery"] .prose p:has(> img), html[data-v="gallery"] .prose p:has(> video) { border: 0; padding: 0; }
+html[data-v="gallery"] .foot { border-top: 0; }
+@media (min-width: 900px) {
+  html[data-v="gallery"] .hero { grid-template-columns: minmax(0, 1fr); }
+  html[data-v="gallery"] .block { grid-template-columns: minmax(0, 1fr); }
+  html[data-v="gallery"] .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html[data-v="gallery"] .figs > :first-child { grid-column: 1 / -1; }
+  html[data-v="gallery"] .figs > :first-child .shot { aspect-ratio: 21 / 9; }
+  html[data-v="gallery"] .figs > :first-child figcaption strong { font-size: 28px; }
+  html[data-v="gallery"] .list .row { grid-template-columns: 40px 128px minmax(0, 1fr) 64px 120px 24px; }
+}

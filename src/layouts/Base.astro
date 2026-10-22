@@ -13,6 +13,9 @@ interface Props {
 
 const { title, description = profile.affiliation.text } = Astro.props;
 const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja} / ${profile.name.en}`;
+const word = profile.name.en.toLowerCase();
+const now = new Date();
+const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}`;
 ---
 
 <!doctype html>
@@ -40,41 +43,23 @@ const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Intel+One+Mono&family=Noto+Sans+JP:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Intel+One+Mono&family=Noto+Sans+JP:wght@400;500&display=swap"
     />
   </head>
   <body>
-    <header class="page header">
-      <a href="/" class="mono home">{profile.name.en.toLowerCase()}</a>
+    <header class="page head">
+      <a href="/" class="word">{word}</a>
     </header>
     <main class="page">
       <slot />
     </main>
-    <footer class="page footer mono mute">
-      {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
-      {profile.links.map((l) => <a href={l.url}>{l.label}</a>)}
+    <footer class="page foot">
+      <span class="word">{word}</span>
+      <nav>
+        {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
+        {profile.links.map((l) => <a href={l.url}>{l.label}</a>)}
+      </nav>
+      <span class="sub">updated {updated}</span>
     </footer>
   </body>
 </html>
-
-<style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--s2);
-    padding-block: var(--s3);
-    font-size: 0.875rem;
-  }
-  .home {
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s3);
-    padding-block: var(--s6) var(--s4);
-    font-size: 0.8125rem;
-  }
-</style>

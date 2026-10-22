@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+// 作品1件を「図」として出す: 番号と年の行 → 写真 → 題と一行。枠ごとが作品ページへのリンク
+interface Props {
+  work: CollectionEntry<'works'>;
+  n: number;
+}
+
+const { work, n } = Astro.props;
+const { title, year, summary, cover, coverAlt, context } = work.data;
+const num = String(n).padStart(2, '0');
+---
+
+<a class="frame" href={`/works/${work.id}/`}>
+  <figure class="fig">
+    <div class="fig-row">
+      <span>{num}</span>
+      <span class="sub">{year}{context && ` · ${context}`}</span>
+    </div>
+    <Image src={cover} alt={coverAlt} widths={[400, 800]} sizes="(min-width: 900px) 30vw, 90vw" class="shot" />
+    <figcaption>
+      <strong>{title}</strong>
+      <span class="sum">{summary}</span>
+    </figcaption>
+  </figure>
+</a>

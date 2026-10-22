@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import WorkCard from '../components/WorkCard.astro';
-import ItemList from '../components/ItemList.astro';
+import WorkFigure from '../components/WorkFigure.astro';
+import Rows from '../components/Rows.astro';
 import { profile, career, research, awards, visible } from '../data/profile';
 
 const featured = (await getCollection('works', (w) => !w.data.draft && w.data.featured !== undefined)).sort(
@@ -18,70 +18,31 @@ const sections = [
 ---
 
 <Base>
-  <section class="intro">
-    <h1>{profile.name.ja}<span class="en mono mute">{profile.name.en}</span></h1>
-    <p class="mute">{profile.affiliation.text}</p>
-    {headline && <p class="headline">{headline}</p>}
+  <section class="hero">
+    <div class="name">
+      <h1>{profile.name.ja}</h1>
+      <p class="en sub">{profile.name.en}</p>
+      <p class="aff">{profile.affiliation.text}</p>
+    </div>
+    {headline && <p class="statement">{headline}</p>}
   </section>
 
-  <section class="section">
-    <div class="head">
-      <h2 class="label">selected works</h2>
-      <a href="/works/" class="label all">all works →</a>
+  <section class="block" id="works">
+    <div class="side">
+      <h2>selected works</h2>
+      <a href="/works/" class="textlink">all works →</a>
     </div>
-    <div class="grid">
-      {featured.map((w) => <WorkCard work={w} />)}
+    <div class="figs">
+      {featured.map((w, i) => <WorkFigure work={w} n={i + 1} />)}
     </div>
   </section>
 
   {
     sections.map((s) => (
-      <section class="section" id={s.id}>
-        <h2 class="label">{s.label}</h2>
-        <ItemList items={s.items} />
+      <section class="block" id={s.id}>
+        <h2>{s.label}</h2>
+        <Rows items={s.items} />
       </section>
     ))
   }
 </Base>
-
-<style>
-  .intro {
-    margin-top: var(--s6);
-  }
-  h1 {
-    font-size: 1.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0 var(--s2);
-  }
-  .en {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  .intro p {
-    margin: var(--s1) 0 0;
-  }
-  .headline {
-    margin-top: var(--s3) !important;
-    max-width: var(--text-width);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: var(--s5) var(--s4);
-  }
-  .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--s2);
-    margin-bottom: var(--s3);
-  }
-  .head .label {
-    margin-bottom: 0;
-  }
-  .all {
-    white-space: nowrap;
-  }
-</style>

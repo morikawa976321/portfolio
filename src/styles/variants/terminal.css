@@ -1,0 +1,42 @@
+/* 案 terminal — 端末(モック C)。墨地、全面等幅、「# 」付きの節名、薄い罫線
+   狙い: 名前を等幅の大きなワードマークにして最初の目印にし、作品は図ではなく枠なしの写真と行で見せる。
+   色: 地 #1a1a1b / 文字 #f4f4f2 / 薄い文字 #9a9a96。罫線は文字色の 25%。 */
+html[data-v="terminal"] {
+  --ground: #1a1a1b;
+  --ink: #f4f4f2;
+  --sub: #9a9a96;
+  --rule: rgba(244, 244, 242, 0.25);
+  --tone: #2b2b2c;
+  color-scheme: dark;
+}
+html[data-v="terminal"] body { font-size: 14px; line-height: 1.7; }
+html[data-v="terminal"] .head { min-height: 48px; border-bottom-color: var(--rule); }
+html[data-v="terminal"] .word { font-size: 16px; }
+html[data-v="terminal"] .hero { padding-block: clamp(40px, 7vw, 72px); align-items: center; }
+html[data-v="terminal"] .hero .name { gap: 14px; }
+html[data-v="terminal"] .hero .en { order: -1; color: var(--ink); font-size: clamp(40px, 7.5vw, 84px); line-height: 1; letter-spacing: -0.01em; }
+html[data-v="terminal"] .hero h1 { font-size: 18px; line-height: 1.6; }
+html[data-v="terminal"] .hero .aff { padding-top: 0; color: var(--sub); }
+html[data-v="terminal"] .statement { font-size: clamp(16px, 1.6vw, 18px); line-height: 2.2; }
+html[data-v="terminal"] .block { border-top-color: var(--rule); padding-block: 32px 64px; gap: 24px 80px; }
+html[data-v="terminal"] .block > h2, html[data-v="terminal"] .side h2 { font-size: 14px; color: var(--sub); }
+html[data-v="terminal"] .block > h2::before, html[data-v="terminal"] .side h2::before { content: '# '; }
+html[data-v="terminal"] .frame { border: 0; padding: 0; }
+html[data-v="terminal"] .frame:hover figcaption strong { text-decoration: underline; }
+html[data-v="terminal"] .fig { gap: 10px; }
+html[data-v="terminal"] .fig .fig-row { order: 2; color: var(--sub); }
+html[data-v="terminal"] .fig figcaption strong { font-family: var(--mono); font-size: 18px; }
+html[data-v="terminal"] .fig figcaption .sum { font-size: 13px; }
+html[data-v="terminal"] .rows > * + * { border-top-color: var(--rule); }
+html[data-v="terminal"] .rows > :first-child { border-top: 1px solid var(--rule); }
+html[data-v="terminal"] .rows > :last-child { border-bottom: 1px solid var(--rule); }
+html[data-v="terminal"] .row { min-height: 56px; }
+html[data-v="terminal"] .row .text { font-size: 14px; }
+html[data-v="terminal"] .ttl h1 { font-size: 14px; color: var(--sub); }
+html[data-v="terminal"] .ttl h1::before { content: '# '; }
+html[data-v="terminal"] .list strong { font-family: var(--mono); font-size: 18px; }
+html[data-v="terminal"] .plate { border-color: var(--rule); background: var(--tone); }
+html[data-v="terminal"] .title h1 { font-family: var(--mono); font-size: 28px; line-height: 1.6; }
+html[data-v="terminal"] .specs > div { min-height: 36px; border-bottom: 0; }
+html[data-v="terminal"] .prose p:has(> img), html[data-v="terminal"] .prose p:has(> video) { border: 0; padding: 0; }
+html[data-v="terminal"] .foot { border-top-color: var(--rule); color: var(--sub); }

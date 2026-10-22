@@ -1,119 +1,393 @@
-/* design-system(mf/design-system)の D3 はポートフォリオを縛る:
-   ブランド層は無彩色で最大3色、書体は Intel One Mono と Noto Sans JP。
-   区切りは罫線ではなく余白で示し、ダークテーマを既定にする。 */
-
+/* design-system(mf/design-system)の D3 がポートフォリオを縛る: ブランド層は無彩色で最大3色、書体は Intel One Mono と Noto Sans JP。
+   組版は funomi のモック(mf/product-sales/mock/src/base.css)と同じ語彙で組む:
+   等幅 13px を基本にし、日本語の文だけ .ja で Noto Sans JP。区画は上の罫線と左の節名列で示す。図は枠と図番号を持つ。
+   既定の見た目は「標本」(紙色地)。案(?v=)は src/styles/variants/*.css がトークンと一部の配置を差し替える(docs/visual.md)。 */
 :root {
-  --ink: #121212;
-  --paper: #e6e6e3;
-  --mute: #8c8c88;
-
-  --font-body: 'Noto Sans JP', system-ui, sans-serif;
-  --font-mono: 'Intel One Mono', 'BIZ UDGothic', ui-monospace, monospace;
-
-  --s1: 0.5rem;
-  --s2: 1rem;
-  --s3: 1.5rem;
-  --s4: 2.5rem;
-  --s5: 4rem;
-  --s6: 7rem;
-
-  --text-width: 38rem;
-  --page-width: 68rem;
-
-  color-scheme: dark;
+  --ground: #f4f4f2;
+  --ink: #1a1a1b;
+  --sub: #6b6b68;
+  --rule: rgba(26, 26, 27, 0.25);
+  --tone: #e6e3dc; /* 写真の読み込み前の地。ブランド層の3色には数えない */
+  --mono: 'Intel One Mono', 'BIZ UDGothic', ui-monospace, monospace;
+  --ja: 'Noto Sans JP', sans-serif;
+  --gutter: clamp(20px, 5.5vw, 80px);
+  color-scheme: light;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.85;
-  -webkit-font-smoothing: antialiased;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 13px/1.6 var(--mono);
+  -webkit-text-size-adjust: 100%;
 }
-
 a {
   color: inherit;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
 }
-
 a:hover {
-  color: var(--mute);
+  text-decoration: underline;
 }
-
-h1,
-h2,
-h3 {
-  font-weight: 700;
-  line-height: 1.4;
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure, figcaption {
   margin: 0;
+  padding: 0;
 }
-
-img,
-video {
+h1, h2, h3, strong {
+  font-weight: 400;
+}
+ul, ol {
+  list-style: none;
+}
+img, video {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
+.sub {
+  color: var(--sub);
+}
+.ja {
+  font-family: var(--ja);
+}
 .page {
-  width: min(100% - 2 * var(--s2), var(--page-width));
+  max-width: 1440px;
   margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.textlink {
+  text-decoration: underline;
 }
 
-.mono {
-  font-family: var(--font-mono);
+/* 見出し帯: 名前だけ(nav は持たない。docs/structure.md) */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  border-bottom: 1px solid var(--ink);
+}
+.word {
+  font-size: 20px;
+  line-height: 1;
+}
+.word:hover {
+  text-decoration: none;
 }
 
-.mute {
-  color: var(--mute);
+/* 導入: 左に名前と所属、右に一行の軸 */
+.hero {
+  display: grid;
+  gap: 24px 32px;
+  padding-block: 40px 48px;
+}
+.hero .name {
+  display: grid;
+  gap: 6px;
+}
+.hero h1 {
+  font: 400 clamp(26px, 3.4vw, 32px) / 1.3 var(--ja);
+}
+.hero .en {
+  font-size: 16px;
+}
+.hero .aff {
+  font: 400 14px/1.8 var(--ja);
+  padding-top: 6px;
+}
+.statement {
+  font: 400 clamp(19px, 2.2vw, 24px) / 2 var(--ja);
+  text-wrap: balance;
+  align-self: center;
 }
 
-/* 見出しラベル: 小さな等幅、余白で区切る */
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--mute);
-  letter-spacing: 0;
-  margin-bottom: var(--s3);
+/* 節: 上の罫線で区切り、左に節名、右に中身 */
+.block {
+  display: grid;
+  gap: 16px 24px;
+  padding-block: 24px 64px;
+  border-top: 1px solid var(--ink);
+}
+.block > h2 {
+  font-size: 13px;
+}
+.side {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  justify-items: start;
+}
+.side h2 {
+  font-size: 13px;
 }
 
-.section {
-  margin-top: var(--s6);
+/* 作品の図: 番号と年の行、写真、題と一行 */
+.figs {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.frame {
+  display: block;
+  border: 1px solid var(--rule);
+  padding: 14px 16px 16px;
+}
+.frame:hover {
+  text-decoration: none;
+  border-color: var(--ink);
+}
+.fig {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.fig-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.shot {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--tone);
+}
+.fig figcaption {
+  display: grid;
+  gap: 2px;
+}
+.fig figcaption strong {
+  font: 400 16px/1.5 var(--ja);
+}
+.fig figcaption .sum {
+  font: 400 13px/1.6 var(--ja);
+  color: var(--sub);
 }
 
-/* 本文(作品詳細の markdown) */
+/* 行: 経歴・研究・受賞(期間 | 本文) */
+.rows > * + * {
+  border-top: 1px solid var(--rule);
+}
+.row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 2px 16px;
+  align-items: baseline;
+  min-height: 48px;
+  padding-block: 12px;
+}
+.row .when {
+  color: var(--sub);
+}
+.row .text {
+  font: 400 14px/1.8 var(--ja);
+}
+
+/* 一覧(works): 番号 | 写真 | 題と一行 | 年 | 文脈 | → */
+.ttl {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 40px 20px;
+}
+.ttl h1 {
+  font-size: clamp(26px, 3.4vw, 32px);
+  line-height: 1.3;
+}
+.list {
+  border-bottom: 1px solid var(--rule);
+}
+.list .row {
+  grid-template-columns: 36px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px 16px;
+  min-height: 80px;
+  padding-block: 14px;
+}
+.list .row:hover {
+  text-decoration: none;
+}
+.list .row:hover strong {
+  text-decoration: underline;
+}
+.list .thumb {
+  width: 96px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--tone);
+}
+.list .main {
+  display: grid;
+  gap: 2px;
+}
+.list strong {
+  font: 400 18px/1.4 var(--ja);
+}
+.list .sum {
+  font: 400 13px/1.6 var(--ja);
+  color: var(--sub);
+}
+.list .wide {
+  display: none;
+}
+
+/* 作品詳細: 左に図 01(写真)、右に題・一行・仕様 */
+.crumb {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 18px;
+}
+.panel {
+  display: grid;
+  gap: 32px 24px;
+  padding-bottom: 48px;
+}
+.plate {
+  border: 1px solid var(--ink);
+  padding: 16px 20px;
+  display: grid;
+  gap: 16px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 320px;
+}
+.plate img,
+.plate video {
+  width: 100%;
+  align-self: center;
+}
+.plate figcaption {
+  font: 400 13px/1.6 var(--ja);
+  color: var(--sub);
+}
+.title {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.title h1 {
+  font: 400 clamp(26px, 3.4vw, 32px) / 1.3 var(--ja);
+}
+.lead {
+  font: 400 15px/1.9 var(--ja);
+}
+.specs {
+  display: grid;
+}
+.specs > div {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--rule);
+}
+.specs dt {
+  color: var(--sub);
+}
+.specs dd {
+  font: 400 14px/1.6 var(--ja);
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 本文(作品の markdown)。本文中の写真・動画は「図 02」から番号を振った枠にする */
 .prose {
-  max-width: var(--text-width);
+  max-width: 640px;
+  font: 400 15px/1.9 var(--ja);
+  counter-reset: fig 1;
 }
-
 .prose p {
-  margin: 0 0 var(--s3);
+  margin: 0 0 1.2em;
 }
-
+.prose h2 {
+  font: 400 13px/1.6 var(--mono);
+  color: var(--sub);
+  margin: 2.5em 0 0.75em;
+}
+.prose p:has(> img),
+.prose p:has(> video) {
+  counter-increment: fig;
+  display: grid;
+  gap: 12px;
+  margin: 32px 0;
+  padding: 14px 16px 16px;
+  border: 1px solid var(--rule);
+  font: 400 13px/1.6 var(--mono);
+  color: var(--sub);
+}
+.prose p:has(> img)::before,
+.prose p:has(> video)::before {
+  content: '図 ' counter(fig, decimal-leading-zero);
+}
 .prose img,
 .prose video {
   width: 100%;
-  margin: var(--s4) 0;
 }
 
-.prose h2 {
-  font-size: 1rem;
-  margin: var(--s5) 0 var(--s2);
+/* 末尾: 名前、連絡先、更新月 */
+.foot {
+  display: grid;
+  gap: 20px;
+  padding-block: 24px 40px;
+  border-top: 1px solid var(--ink);
+}
+.foot nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.foot nav a {
+  text-decoration: underline;
 }
 
-/* 開発時に ?plain=1 を付けると、未確認の仮の値(.pending)を本番と同じく出さない(見た目の比較の撮影用) */
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+  .block {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+  .figs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .list .row {
+    grid-template-columns: 40px 96px minmax(0, 1fr) 64px 120px 24px;
+  }
+  .list .wide {
+    display: block;
+  }
+  .panel {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: start;
+  }
+  .plate {
+    min-height: 520px;
+  }
+  .foot {
+    grid-template-columns: 200px minmax(0, 1fr) auto;
+    align-items: baseline;
+  }
+}
+
+/* 開発時だけ: 未確認の仮の値(.pending)は破線で示し、?plain=1 なら本番と同じく出さない(見た目の比較の撮影用) */
+.pending {
+  outline: 1px dashed var(--sub);
+  outline-offset: 4px;
+  opacity: 0.6;
+}
 html[data-plain] .pending,
-html[data-plain] .section:has(ul):not(:has(li:not(.pending))),
+html[data-plain] .block:has(ul):not(:has(li:not(.pending))),
 html[data-plain] astro-dev-toolbar {
   display: none;
 }

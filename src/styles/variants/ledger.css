@@ -1,42 +1,42 @@
-/* 案 ledger — 台帳(astra の案C)。文字を主役にし、写真は項目の識別に使う
-   狙い: 作品を1列の横長項目(左に 12rem の写真、右に年・題・要約)にして、作品も経歴も上から
-   読む構成に揃える。節間 3rem : ラベル→内容 0.75rem : 要素間 0.25rem = 12:3:1。
-   色: 地 #151515 / 文字 #eeeeee の2色だけ。補助情報は大きさと位置で区別し、灰色を足さない。 */
+/* 案 ledger — 台帳(モック E)。グレー地、墨の実線だけのカード、文字は 14 / 18 / 28 / 56 の4段
+   狙い: 作品も経歴も「枠」に入れて、まとまりを罫線の箱で示す。節名は 18px で箱の外に置く。
+   色: 地 #d8d8d8 / 文字 #1a1a1b の2色。薄い文字も文字色にし、罫線は実線。 */
 html[data-v="ledger"] {
-  --ink: #151515;
-  --paper: #eeeeee;
-  --mute: #eeeeee;
+  --ground: #d8d8d8;
+  --sub: #1a1a1b;
+  --rule: #1a1a1b;
+  --tone: #ecebe8;
 }
-html[data-v="ledger"] body { line-height: 1.6; }
-html[data-v="ledger"] .header { padding-block: 1.25rem; }
-html[data-v="ledger"] .intro { margin-top: 1.5rem; }
-html[data-v="ledger"] .intro h1 { font-size: 1.75rem; line-height: 1.3; }
-html[data-v="ledger"] .intro p { margin-top: 0.25rem; }
-html[data-v="ledger"] .intro .headline { margin-top: 0.75rem !important; }
-html[data-v="ledger"] .section { margin-top: 3rem; }
-html[data-v="ledger"] .label { font-size: 1rem; margin-bottom: 0.75rem; }
-html[data-v="ledger"] .head { margin-bottom: 0.75rem; }
-html[data-v="ledger"] .all { font-size: 0.875rem; }
-html[data-v="ledger"] .section .grid { display: flex; flex-direction: column; gap: 1.5rem; }
-html[data-v="ledger"] .card { display: grid; grid-template-columns: 12rem 1fr; grid-template-rows: auto auto 1fr; column-gap: 1.25rem; align-items: start; }
-html[data-v="ledger"] .card .cover { grid-row: 1 / span 3; margin-bottom: 0; }
-html[data-v="ledger"] .card .meta { font-size: 0.8125rem; margin: 0; }
-html[data-v="ledger"] .card h3 { font-size: 1.125rem; line-height: 1.3; margin-top: 0.125rem; }
-html[data-v="ledger"] .card .summary { font-size: 0.9375rem; margin-top: 0.25rem; line-height: 1.5; }
-html[data-v="ledger"] ul { max-width: none; }
-html[data-v="ledger"] li { grid-template-columns: 9rem 1fr; gap: 1.25rem; margin-bottom: 1rem; }
-html[data-v="ledger"] .period { font-size: 0.8125rem; padding-top: 0.25em; }
-html[data-v="ledger"] .footer { padding-block: 3rem 2rem; }
-html[data-v="ledger"] .title { margin-top: 1.5rem; font-size: 1.75rem; }
-html[data-v="ledger"] .year { margin-top: 2.5rem; }
-html[data-v="ledger"] .year .grid { display: flex; flex-direction: column; gap: 1.25rem; }
-html[data-v="ledger"] article h1 { margin-top: 2rem; font-size: 1.75rem; line-height: 1.3; }
-html[data-v="ledger"] .meta { margin: 1rem 0 3rem; }
-html[data-v="ledger"] .meta div { grid-template-columns: 6rem 1fr; }
-html[data-v="ledger"] .prose p { margin-bottom: 1rem; }
-html[data-v="ledger"] .prose img, html[data-v="ledger"] .prose video { margin: 1.5rem 0; }
-html[data-v="ledger"] .back { margin-top: 3rem; }
-@media (max-width: 40rem) {
-  html[data-v="ledger"] .card { grid-template-columns: 1fr; grid-template-rows: auto; }
-  html[data-v="ledger"] .card .cover { grid-row: auto; margin-bottom: 0.5rem; }
+html[data-v="ledger"] body { font-size: 14px; }
+html[data-v="ledger"] .head { min-height: 80px; }
+html[data-v="ledger"] .word { font-size: 18px; }
+html[data-v="ledger"] .hero { padding-block: 32px 40px; }
+html[data-v="ledger"] .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.2; }
+html[data-v="ledger"] .hero .en { font-size: 18px; }
+html[data-v="ledger"] .hero .aff { font-size: 14px; }
+html[data-v="ledger"] .statement { font-size: clamp(20px, 2.6vw, 28px); line-height: 1.9; }
+html[data-v="ledger"] .block { border-top: 0; padding-block: 24px 32px; gap: 16px 24px; }
+html[data-v="ledger"] .block > h2, html[data-v="ledger"] .side h2 { font-size: 18px; }
+html[data-v="ledger"] .side { gap: 8px; }
+html[data-v="ledger"] .figs { gap: 24px; }
+html[data-v="ledger"] .frame { border-color: var(--ink); padding: 20px 24px 24px; }
+html[data-v="ledger"] .frame:hover { background: var(--ground); outline: 1px solid var(--ink); }
+html[data-v="ledger"] .fig { gap: 16px; }
+html[data-v="ledger"] .fig figcaption strong { font-size: 18px; }
+html[data-v="ledger"] .fig figcaption .sum { font-size: 14px; }
+html[data-v="ledger"] .rows { border: 1px solid var(--ink); }
+html[data-v="ledger"] .row { padding: 16px 24px; min-height: 56px; gap: 2px 24px; }
+html[data-v="ledger"] .row .text { font-size: 14px; }
+html[data-v="ledger"] .ttl h1 { font-size: clamp(28px, 4vw, 56px); line-height: 1.2; }
+html[data-v="ledger"] .list { border: 1px solid var(--ink); }
+html[data-v="ledger"] .list .row { padding: 16px 24px; }
+html[data-v="ledger"] .list strong { font-size: 18px; }
+html[data-v="ledger"] .plate { padding: 20px 24px 24px; }
+html[data-v="ledger"] .title { border: 1px solid var(--ink); padding: 20px 24px; gap: 12px; }
+html[data-v="ledger"] .title h1 { font-size: 28px; line-height: 1.4; }
+html[data-v="ledger"] .specs > div { min-height: 44px; border-bottom: 0; border-top: 1px solid var(--ink); }
+html[data-v="ledger"] .prose p:has(> img), html[data-v="ledger"] .prose p:has(> video) { padding: 20px 24px 24px; }
+html[data-v="ledger"] .foot { margin-top: 24px; }
+@media (min-width: 900px) {
+  html[data-v="ledger"] .hero { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 }

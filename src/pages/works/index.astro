@@ -1,43 +1,33 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
-import WorkCard from '../../components/WorkCard.astro';
 
-const works = await getCollection('works', (w) => !w.data.draft);
-const years = [...new Set(works.map((w) => w.data.year))].sort((a, b) => b - a);
-const byYear = years.map((y) => ({
-  year: y,
-  works: works.filter((w) => w.data.year === y).sort((a, b) => (a.data.featured ?? 99) - (b.data.featured ?? 99)),
-}));
+// 全作品を新しい年から並べた一覧。番号 | 写真 | 題と一行 | 年 | 文脈 | →
+const works = (await getCollection('works', (w) => !w.data.draft)).sort(
+  (a, b) => b.data.year - a.data.year || (a.data.featured ?? 99) - (b.data.featured ?? 99),
+);
 ---
 
 <Base title="Works">
-  <h1 class="title">Works</h1>
-  {
-    byYear.map((g) => (
-      <section class="year">
-        <h2 class="label">{g.year}</h2>
-        <div class="grid">
-          {g.works.map((w) => (
-            <WorkCard work={w} />
-          ))}
-        </div>
-      </section>
-    ))
-  }
+  <div class="ttl">
+    <h1>works</h1>
+  </div>
+  <div class="rows list">
+    {
+      works.map((w, i) => (
+        <a class="row" href={`/works/${w.id}/`}>
+          <span class="sub">{String(i + 1).padStart(2, '0')}</span>
+          <Image src={w.data.cover} alt="" widths={[200, 400]} sizes="96px" class="thumb wide" />
+          <span class="main">
+            <strong>{w.data.title}</strong>
+            <span class="sum">{w.data.summary}</span>
+          </span>
+          <span class="wide sub">{w.data.year}</span>
+          <span class="wide sub">{w.data.context ?? ''}</span>
+          <span class="sub">→</span>
+        </a>
+      ))
+    }
+  </div>
 </Base>
-
-<style>
-  .title {
-    font-size: 1.75rem;
-    margin-top: var(--s6);
-  }
-  .year {
-    margin-top: var(--s5);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    gap: var(--s4) var(--s3);
-  }
-</style>
