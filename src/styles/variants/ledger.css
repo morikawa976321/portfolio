@@ -1,0 +1,42 @@
+/* 案 ledger — 台帳(astra の案C)。文字を主役にし、写真は項目の識別に使う
+   狙い: 作品を1列の横長項目(左に 12rem の写真、右に年・題・要約)にして、作品も経歴も上から
+   読む構成に揃える。節間 3rem : ラベル→内容 0.75rem : 要素間 0.25rem = 12:3:1。
+   色: 地 #151515 / 文字 #eeeeee の2色だけ。補助情報は大きさと位置で区別し、灰色を足さない。 */
+html[data-v="ledger"] {
+  --ink: #151515;
+  --paper: #eeeeee;
+  --mute: #eeeeee;
+}
+html[data-v="ledger"] body { line-height: 1.6; }
+html[data-v="ledger"] .header { padding-block: 1.25rem; }
+html[data-v="ledger"] .intro { margin-top: 1.5rem; }
+html[data-v="ledger"] .intro h1 { font-size: 1.75rem; line-height: 1.3; }
+html[data-v="ledger"] .intro p { margin-top: 0.25rem; }
+html[data-v="ledger"] .intro .headline { margin-top: 0.75rem !important; }
+html[data-v="ledger"] .section { margin-top: 3rem; }
+html[data-v="ledger"] .label { font-size: 1rem; margin-bottom: 0.75rem; }
+html[data-v="ledger"] .head { margin-bottom: 0.75rem; }
+html[data-v="ledger"] .all { font-size: 0.875rem; }
+html[data-v="ledger"] .section .grid { display: flex; flex-direction: column; gap: 1.5rem; }
+html[data-v="ledger"] .card { display: grid; grid-template-columns: 12rem 1fr; grid-template-rows: auto auto 1fr; column-gap: 1.25rem; align-items: start; }
+html[data-v="ledger"] .card .cover { grid-row: 1 / span 3; margin-bottom: 0; }
+html[data-v="ledger"] .card .meta { font-size: 0.8125rem; margin: 0; }
+html[data-v="ledger"] .card h3 { font-size: 1.125rem; line-height: 1.3; margin-top: 0.125rem; }
+html[data-v="ledger"] .card .summary { font-size: 0.9375rem; margin-top: 0.25rem; line-height: 1.5; }
+html[data-v="ledger"] ul { max-width: none; }
+html[data-v="ledger"] li { grid-template-columns: 9rem 1fr; gap: 1.25rem; margin-bottom: 1rem; }
+html[data-v="ledger"] .period { font-size: 0.8125rem; padding-top: 0.25em; }
+html[data-v="ledger"] .footer { padding-block: 3rem 2rem; }
+html[data-v="ledger"] .title { margin-top: 1.5rem; font-size: 1.75rem; }
+html[data-v="ledger"] .year { margin-top: 2.5rem; }
+html[data-v="ledger"] .year .grid { display: flex; flex-direction: column; gap: 1.25rem; }
+html[data-v="ledger"] article h1 { margin-top: 2rem; font-size: 1.75rem; line-height: 1.3; }
+html[data-v="ledger"] .meta { margin: 1rem 0 3rem; }
+html[data-v="ledger"] .meta div { grid-template-columns: 6rem 1fr; }
+html[data-v="ledger"] .prose p { margin-bottom: 1rem; }
+html[data-v="ledger"] .prose img, html[data-v="ledger"] .prose video { margin: 1.5rem 0; }
+html[data-v="ledger"] .back { margin-top: 3rem; }
+@media (max-width: 40rem) {
+  html[data-v="ledger"] .card { grid-template-columns: 1fr; grid-template-rows: auto; }
+  html[data-v="ledger"] .card .cover { grid-row: auto; margin-bottom: 0.5rem; }
+}

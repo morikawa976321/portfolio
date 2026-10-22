@@ -31,6 +31,7 @@ const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja
             var v = p.has('v') ? p.get('v') : sessionStorage.getItem('v');
             if (p.has('v')) sessionStorage.setItem('v', v);
             if (v) document.documentElement.dataset.v = v;
+            if (p.has('plain')) document.documentElement.dataset.plain = '';
           })();
         </script>
       )
