@@ -2,6 +2,10 @@
 import '../styles/global.css';
 import { profile } from '../data/profile';
 
+// 見た目の案の比較(docs/visual.md)。開発時だけ src/styles/variants/*.css を全部読み込み、
+// URL の ?v=<name> で <html data-v="<name>"> を付けてその案を当てる。決まったら消す。
+if (import.meta.env.DEV) import.meta.glob('../styles/variants/*.css', { eager: true });
+
 interface Props {
   title?: string;
   description?: string;
@@ -19,6 +23,18 @@ const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {!profile.indexable && <meta name="robots" content="noindex" />}
+    {
+      import.meta.env.DEV && (
+        <script is:inline>
+          (function () {
+            var p = new URLSearchParams(location.search);
+            var v = p.has('v') ? p.get('v') : sessionStorage.getItem('v');
+            if (p.has('v')) sessionStorage.setItem('v', v);
+            if (v) document.documentElement.dataset.v = v;
+          })();
+        </script>
+      )
+    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

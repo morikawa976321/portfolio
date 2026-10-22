@@ -1,0 +1,53 @@
+/* 案 sheet — 仕様書の2列(左に節名、右に中身)
+   狙い: 節名を中身の横に置くことで、どこからどこまでが1つの節かを位置で示す。節名は読んでいる間
+   画面に留まる(sticky)。節間は 3.5rem、節内は 0.25〜0.75rem。ツールの画面に近い見え方。
+   色: 地 #111111 / 文字 #ededea / 薄い文字 #7d7d79。 */
+html[data-v="sheet"] {
+  --ink: #111111;
+  --paper: #ededea;
+  --mute: #7d7d79;
+  --col: 10rem;
+  --colgap: 1.5rem;
+}
+html[data-v="sheet"] body { line-height: 1.6; }
+html[data-v="sheet"] .header { padding-block: 1.25rem; }
+html[data-v="sheet"] .intro { margin-top: 3.5rem; padding-left: calc(var(--col) + var(--colgap)); }
+html[data-v="sheet"] .intro h1 { font-size: 2.25rem; line-height: 1.2; }
+html[data-v="sheet"] .intro p { margin-top: 0.25rem; }
+html[data-v="sheet"] .intro .headline { margin-top: 1rem !important; }
+html[data-v="sheet"] .section { display: grid; grid-template-columns: var(--col) 1fr; column-gap: var(--colgap); margin-top: 3.5rem; }
+html[data-v="sheet"] .section > .label, html[data-v="sheet"] .section > .head { grid-column: 1; }
+html[data-v="sheet"] .section > :not(.label):not(.head) { grid-column: 2; }
+html[data-v="sheet"] .label { margin-bottom: 0; }
+html[data-v="sheet"] .section > .label { position: sticky; top: 1.25rem; align-self: start; }
+html[data-v="sheet"] .head { flex-direction: column; align-items: flex-start; gap: 0.25rem; margin-bottom: 0; position: sticky; top: 1.25rem; align-self: start; }
+html[data-v="sheet"] .all { color: var(--paper); }
+html[data-v="sheet"] .section .grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem 1.25rem; }
+html[data-v="sheet"] .card .cover { margin-bottom: 0.5rem; }
+html[data-v="sheet"] .card .meta { margin: 0 0 0.125rem; }
+html[data-v="sheet"] .card h3 { font-size: 0.9375rem; line-height: 1.3; }
+html[data-v="sheet"] .card .summary { margin-top: 0.125rem; font-size: 0.8125rem; line-height: 1.5; }
+html[data-v="sheet"] ul { max-width: none; }
+html[data-v="sheet"] li { grid-template-columns: 7rem 1fr; gap: 1rem; margin-bottom: 0.25rem; }
+html[data-v="sheet"] .period { font-size: 0.8125rem; padding-top: 0.2em; }
+html[data-v="sheet"] .footer { padding-block: 5rem 2rem; padding-left: calc(var(--col) + var(--colgap)); }
+html[data-v="sheet"] .title { margin-top: 3.5rem; font-size: 2.25rem; padding-left: calc(var(--col) + var(--colgap)); }
+html[data-v="sheet"] .year { display: grid; grid-template-columns: var(--col) 1fr; column-gap: var(--colgap); margin-top: 2.5rem; }
+html[data-v="sheet"] .year > .label { grid-column: 1; position: sticky; top: 1.25rem; align-self: start; }
+html[data-v="sheet"] .year > .grid { grid-column: 2; grid-template-columns: repeat(3, 1fr); gap: 1.75rem 1.25rem; }
+html[data-v="sheet"] article h1 { margin-top: 3.5rem; font-size: 2rem; line-height: 1.2; margin-left: calc(var(--col) + var(--colgap)); }
+html[data-v="sheet"] .meta { margin: 1rem 0 2.5rem; }
+html[data-v="sheet"] .meta div { grid-template-columns: var(--col) 1fr; gap: var(--colgap); }
+html[data-v="sheet"] .prose, html[data-v="sheet"] .links, html[data-v="sheet"] .back { margin-left: calc(var(--col) + var(--colgap)); }
+html[data-v="sheet"] .prose p { margin-bottom: 1rem; }
+html[data-v="sheet"] .prose img, html[data-v="sheet"] .prose video { margin: 1.5rem 0; }
+html[data-v="sheet"] .back { margin-top: 4rem; }
+@media (max-width: 48rem) {
+  html[data-v="sheet"] .intro, html[data-v="sheet"] .footer, html[data-v="sheet"] .title,
+  html[data-v="sheet"] article h1, html[data-v="sheet"] .prose, html[data-v="sheet"] .links, html[data-v="sheet"] .back { padding-left: 0; margin-left: 0; }
+  html[data-v="sheet"] .section, html[data-v="sheet"] .year { display: block; }
+  html[data-v="sheet"] .section > .label, html[data-v="sheet"] .head, html[data-v="sheet"] .year > .label { position: static; margin-bottom: 0.75rem; }
+  html[data-v="sheet"] .head { flex-direction: row; align-items: baseline; }
+  html[data-v="sheet"] .section .grid, html[data-v="sheet"] .year > .grid { grid-template-columns: 1fr 1fr; }
+  html[data-v="sheet"] .meta div { grid-template-columns: 6rem 1fr; gap: 1rem; }
+}
