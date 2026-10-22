@@ -59,3 +59,41 @@ AI(Claude)の診断(本人は未確認):
 | editorial | 明るい地。作品を1件ずつ、写真 7 : 文字 5 の行で左右交互に。題は 24〜34px | day と同じ |
 
 見るには開発サーバーで `/?v=day` のように付ける(既定の night は `?v=`)。`&plain=1` で本番の見え方。
+
+## 参考サイト(2026-10-23)
+
+第3回を見た本人:
+
+> だいぶ良くなったがまだ満足できない。私自身の目の肥やすために世の中の良いサイトをいくつか見たほうがいいかも。評価の高いサイトをいくつかURL貼るか直接Edgeで開いて。シンプルでミニマルな方向性のものを重点的に
+
+AI(Claude)が選んだ一覧(2026-10-23 時点で応答を確認。選定は AI で、本人の評価は未記入):
+
+| 分類 | サイト | 見どころ |
+|---|---|---|
+| デザインエンジニア | https://rauno.me | 墨地、細部の動き、作品を小さな札で並べる。「craft」の見せ方 |
+| 〃 | https://paco.me | 文字だけで成立する最小構成。余白と行間の取り方 |
+| 〃 | https://emilkowal.ski | 動きの節度。ホバーと遷移の速さ |
+| 〃 | https://samuelkraft.com | 名前・一文・作品の順。写真の面と文字の比率 |
+| 〃 | https://leerob.com | 本文中心。一画面の情報量 |
+| 〃 | https://brittanychiang.com | 墨地の開発者ポートフォリオの定番。経歴の行の作り |
+| 〃 | https://rsms.me | 書体(Inter)を作った人の自サイト。文字の段 |
+| デザイナー | https://frankchimero.com | 文字と余白だけ。見出しの大きさと行長 |
+| 〃 | https://mds.is | 一画面の構成。節の切り方 |
+| 〃 | https://hest.design | 文字組みで持たせるミニマル |
+| 〃 | https://dennissnellenberg.com | 滑らかな動き(Awwwards 系)。やりすぎの境界を見る |
+| 日本 | https://p5aholic.me | クリエイティブデベロッパーの個人サイト。作品一覧の密度 |
+| 〃 | https://baku89.com | 映像・ツール作家。作品の並べ方と説明の短さ |
+| 〃 | https://ryosuzuki.org | HCI 研究者(鈴木遼)。研究者の自サイトとして見る |
+| 〃 | https://www.takram.com | デザインエンジニアリング会社。事例の見せ方 |
+| 〃 | https://homunculus.jp | 制作会社。余白の使い方 |
+| 研究者 | https://jonbarron.info | 素のミニマル。業績の一覧の形 |
+| 道具のブランド | https://teenage.engineering | 製品写真の揃え方。写真が主役のときの文字の量 |
+| ギャラリー(入口) | https://minimal.gallery | 2013年からのミニマル専門 |
+| 〃 | https://siiimple.com | 2008年からのミニマル専門 |
+| 〃 | https://www.a1.gallery/websites/minimal-portfolio | ミニマルなポートフォリオだけを集めた一覧 |
+| 〃 | https://www.gallereee.com/style/minimal | 同上 |
+| 〃 | https://www.awwwards.com/websites/minimal/ | 受賞サイトのミニマル分類 |
+| 〃 | https://www.bestfolios.com | デザイナーのポートフォリオ集 |
+
+Edge で最初に開いたのは rauno / paco / emilkowal.ski / samuelkraft / frankchimero / hest / p5aholic / ryosuzuki / minimal.gallery の9つ。
+
