@@ -29,17 +29,13 @@ const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja
   <body>
     <header class="page header">
       <a href="/" class="mono home">{profile.name.en.toLowerCase()}</a>
-      <nav class="mono">
-        <a href="/works/">works</a>
-        <a href="/#career">career</a>
-        <a href="/#contact">contact</a>
-      </nav>
     </header>
     <main class="page">
       <slot />
     </main>
     <footer class="page footer mono mute">
-      <span>© {new Date().getFullYear()} {profile.name.en}</span>
+      {profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
+      {profile.links.map((l) => <a href={l.url}>{l.label}</a>)}
     </footer>
   </body>
 </html>
@@ -57,23 +53,10 @@ const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja
     text-decoration: none;
     white-space: nowrap;
   }
-  nav {
-    display: flex;
-    gap: var(--s3);
-  }
-  @media (max-width: 30rem) {
-    nav {
-      gap: var(--s2);
-    }
-  }
-  nav a {
-    text-decoration: none;
-    color: var(--mute);
-  }
-  nav a:hover {
-    color: var(--paper);
-  }
   .footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s3);
     padding-block: var(--s6) var(--s4);
     font-size: 0.8125rem;
   }

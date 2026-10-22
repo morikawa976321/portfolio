@@ -5,11 +5,9 @@ import WorkCard from '../components/WorkCard.astro';
 import ItemList from '../components/ItemList.astro';
 import { profile, career, research, awards, visible } from '../data/profile';
 
-const all = await getCollection('works', (w) => !w.data.draft);
-const featured = all
-  .filter((w) => w.data.featured !== undefined)
-  .sort((a, b) => a.data.featured! - b.data.featured!);
-const total = all.length;
+const featured = (await getCollection('works', (w) => !w.data.draft && w.data.featured !== undefined)).sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
 
 const headline = profile.headline.confirmed || import.meta.env.DEV ? profile.headline.text : '';
 const sections = [
@@ -29,7 +27,7 @@ const sections = [
   <section class="section">
     <div class="head">
       <h2 class="label">selected works</h2>
-      <a href="/works/" class="label all">all works ({total}) →</a>
+      <a href="/works/" class="label all">all works →</a>
     </div>
     <div class="grid">
       {featured.map((w) => <WorkCard work={w} />)}
@@ -44,14 +42,6 @@ const sections = [
       </section>
     ))
   }
-
-  <section class="section" id="contact">
-    <h2 class="label">contact</h2>
-    <ul class="links">
-      {profile.email && <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>}
-      {profile.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
-    </ul>
-  </section>
 </Base>
 
 <style>
@@ -93,10 +83,5 @@ const sections = [
   }
   .all {
     white-space: nowrap;
-  }
-  .links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
   }
 </style>
