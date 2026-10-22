@@ -12,58 +12,36 @@ const { work } = Astro.props;
 const { title, year, period, context, role, tools, summary, cover, coverAlt, links } = work.data;
 const { Content } = await render(work);
 
-// 仕様表。無い項目は出さない
-const specs = [
-  { k: 'year', v: period ?? String(year) },
-  { k: 'context', v: context },
-  { k: 'role', v: role },
-  { k: 'tools', v: tools.join(', ') },
-].filter((m) => m.v);
+// 札: 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
+const chips = [period ?? String(year), context, role, ...tools].filter((c): c is string => !!c);
 ---
 
 <Base title={title} description={summary}>
-  <p class="crumb"><a href="/works/" class="textlink">← works</a></p>
+  <a href="/works/" class="back link mono">← works</a>
   <article>
-    <div class="panel">
-      <figure class="plate">
-        <div class="fig-row">
-          <span>図 01</span>
-          <span class="sub">{year}</span>
-        </div>
-        <Image src={cover} alt={coverAlt} widths={[800, 1600]} sizes="(min-width: 900px) 58vw, 100vw" />
-        <figcaption>{coverAlt}</figcaption>
-      </figure>
-      <div class="title">
-        <h1>{title}</h1>
-        <p class="lead">{summary}</p>
-        <dl class="specs">
-          {
-            specs.map((m) => (
-              <div>
-                <dt>{m.k}</dt>
-                <dd>{m.v}</dd>
-              </div>
-            ))
-          }
-        </dl>
-        {
-          links.length > 0 && (
-            <p class="links">
-              {links.map((l) => (
-                <a class="textlink" href={l.url}>
-                  {l.label} →
-                </a>
-              ))}
-            </p>
-          )
-        }
-      </div>
+    <header class="art-head">
+      <h1>{title}</h1>
+      <p class="lead">{summary}</p>
+      <ul class="chips">
+        {chips.map((c) => <li class="chip">{c}</li>)}
+      </ul>
+    </header>
+    <div class="cover">
+      <Image src={cover} alt={coverAlt} widths={[900, 1800, 2400]} sizes="(min-width: 1200px) 1200px, 100vw" />
     </div>
-    <section class="block">
-      <h2>about</h2>
-      <div class="prose">
-        <Content />
-      </div>
-    </section>
+    <div class="prose">
+      <Content />
+    </div>
+    {
+      links.length > 0 && (
+        <p class="links">
+          {links.map((l) => (
+            <a class="link mono" href={l.url}>
+              {l.label} ↗
+            </a>
+          ))}
+        </p>
+      )
+    }
   </article>
 </Base>

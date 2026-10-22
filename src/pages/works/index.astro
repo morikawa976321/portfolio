@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import WorkCard from '../../components/WorkCard.astro';
 
-// 全作品を新しい年から並べた一覧。番号 | 写真 | 題と一行 | 年 | 文脈 | →
+// 全作品を新しい年から。3列の写真の格子
 const works = (await getCollection('works', (w) => !w.data.draft)).sort(
   (a, b) => b.data.year - a.data.year || (a.data.featured ?? 99) - (b.data.featured ?? 99),
 );
@@ -13,21 +13,8 @@ const works = (await getCollection('works', (w) => !w.data.draft)).sort(
   <div class="ttl">
     <h1>works</h1>
   </div>
-  <div class="rows list">
-    {
-      works.map((w, i) => (
-        <a class="row" href={`/works/${w.id}/`}>
-          <span class="sub">{String(i + 1).padStart(2, '0')}</span>
-          <Image src={w.data.cover} alt="" widths={[200, 400]} sizes="96px" class="thumb wide" />
-          <span class="main">
-            <strong>{w.data.title}</strong>
-            <span class="sum">{w.data.summary}</span>
-          </span>
-          <span class="wide sub">{w.data.year}</span>
-          <span class="wide sub">{w.data.context ?? ''}</span>
-          <span class="sub">→</span>
-        </a>
-      ))
-    }
+  <div class="cards all">
+    {works.map((w) => <WorkCard work={w} sizes="(min-width: 900px) 30vw, 92vw" />)}
   </div>
+  <div class="sec"></div>
 </Base>

@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+// 作品1件: 角を丸めた 16:10 の写真 → 題と年 → 一行。全体が作品ページへのリンク
+interface Props {
+  work: CollectionEntry<'works'>;
+  sizes?: string;
+}
+
+const { work, sizes = '(min-width: 900px) 45vw, 92vw' } = Astro.props;
+const { title, year, summary, cover, coverAlt } = work.data;
+---
+
+<a class="card" href={`/works/${work.id}/`}>
+  <div class="pic">
+    <Image src={cover} alt={coverAlt} widths={[480, 960, 1440]} sizes={sizes} />
+  </div>
+  <div class="cap">
+    <h3>{title}</h3>
+    <span class="year mono">{year}</span>
+    <p class="sum">{summary}</p>
+  </div>
+</a>

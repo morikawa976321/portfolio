@@ -1,0 +1,26 @@
+/* 案 editorial — 作品を1件ずつ、幅いっぱいの行で見せる(写真 7 : 文字 5、交互に左右を入れ替える)
+   狙い: 1画面に1作品。題を大きくし、写真の面積で読ませる。明るい地。 */
+html[data-v="editorial"] {
+  --bg: #f7f7f5;
+  --fg: #111111;
+  --fg-2: rgba(17, 17, 17, 0.58);
+  --fg-3: rgba(17, 17, 17, 0.38);
+  --line: rgba(17, 17, 17, 0.1);
+  --tone: #e8e7e3;
+  --r: 18px;
+  color-scheme: light;
+}
+html[data-v="editorial"] body { -webkit-font-smoothing: auto; }
+html[data-v="editorial"] .hero { padding-block: clamp(96px, 18vh, 200px) clamp(72px, 12vh, 150px); }
+html[data-v="editorial"] .display { font-size: clamp(64px, 12vw, 168px); }
+html[data-v="editorial"] #works .cards { grid-template-columns: minmax(0, 1fr); gap: 72px; }
+html[data-v="editorial"] #works .card { gap: 20px; }
+html[data-v="editorial"] #works .cap h3 { font-size: clamp(24px, 3vw, 34px); line-height: 1.3; letter-spacing: -0.01em; }
+html[data-v="editorial"] #works .cap .sum { font-size: 16px; max-width: 34em; }
+html[data-v="editorial"] .sec { padding-block: 40px 140px; }
+@media (min-width: 900px) {
+  html[data-v="editorial"] #works .card { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: end; }
+  html[data-v="editorial"] #works .card:nth-child(even) .pic { order: 2; }
+  html[data-v="editorial"] #works .cap { align-content: end; padding-bottom: 8px; }
+  html[data-v="editorial"] .row { grid-template-columns: 220px minmax(0, 1fr); }
+}

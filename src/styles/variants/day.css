@@ -1,0 +1,13 @@
+/* 案 day — 既定(night)と同じ組版で、地を明るくする。写真の色味がばらばらでも沈まないかを見る */
+html[data-v="day"] {
+  --bg: #f7f7f5;
+  --fg: #111111;
+  --fg-2: rgba(17, 17, 17, 0.58);
+  --fg-3: rgba(17, 17, 17, 0.38);
+  --line: rgba(17, 17, 17, 0.1);
+  --tone: #e8e7e3;
+  color-scheme: light;
+}
+html[data-v="day"] body {
+  -webkit-font-smoothing: auto;
+}
