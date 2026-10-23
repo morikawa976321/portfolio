@@ -33,16 +33,11 @@ export const career: Item[] = [
   },
 ];
 
-// 研究・発表。新しい順
+// 研究・発表。新しい順。WISS2024「PreviewWorld」は載せない(教員の判断で投稿されなかった論文。2026-10-23本人)
 export const research: Item[] = [
   {
     period: '2026.01',
     text: '卒業論文「床面に描画された円形領域の拡大・縮小による視覚フィードバックが対人距離の調整行動に及ぼす影響」',
-    confirmed: true,
-  },
-  {
-    period: '2024',
-    text: '白石大晴, 森川太一, 橋本直. PreviewWorld: モバイル環境における体外離脱体験のためのインタフェース設計. WISS2024(非査読)',
     confirmed: true,
   },
 ];

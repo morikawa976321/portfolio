@@ -1,6 +1,5 @@
 // 4案で共有する中身。名前・所属・作品の題と年は確定済みの値(src/data/profile.ts、docs/candidate-works.md、docs/structure.md)。
 // 自己紹介の一行・本文・画像はダミー(本人が用意する。2026-10-23)。作品の一行は docs の事実から書いた仮のもの。
-// PreviewWorld(WISS2024)は外部公開不可(2026-10-23本人)なので研究・発表に入れない。
 
 const PROFILE = {
   ja: '森川太一',
