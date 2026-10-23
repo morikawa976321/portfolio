@@ -31,7 +31,7 @@
 ## 3Dプリント製品・実用品
 - `3d-models/`: mATX PCケース(STL 25+、2025-11)、stackable_plate 12サイズ(=販売予定トレイ)、soap_dish(波板の石鹸置き、Python生成・preview.html)、tool_holder(Pythonパラメトリック、断面画像あり)、lighting_diffuser(Python生成。2026-10-14 に mf/lighting-diffuser へ移設、2026-10-16 に閉じて mf/archives/lighting-diffuser)、モニターアタッチメント24/27/32インチ、ラブリコ柱ブラケット群(hook/shelf/hanger_bar)、fan_120mm_stand、aroma_oil_diffuser、centauri_carbon_trash_collector、toothbrush_stand
 - `archives/pokeca_case`(Pythonパラメトリック、実使用)
-- 実物写真は `3d-models/` にほぼ無い。撮影が掲載の前提
+- 実物写真は `3d-models/` にほぼ無い。Google フォトの書き出し(下記)に一部ある。作例レンダー10点は `cad-gigs/portfolio/`(トレイ・工具ホルダー・モニターアタッチメント・PCケース・フック・ファンスタンド・アロマディフューザー・プリンタ付属品・工具ケース・歯ブラシスタンド、contact_sheet.png)
 - funomi: ロゴ確定(2026-09-22、`design-system/logo/` に SVG と PNG)、ショップ `product-sales/site` はビルド済みだが商品写真0件・Stripe未接続
 
 ## グラフィック・生成アート
@@ -46,6 +46,27 @@
 - `bauhaus-forest`(Blender 映像、2026-10-03〜10。本人が発端のテーマを出し、フェーズごとに修正を依頼する進め方。完成版は未確認)
 - `trace-relief`(3DPレリーフ、2026-10-17〜18、休止中。印刷用STLは未実装)
 - `archives/steam-game`(2026-10-02中止)、`archives/fdm-trunk`・`archives/mouse`(握り比べ用11型)・`archives/lighting-diffuser`(いずれも閉じた)、`archives/guitar-composer`・`archives/guitar-lab`(寝かせ中)
+
+## 研究の試作(修士研究の3本並行のうち2本)
+- `research/mitate`(見立て) — 音のデモ `sounds/demo5`(効果音5本)、balance.html・board.js、30秒進捗報告スライド(2026-10-16)
+- `research/face`(FACE の3DPレリーフ表現技法) — 手で引いた線を取り込むツール `capture/`、試験タイルSTL 5種 `tiles/out/`(flat・grooves・wells)
+
+## 文章
+- engine の `02_context/creative/` に本人の掌編「人間には二種類ある。空気より重い人と軽い人」全文(prose-heavier-lighter-than-air)と物語の種6件(story-premise-seeds)。engine は非公開なので、出すなら本文を別に起こす
+
+## 実物写真・動画(`mf/GooglePhotoAllContents-1-001.zip`、2026-10-23に全件をサムネイルで確認)
+zip 1254件のうち大半は人物・旅行・高校の部活の写真。作品に関わるのは次のファイル(zip内パスは `GooglePhotoAllContents/<名前>`)。
+- mATX PCケース実物: IMG_20260203_152312〜152357.jpg(4枚)、組み立て動画 VID_20260203_152422.mp4・152522.mp4。白い六角穴の別版 PXL_20250301_091458479〜091526303.jpg(3枚)、CAD画面 スクリーンショット 2026-02-04 203446/203458.png
+- ラティス造形(M1研究の出力と思われる): IMG_20260222_112241〜112328.jpg(円筒・花瓶・箱の3点)
+- キーボード: 分割エルゴ PXL_20250301_072149075〜072417206.jpg、2023-01 の自作 PXL_20230105_015441712〜015511795.jpg、それ以前の黒い格子配列 DSC_0001.JPG・DSC_0011.JPG(組み立て中)
+- モニターアタッチメント実物: PXL_20250127_120529090〜120605483.jpg(4枚)、CAD画面 スクリーンショット 2025-01-27 210147.png
+- ワットチェッカー: PXL_20230907_114916318〜120043102.jpg、dryer.png・ACadapter.png
+- 工具ケース・トレイの使用写真: IMG_20260405_233411・233433.jpg。電池ホルダー: PXL_20221113_105405327.jpg。初期の3Dプリント: DSC_0010.JPG
+- SNDC2025 擬音はんこ5種のレンダー: 1749485486652.png
+- 雑踏音楽の発表動画(P演習2、178秒): p_____________________.mp4。発表スライドのスクショ Screenshot_20230130-20*.png
+- 輪郭抽出と残像の比較動画: f901d62d4eaa44267b742a53055c0d78~4.mp4。ほか bezier.mp4・pitagora.mp4・visualizationOfSamplingTheorem.mp4・waveGraffiti~3.mp4・epepep 2022-11-09.mp4・音響音楽表現_final.mp4(meiji 等と重複)
+- ギター演奏動画(手元のみ): PXL_20221103_094419948・PXL_20231120_120739601・PXL_20231120_121724535(74秒)・PXL_20231127_070441834・PXL_20231212_112708443・PXL_20240124_122826805・MOV_0071
+- 2026-01-31 の展示会場(IMG_20260131_*.jpg 11枚・VID_20260131_*.mp4 6本): 同心円の円盤レリーフ、モニタと実物を組み合わせた展示、3Dプリンタ内の造形物。本人の出展か見学かはファイルから判別していない
 
 ## その他
 - `blender-demos/` 6本(build.py自動化+レンダー) — 習作
