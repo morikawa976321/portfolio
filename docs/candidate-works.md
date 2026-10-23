@@ -7,27 +7,34 @@
 > 卒業論文「床面に描画された円形領域の拡大・縮小による視覚フィードバックが対人距離の調整行動に及ぼす影響」
 > infill-designer
 > B2春ゼミ輪郭抽出映像
-> LEDキャンドルモビール
 > Pincare_Explorer
-> 自作キーボード
+> 自作キーボード、keymap-lab
 > SNDC2025オノマトぺったん
 > SNDC2026起き上がりはんこ（roly-poly-generator, stamp-generator含む）
 > duocad
 > monocore
 > context-engine
 > 3Dプリント作品（mATX-PCケース、スタッカブルトレイ、石けん置き、モニターアタッチメント類、ラブリコブラケット類、歯ブラシスタンド、電池ケース、チェスの駒）
-> monitor-sumulator, keymap-lab, ikebana-site
+> ikebana-site
 > vanfu-Tシャツ
 > ワットチェッカー
 > romaji-slm
 > minimal-editor
-> （unlockos, aicc）
+>
+> unlockos, aiccは作品としては出さない
+
+同日の本人の判断(原文):
+
+> keymap-labは自作キーボードの中でおまけとして入れよう。monitor-simulatorは除外で了解。ikebana-siteはまだダミー画像が入っていて利用者の実績もない。これは最初は入れず、完成したら入れることにしよう。previewworldは教員の判断でボツになった論文なので、外部に出すことはできない。キャンドルもニールも除外しよう。私が満足していないので。
+
+- 「キャンドルもニール」は LEDキャンドルモビールのこと(現サイトの featured 1)
+- 初回公開に入るのは ikebana-site を除く15件
 
 以下は選定前の棚卸し。
 
 ## 研究(明治大・橋本研)
 - **卒業論文**「床面に描画された円形領域の拡大・縮小による視覚フィードバックが対人距離の調整行動に及ぼす影響」(2026-01) — `meiji/B4/4_橋本研ゼミB4/卒論B4_2025/`(pdf・発表スライド)。VR実装。プロトタイプ動画 `meiji/B4/4_橋本研ゼミB4/` 直下の Metaball_Interactoin.mp4・Sine_Wave_Interaction.mp4・Arm_Interaction.mp4、OCポスター2025(OCPoster2025_Morikawa.pptx)
-- **WISS2024 論文**「PreviewWorld: モバイル環境における体外離脱体験のためのインタフェース設計」(白石大晴・森川太一・橋本直、非査読) — `meiji/B3/3_橋本研ゼミB3/WISS_PreviewWorld.pdf`。前身は橋渡ゼミポスター「VRデバイスを用いた疑似幽体離脱による空間把握能力の拡張」(2024-08)、デモ動画 eyeTrackingControl / joyBallControl_3FModel.mp4
+- **WISS2024 論文**「PreviewWorld: モバイル環境における体外離脱体験のためのインタフェース設計」(白石大晴・森川太一・橋本直、非査読) — `meiji/B3/3_橋本研ゼミB3/WISS_PreviewWorld.pdf`。**外部公開不可**(教員の判断で投稿されなかった論文、2026-10-23本人)。前身は橋渡ゼミポスター「VRデバイスを用いた疑似幽体離脱による空間把握能力の拡張」(2024-08)、デモ動画 eyeTrackingControl / joyBallControl_3FModel.mp4
 - **M1研究**「3Dプリントのためのラティスデザイン探索手法の拡張」(pptx) — `meiji/M1/橋本研ゼミM1/`。実装は `archives/infill-designer`(Tauri+Rust、2026-05〜06。GitHub に無く、画面のスクリーンショットも無い)。同フォルダに出力品のSTL 4点(cleaner_hook_bar・cleaner_hook_base・infill-gyroid・x1-carbon_trash_box)
 - 授業の実験: 心理学B「背景色の明度がマウスカーソル操作時の抵抗感に与える影響」(2025-01最終発表、Processing実験プログラム・動画あり) — `meiji/B3/3_心理学B/`
 
@@ -36,7 +43,7 @@
 - **音響音楽表現 期末ライブコーディング**(B3、TidalCycles) — `meiji/B3/3_音響音楽表現/ライブコーディング/`。.tidal と mp4(13MB)
 - **Poincare_Explorer**(トポロジー特論A、WebGL、git・MIT・vercel.json、2026-01-29〜30) — `meiji/B4/4_コンピューティングトポロジー特論A/`。同フォルダに測地線を描く poincareSphere.pde
 - インタラクションデザイン(2024): 「積読ジェンガとお別れする棚」(Fusion+Processing、bookShelf.f3d・png)、個人課題「糸で引くボール」(twoDifferentViscosities.mp4) — `meiji/B3/3_インタラクションデザイン/`
-- 班制作: P演習2最終「雑踏音楽」(2023-01、3人、超音波センサ→音楽。発表動画は手元に無い) — `meiji/B1/1_P演習/ProEn_final/`／WP実習「CollaboDraw」(2024-01、3人、PHP+SQLite の共同描画。本人担当は部屋管理とDB。webp_capture.mp4) — `meiji/B2/2_WP実習/FinalWork/`／B3ゼミ秋「Omni Mod Car」(4人) — `meiji/B3/3_橋本研ゼミB3/`
+- 班制作: P演習2最終「雑踏音楽」(2023-01、3人、超音波センサ→音楽。発表動画は Google フォト書き出しの p_____________________.mp4) — `meiji/B1/1_P演習/ProEn_final/`／WP実習「CollaboDraw」(2024-01、3人、PHP+SQLite の共同描画。本人担当は部屋管理とDB。webp_capture.mp4) — `meiji/B2/2_WP実習/FinalWork/`／B3ゼミ秋「Omni Mod Car」(4人) — `meiji/B3/3_橋本研ゼミB3/`
 - 小品: FMS特別講義「再帰的なテセレーション1・2」(カメラをディスプレイに向けた再帰画像) — `meiji/B1/1_FMS特別講義/`、MP実習のフラクタルとピタゴラ装置(pitagora.mp4) — `meiji/B2/2_MP実習/report_2DCG/`、デジタルファブリケーション特論のレーザーカット用バラ模様生成(rose.py、CorelDRAWをCOM操作) — `meiji/M1/デジタルファブリケーション特論/`、ECA可視化 `meiji/M1/発展プログラミング/12-eca-morikawa976321`
 
 ## コンペ
