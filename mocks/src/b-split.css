@@ -1,6 +1,7 @@
 /* B 二面 — 墨 / 白 / 白の56% の3段。左右の面の距離(64)が「誰か」と「作品」を分け、線は使わない。
+   地は design-system「大きな面の明るさ」(OKLCH L 0.191〜0.907)の下端(L 0.192)。
    余白: 写真→題 12、題→一行 4、作品の間 64、節名→中身 24、経歴・研究・受賞の間 64、作品と経歴の間 128。 */
-:root { --bg: #0c0c0d; --fg: #ececea; --sub: rgba(236, 236, 234, 0.56); --r: 10px; --gutter: clamp(20px, 4vw, 56px); color-scheme: dark; }
+:root { --bg: #141415; --fg: #ececea; --sub: rgba(236, 236, 234, 0.56); --r: 10px; --gutter: clamp(20px, 4vw, 56px); color-scheme: dark; }
 body { background: var(--bg); color: var(--fg); }
 ::selection { background: var(--fg); color: var(--bg); }
 .sub { color: var(--sub); }

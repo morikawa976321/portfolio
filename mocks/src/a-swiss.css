@@ -1,6 +1,7 @@
-/* A 格子 — 白 / 墨 / 灰の3色。左3列 = 誰・何の節か、右9列 = 中身。
+/* A 格子 — 明るい灰 / 墨 / 灰の3色。左3列 = 誰・何の節か、右9列 = 中身。
+   地は design-system「大きな面の明るさ」(灰 20〜224)の上端。薄い文字は地に対して 5.1:1。
    余白: 写真→題 12、題→一行 4、作品の間 48、経歴の行の間 12、経歴・研究・受賞の間 64、作品と経歴の間・導入の下 128。 */
-:root { --bg: #ffffff; --fg: #0d0d0d; --sub: #737373; --gap: 24px; --gutter: clamp(20px, 4vw, 56px); color-scheme: light; }
+:root { --bg: #e0e0e0; --fg: #0d0d0d; --sub: #5c5c5c; --gap: 24px; --gutter: clamp(20px, 4vw, 56px); color-scheme: light; }
 body { background: var(--bg); color: var(--fg); }
 ::selection { background: var(--fg); color: var(--bg); }
 .sub { color: var(--sub); }
