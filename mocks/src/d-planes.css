@@ -1,0 +1,84 @@
+/* D 面 — 墨 / 白 / 朱。面が変わるところが節の切れ目で、面の中は余白の段で分ける。
+   朱は連絡先の面にだけ使う(押せる場所が1つに集まる)。朱の上の文字は墨(コントラスト 6.4:1)。白い文字は朱に載せない。 */
+:root {
+  --ink: #111111; --paper: #ffffff; --acc: #ff4f00;
+  --sub-ink: rgba(255, 255, 255, 0.6); --sub-paper: #6e6e6e;
+  --gutter: clamp(20px, 4vw, 56px);
+  color-scheme: light;
+}
+body { background: var(--paper); color: var(--ink); }
+::selection { background: var(--acc); color: var(--ink); }
+.page { max-width: 1440px; margin-inline: auto; padding-inline: var(--gutter); }
+.plane.ink { background: var(--ink); color: var(--paper); }
+.plane.ink .sub { color: var(--sub-ink); }
+.plane.paper { background: var(--paper); color: var(--ink); padding-block: 128px 160px; }
+.plane.paper .sub { color: var(--sub-paper); }
+.plane.acc { background: var(--acc); color: var(--ink); }
+
+.hero { padding-block: 40px 96px; min-height: min(72vh, 720px); display: flex; flex-direction: column; justify-content: space-between; gap: 96px; }
+.big { display: flex; flex-direction: column; gap: 16px; font-size: clamp(48px, 9vw, 128px); line-height: 1.1; font-weight: 500; letter-spacing: 0.02em; }
+.big .en { font-size: clamp(14px, 1.2vw, 17px); line-height: 1.4; letter-spacing: 0; color: var(--sub-ink); }
+.hero-sub { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 16px; align-items: end; }
+.lead { grid-column: 1 / 7; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; text-wrap: pretty; }
+.aff { grid-column: 8 / 13; font-size: 13px; line-height: 1.8; color: var(--sub-ink); }
+
+.bar { padding-block: 24px; }
+.who { font-size: 15px; font-weight: 500; }
+.who:hover { text-decoration: underline; text-underline-offset: 0.28em; text-decoration-thickness: 1px; }
+.hero-s { padding-block: 64px 96px; }
+.mid { font-size: clamp(32px, 5vw, 64px); line-height: 1.25; font-weight: 500; letter-spacing: 0.01em; }
+.lead-s { margin-top: 16px; font-size: 16px; color: var(--sub-ink); max-width: 40em; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; row-gap: 16px; margin-top: 64px; }
+.meta dt { font-size: 12px; line-height: 1.6; color: var(--sub-ink); }
+.meta dd { font-size: 14px; line-height: 1.7; }
+
+.sec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 32px; }
+.sec-h h2 { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; }
+.more { font-size: 14px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 24px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 24px; }
+.card { display: block; }
+.cap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 16px; }
+.cap h3 { font-size: 17px; line-height: 1.5; }
+.cap .mono { font-size: 13px; white-space: nowrap; }
+.line { margin-top: 4px; font-size: 14px; line-height: 1.7; }
+.grid3 .cap { margin-top: 12px; }
+.grid3 .cap h3 { font-size: 15px; }
+.grid3 .line { font-size: 13px; }
+.card:hover h3 { text-decoration: underline; text-underline-offset: 0.28em; text-decoration-thickness: 1px; }
+
+.profile { display: grid; row-gap: 64px; margin-top: 160px; }
+.prof { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+.prof-t { grid-column: 1 / 4; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; }
+.rows { grid-column: 4 / 13; display: grid; row-gap: 12px; padding-top: 4px; }
+.rows > div { display: grid; grid-template-columns: 10em minmax(0, 1fr); column-gap: 24px; }
+.rows dt { font-size: 13px; line-height: 1.8; padding-top: 1px; }
+
+.years { display: grid; row-gap: 96px; }
+.year { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; margin-bottom: 24px; }
+
+article .prose { margin-top: 64px; max-width: 36em; margin-inline: auto; font-size: 16px; line-height: 1.9; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px; }
+.back { margin-top: 64px; max-width: 36em; margin-inline: auto; font-size: 14px; }
+
+.foot { padding-block: 96px 64px; }
+.foot-t { font-size: 15px; line-height: 1.5; }
+.mail { margin-top: 16px; font-size: clamp(24px, 4.4vw, 56px); line-height: 1.2; overflow-wrap: anywhere; }
+.ext { display: flex; gap: 24px; margin-top: 32px; font-size: 15px; }
+
+@media (max-width: 900px) {
+  .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-sub { display: block; }
+  .aff { margin-top: 16px; }
+  .prof { display: block; }
+  .prof-t { margin-bottom: 24px; }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .grid2, .grid3, .pair { grid-template-columns: 1fr; }
+  .grid2 { row-gap: 48px; }
+  .hero { min-height: 0; padding-block: 32px 64px; gap: 64px; }
+  .plane.paper { padding-block: 96px 128px; }
+  .rows > div { grid-template-columns: 1fr; }
+  .profile { margin-top: 128px; }
+}

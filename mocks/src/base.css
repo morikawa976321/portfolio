@@ -1,0 +1,23 @@
+/* 4案で共有する土台。本人の5つの基準(docs/visual.md 第4回の後)を全案に当てる:
+   動きを付けない(transition / animation を書かない)。リンクは下線か矢印で示す。余白は 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 の段。 */
+:root {
+  --mono: 'Intel One Mono', ui-monospace, monospace;
+  --ja: 'Noto Sans JP', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font: 400 15px/1.8 var(--ja); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, p, ul, ol, dl, dt, dd, figure { margin: 0; padding: 0; }
+h1, h2, h3 { font-size: inherit; font-weight: 500; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+/* .page は各案で max-width と margin-inline: auto を持つ。grid の子になると auto の余白で中身の幅に縮むので、幅を明示する */
+.page { width: 100%; }
+.mono { font-family: var(--mono); font-weight: 400; letter-spacing: 0; }
+.link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
+.ph { position: relative; width: 100%; background: radial-gradient(130% 100% at 50% 32%, var(--a), var(--b)); }
+.ph span { position: absolute; left: 12px; bottom: 10px; font: 400 11px/1 var(--mono); color: #fff; mix-blend-mode: difference; opacity: 0.45; }
+.prose p + p { margin-top: 1.2em; }
+/* 短い日本語の行を文節で折り返す(Chrome 119+。他のブラウザでは従来どおり字単位) */
+h1, h2, h3, .lead, .lead-s, .aff, .line { word-break: auto-phrase; }
