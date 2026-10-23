@@ -1,0 +1,3 @@
+/* 配色 gray(灰) — 本人のスライド既定 RGB216 と funomi モック E の灰。地 #d8d8d8 / 文字 #1a1a1b */
+html[data-v="gray"] { --bg: #d8d8d8; --fg: #1a1a1b; --fg-2: rgba(26, 26, 27, 0.62); --line: rgba(26, 26, 27, 0.16); --tone: #e8e8e6; color-scheme: light; }
+html[data-v="gray"] body { -webkit-font-smoothing: auto; }

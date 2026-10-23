@@ -1,0 +1,2 @@
+/* 配色 charcoal(炭) — funomi モック C の墨。地 #1a1a1b / 文字 #f4f4f2 */
+html[data-v="charcoal"] { --bg: #1a1a1b; --fg: #f4f4f2; --fg-2: rgba(244, 244, 242, 0.6); --line: rgba(244, 244, 242, 0.12); --tone: #2b2b2c; color-scheme: dark; }

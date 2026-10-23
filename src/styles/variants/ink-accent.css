@@ -1,0 +1,4 @@
+/* 配色 ink-accent(墨+橙) — 既定の墨に、リンクだけ1色のアクセント(#ff4d00、仮色)。アクセントを入れるか自体を見る */
+html[data-v="ink-accent"] { --accent: #ff4d00; }
+html[data-v="ink-accent"] .link { color: var(--accent); text-decoration-color: var(--accent); }
+html[data-v="ink-accent"] .card:hover h3 { text-decoration-color: var(--accent); }

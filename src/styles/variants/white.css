@@ -1,0 +1,3 @@
+/* 配色 white(白) — takram / goshiuhira の純白。地 #ffffff / 文字 #111111 */
+html[data-v="white"] { --bg: #ffffff; --fg: #111111; --fg-2: rgba(17, 17, 17, 0.6); --line: rgba(17, 17, 17, 0.1); --tone: #efeeea; color-scheme: light; }
+html[data-v="white"] body { -webkit-font-smoothing: auto; }
