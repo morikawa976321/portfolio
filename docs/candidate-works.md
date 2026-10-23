@@ -2,6 +2,29 @@
 
 ポートフォリオの「作品の追加」候補として、mf/ 全体を走査した結果。既存サイトの11作品(2022〜2025)は旧サイト `others/portfolioForPartTimeJob` にある(キャンドルモビールの元動画 `media/candle_mobile_002.mp4` 52.9MB もここ)。以下はすべて**未掲載**。
 
+## 本人の選定(2026-10-23時点の候補、原文)
+
+> 卒業論文「床面に描画された円形領域の拡大・縮小による視覚フィードバックが対人距離の調整行動に及ぼす影響」
+> infill-designer
+> B2春ゼミ輪郭抽出映像
+> LEDキャンドルモビール
+> Pincare_Explorer
+> 自作キーボード
+> SNDC2025オノマトぺったん
+> SNDC2026起き上がりはんこ（roly-poly-generator, stamp-generator含む）
+> duocad
+> monocore
+> context-engine
+> 3Dプリント作品（mATX-PCケース、スタッカブルトレイ、石けん置き、モニターアタッチメント類、ラブリコブラケット類、歯ブラシスタンド、電池ケース、チェスの駒）
+> monitor-sumulator, keymap-lab, ikebana-site
+> vanfu-Tシャツ
+> ワットチェッカー
+> romaji-slm
+> minimal-editor
+> （unlockos, aicc）
+
+以下は選定前の棚卸し。
+
 ## 研究(明治大・橋本研)
 - **卒業論文**「床面に描画された円形領域の拡大・縮小による視覚フィードバックが対人距離の調整行動に及ぼす影響」(2026-01) — `meiji/B4/4_橋本研ゼミB4/卒論B4_2025/`(pdf・発表スライド)。VR実装。プロトタイプ動画 `meiji/B4/4_橋本研ゼミB4/` 直下の Metaball_Interactoin.mp4・Sine_Wave_Interaction.mp4・Arm_Interaction.mp4、OCポスター2025(OCPoster2025_Morikawa.pptx)
 - **WISS2024 論文**「PreviewWorld: モバイル環境における体外離脱体験のためのインタフェース設計」(白石大晴・森川太一・橋本直、非査読) — `meiji/B3/3_橋本研ゼミB3/WISS_PreviewWorld.pdf`。前身は橋渡ゼミポスター「VRデバイスを用いた疑似幽体離脱による空間把握能力の拡張」(2024-08)、デモ動画 eyeTrackingControl / joyBallControl_3FModel.mp4
