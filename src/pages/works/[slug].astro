@@ -13,31 +13,33 @@ const { title, year, period, context, role, tools, summary, cover, coverAlt, lin
 const { Content } = await render(work);
 
 // 札: 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
-const chips = [period ?? String(year), context, role, ...tools].filter((c): c is string => !!c);
+const facts = [period ?? String(year), context, role, tools.length ? tools.join(', ') : undefined].filter(
+  (c): c is string => !!c,
+);
 ---
 
 <Base title={title} description={summary}>
-  <a href="/works/" class="back link mono">← works</a>
+  <a href="/works/" class="back mono">← works</a>
   <article>
     <header class="art-head">
       <h1>{title}</h1>
       <p class="lead">{summary}</p>
-      <ul class="chips">
-        {chips.map((c) => <li class="chip">{c}</li>)}
-      </ul>
+      <p class="facts mono">
+        {facts.map((f) => <span>{f}</span>)}
+      </p>
     </header>
     <div class="cover">
-      <Image src={cover} alt={coverAlt} widths={[900, 1800, 2400]} sizes="(min-width: 1200px) 1200px, 100vw" />
+      <Image src={cover} alt={coverAlt} widths={[640, 1280, 1920]} sizes="(min-width: 700px) 640px, 92vw" />
     </div>
     <div class="prose">
       <Content />
     </div>
     {
       links.length > 0 && (
-        <p class="links">
+        <p class="links mono">
           {links.map((l) => (
-            <a class="link mono" href={l.url}>
-              {l.label} ↗
+            <a class="link" href={l.url}>
+              {l.label}
             </a>
           ))}
         </p>

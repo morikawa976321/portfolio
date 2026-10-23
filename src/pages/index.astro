@@ -19,16 +19,15 @@ const sections = [
 
 <Base>
   <section class="hero">
-    <p class="eyebrow mono">{profile.name.ja}</p>
-    <h1 class="display">{profile.name.en}</h1>
+    <h1>{profile.name.ja}<span class="en mono">{profile.name.en}</span></h1>
+    <p class="aff">{profile.affiliation.text}</p>
     {headline && <p class="statement">{headline}</p>}
-    <p class="meta">{profile.affiliation.text}</p>
   </section>
 
   <section class="sec" id="works">
-    <div class="sec-head">
+    <div class="sec-head mono">
       <h2>selected works</h2>
-      <a href="/works/" class="link mono">all works →</a>
+      <a href="/works/" class="link">all works</a>
     </div>
     <div class="cards">
       {featured.map((w) => <WorkCard work={w} />)}
@@ -38,7 +37,7 @@ const sections = [
   {
     sections.map((s) => (
       <section class="sec" id={s.id}>
-        <div class="sec-head">
+        <div class="sec-head mono">
           <h2>{s.label}</h2>
         </div>
         <Rows items={s.items} />

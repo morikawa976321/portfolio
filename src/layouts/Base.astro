@@ -53,13 +53,12 @@ const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '
     <main class="page">
       <slot />
     </main>
-    <footer class="page foot">
-      <p class="big">{word}</p>
+    <footer class="page foot mono">
       <nav>
         {profile.email && <a class="link" href={`mailto:${profile.email}`}>{profile.email}</a>}
-        {profile.links.map((l) => <a class="link" href={l.url}>{l.label} ↗</a>)}
+        {profile.links.map((l) => <a class="link" href={l.url}>{l.label}</a>)}
       </nav>
-      <p class="bar mono">updated {updated}</p>
+      <span>updated {updated}</span>
     </footer>
   </body>
 </html>

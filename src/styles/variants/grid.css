@@ -1,0 +1,31 @@
+/* 案 grid — takram 寄り。白地、幅いっぱいの写真の格子(最初の1件を大きく)、題と一行は写真の下に小さく
+   狙い: 1列に積む代わりに、写真を面で敷き詰めて一画面で作品の幅を見せる。文字の静かさは同じ。 */
+html[data-v="grid"] {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --fg-2: rgba(26, 26, 26, 0.6);
+  --fg-3: rgba(26, 26, 26, 0.4);
+  --tone: #f0efec;
+  --col: 1360px;
+  --gutter: clamp(20px, 3vw, 40px);
+  --r: 0px;
+  color-scheme: light;
+}
+html[data-v="grid"] body { -webkit-font-smoothing: auto; }
+html[data-v="grid"] .hero { padding-block: 64px 72px; }
+html[data-v="grid"] .hero h1 { font-size: 15px; }
+html[data-v="grid"] .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+html[data-v="grid"] .card { gap: 10px; }
+html[data-v="grid"] .pic { aspect-ratio: 4 / 3; }
+html[data-v="grid"] .cap { font-size: 12px; line-height: 1.5; }
+html[data-v="grid"] .cap h3 { font-size: 12px; }
+html[data-v="grid"] .cap .sum { font-size: 12px; }
+html[data-v="grid"] .cap .year { display: none; }
+html[data-v="grid"] .rows { max-width: 640px; }
+html[data-v="grid"] .prose, html[data-v="grid"] .art-head, html[data-v="grid"] .cover { max-width: 760px; }
+@media (min-width: 900px) {
+  html[data-v="grid"] .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  html[data-v="grid"] #works .cards > :first-child { grid-column: span 2; grid-row: span 2; }
+  html[data-v="grid"] #works .cards > :first-child .pic { aspect-ratio: auto; height: 100%; }
+  html[data-v="grid"] #works .cards > :first-child { grid-template-rows: minmax(0, 1fr) auto; }
+}

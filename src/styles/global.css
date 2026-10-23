@@ -1,21 +1,20 @@
 /* design-system(mf/design-system)の D3 がポートフォリオを縛る: ブランド層は無彩色で最大3色、書体は Intel One Mono と Noto Sans JP。
-   第3回(docs/visual.md): 仕様書の組版をやめ、現代の個人サイトの型に寄せる。
-   - 大きな等幅の名前で最初の画面を作り、本文は Noto Sans JP 16px。等幅は 13px の小さな札(年・節名・導線)だけに使う。
-   - 区切りは罫線でなく余白。線を引くのは経歴の行だけで、文字色の 10% の薄さにする。
-   - 写真は角を丸めた同じ比率(16:10)の面として揃え、ホバーでわずかに拡大する。
+   第4回(docs/visual.md): 本人が好ましいと選んだ4サイト(samuelkraft / baku89 / takram / goshiuhira)の共通点に寄せる。
+   - 細い1列(640px)を中央に置き、文字は小さく静かに(本文 15px、札は等幅 12px)。大きな見出しを作らない。
+   - 写真が中身。列の幅いっぱいに1枚ずつ縦に積み、題と一行は写真の下に小さく添える。
+   - 線・枠・番号・札などの装飾は使わない。区切りは余白だけ。
    - 既定は墨地。案(?v=)は src/styles/variants/*.css がトークンと一部の配置を差し替える。 */
 :root {
-  --bg: #0b0b0c;
-  --fg: #f4f4f3;
-  --fg-2: rgba(244, 244, 243, 0.58);
-  --fg-3: rgba(244, 244, 243, 0.36);
-  --line: rgba(244, 244, 243, 0.1);
+  --bg: #0d0d0e;
+  --fg: #ededeb;
+  --fg-2: rgba(237, 237, 235, 0.6);
+  --fg-3: rgba(237, 237, 235, 0.38);
   --tone: #161617; /* 写真の読み込み前の地 */
   --mono: 'Intel One Mono', ui-monospace, monospace;
   --ja: 'Noto Sans JP', system-ui, sans-serif;
-  --r: 14px;
-  --gutter: clamp(20px, 5vw, 64px);
-  --w: 1200px;
+  --r: 10px;
+  --col: 640px;
+  --gutter: 24px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   color-scheme: dark;
 }
@@ -30,7 +29,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 400 16px/1.7 var(--ja);
+  font: 400 15px/1.8 var(--ja);
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
@@ -48,6 +47,7 @@ h1, h2, h3, p, ul, ol, dl, dd, figure, figcaption {
   padding: 0;
 }
 h1, h2, h3 {
+  font-size: inherit;
   font-weight: 500;
 }
 ul, ol {
@@ -60,108 +60,93 @@ img, video {
 }
 .mono {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
 }
 .sub {
   color: var(--fg-2);
 }
+.dim {
+  color: var(--fg-3);
+}
 .page {
-  max-width: var(--w);
+  max-width: calc(var(--col) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
 .link {
-  color: var(--fg-2);
-  transition: color 0.2s var(--ease);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--fg-3);
+  transition: text-decoration-color 0.2s var(--ease);
 }
 .link:hover {
-  color: var(--fg);
+  text-decoration-color: var(--fg);
 }
 
-/* 見出し帯: 名前だけ。固定して、下の面をぼかして透かす */
+/* 見出し帯: 名前だけ。小さく */
 .head {
-  position: sticky;
-  top: 0;
-  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 64px;
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding-block: 40px 0;
 }
 .word {
-  font: 400 14px/1 var(--mono);
+  font: 400 13px/1 var(--mono);
 }
 
-/* 最初の画面: 札 → 大きな名前 → 一行の軸 → 所属 */
+/* 導入: 名前、所属、一行の軸、連絡先。文字だけ */
 .hero {
   display: grid;
-  gap: 28px;
-  padding-block: clamp(72px, 14vh, 150px) clamp(56px, 9vh, 110px);
+  gap: 14px;
+  padding-block: 72px 88px;
 }
-.hero > * {
-  animation: rise 0.9s var(--ease) both;
+.hero h1 {
+  font-size: 15px;
+  font-weight: 500;
 }
-.hero > :nth-child(2) { animation-delay: 0.06s; }
-.hero > :nth-child(3) { animation-delay: 0.12s; }
-.hero > :nth-child(4) { animation-delay: 0.18s; }
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-}
-.eyebrow {
+.hero .en {
+  margin-left: 0.75em;
   color: var(--fg-2);
 }
-.display {
-  font: 400 clamp(56px, 10.5vw, 140px) / 0.95 var(--mono);
-  letter-spacing: -0.045em;
-  text-wrap: balance;
+.hero p {
+  max-width: 36em;
 }
-.statement {
-  font-size: clamp(19px, 2.3vw, 27px);
-  line-height: 1.65;
-  max-width: 30em;
-  text-wrap: balance;
+.hero .statement {
+  color: var(--fg);
 }
-.meta {
+.hero .aff {
+  color: var(--fg-2);
+}
+.hero nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 28px;
-  color: var(--fg-2);
-  font-size: 14px;
+  gap: 4px 20px;
+  padding-top: 6px;
 }
 
-/* 節: 余白で区切る。節名は小さな札、右に導線 */
+/* 節: 小さな札で始め、余白で終える */
 .sec {
-  padding-block: 40px 104px;
+  padding-bottom: 96px;
 }
 .sec-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  margin-bottom: 28px;
-}
-.sec-head h2 {
-  font: 400 13px/1 var(--mono);
+  margin-bottom: 24px;
   color: var(--fg-2);
 }
 
-/* 作品: 丸い角の写真と、題・年・一行 */
+/* 作品: 列の幅いっぱいの写真 → 題 → 一行 → 年。1件ずつ縦に積む */
 .cards {
   display: grid;
-  gap: 40px 24px;
+  gap: 56px;
 }
 .card {
   display: grid;
-  gap: 16px;
-  align-content: start;
+  gap: 14px;
 }
 .pic {
   overflow: hidden;
@@ -173,178 +158,137 @@ img, video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease);
+  transition: transform 0.8s var(--ease), opacity 0.3s var(--ease);
 }
 .card:hover .pic img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 .cap {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 4px 16px;
-  align-items: baseline;
+  gap: 2px;
 }
 .cap h3 {
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 15px;
+  font-weight: 500;
+}
+.cap .sum {
+  color: var(--fg-2);
 }
 .cap .year {
   color: var(--fg-3);
-}
-.cap .sum {
-  grid-column: 1 / -1;
-  color: var(--fg-2);
-  font-size: 14px;
-  line-height: 1.65;
+  padding-top: 4px;
 }
 
-/* 行: 経歴・研究・受賞 */
-.rows > * {
-  border-top: 1px solid var(--line);
-}
-.rows > :last-child {
-  border-bottom: 1px solid var(--line);
+/* 行: 経歴・研究・受賞。期間と本文、線なし */
+.rows {
+  display: grid;
+  gap: 14px;
 }
 .row {
   display: grid;
-  gap: 2px 32px;
-  padding-block: 18px;
+  gap: 0 20px;
 }
 .row .when {
-  font: 400 13px/1.9 var(--mono);
   color: var(--fg-3);
+  line-height: 1.8;
 }
 .row .text {
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--fg);
 }
 
 /* 一覧(works) */
 .ttl {
-  padding-block: clamp(56px, 10vh, 110px) 40px;
+  padding-block: 72px 40px;
 }
 .ttl h1 {
-  font: 400 clamp(40px, 8vw, 96px) / 1 var(--mono);
-  letter-spacing: -0.045em;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-/* 作品詳細: 題と一行と札 → 写真 → 本文 */
+/* 作品詳細: 題 → 一行 → 札 → 写真 → 本文 */
 .back {
   display: inline-block;
-  padding-block: 24px;
+  padding-block: 32px 0;
+  color: var(--fg-2);
 }
 .art-head {
   display: grid;
-  gap: 20px;
-  max-width: 880px;
-  padding-block: 32px 40px;
+  gap: 10px;
+  padding-block: 56px 32px;
 }
 .art-head h1 {
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 .lead {
-  font-size: 18px;
-  line-height: 1.7;
   color: var(--fg-2);
-  max-width: 34em;
 }
-.chips {
+.facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-}
-.chip {
-  font: 400 13px/1 var(--mono);
-  color: var(--fg-2);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 8px 12px;
+  gap: 4px 16px;
+  color: var(--fg-3);
+  padding-top: 6px;
 }
 .cover {
   overflow: hidden;
   border-radius: var(--r);
   background: var(--tone);
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 .cover img {
   width: 100%;
 }
 .prose {
-  max-width: 720px;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.9;
 }
 .prose p {
   margin: 0 0 1.4em;
 }
 .prose h2 {
-  font-size: 22px;
-  margin: 2.4em 0 0.8em;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 2.6em 0 0.8em;
 }
 .prose img,
 .prose video {
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--r);
   background: var(--tone);
   margin: 40px 0;
 }
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
-  padding-block: 24px 80px;
+  gap: 4px 20px;
+  padding-block: 8px 96px;
 }
 
-/* 末尾: 名前、連絡先、更新月 */
+/* 末尾: 連絡先と更新月 */
 .foot {
-  display: grid;
-  gap: 32px;
-  padding-block: 56px 40px;
-  border-top: 1px solid var(--line);
-}
-.foot .big {
-  font: 400 clamp(28px, 4.5vw, 48px) / 1.05 var(--mono);
-  letter-spacing: -0.04em;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding-block: 24px 48px;
+  color: var(--fg-3);
 }
 .foot nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
-  align-items: baseline;
-}
-.foot .bar {
-  color: var(--fg-3);
+  gap: 4px 20px;
 }
 
-@media (min-width: 900px) {
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cards.all {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 36px 24px;
-  }
-  .cards.all .cap h3 {
-    font-size: 17px;
-  }
+@media (min-width: 600px) {
   .row {
-    grid-template-columns: 180px minmax(0, 1fr);
-  }
-  .foot {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-  }
-  .foot .bar {
-    grid-column: 1 / -1;
+    grid-template-columns: 110px minmax(0, 1fr);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero > *,
   .pic img {
-    animation: none;
     transition: none;
   }
 }

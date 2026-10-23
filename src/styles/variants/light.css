@@ -1,0 +1,12 @@
+/* 案 light — 既定(column)と同じ1列の組版で、地を白にする(goshiuhira / takram 寄り) */
+html[data-v="light"] {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --fg-2: rgba(26, 26, 26, 0.6);
+  --fg-3: rgba(26, 26, 26, 0.4);
+  --tone: #f0efec;
+  color-scheme: light;
+}
+html[data-v="light"] body {
+  -webkit-font-smoothing: auto;
+}

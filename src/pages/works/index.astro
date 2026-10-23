@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import WorkCard from '../../components/WorkCard.astro';
 
-// 全作品を新しい年から。3列の写真の格子
+// 全作品を新しい年から、1件ずつ縦に積む
 const works = (await getCollection('works', (w) => !w.data.draft)).sort(
   (a, b) => b.data.year - a.data.year || (a.data.featured ?? 99) - (b.data.featured ?? 99),
 );
@@ -13,8 +13,7 @@ const works = (await getCollection('works', (w) => !w.data.draft)).sort(
   <div class="ttl">
     <h1>works</h1>
   </div>
-  <div class="cards all">
-    {works.map((w) => <WorkCard work={w} sizes="(min-width: 900px) 30vw, 92vw" />)}
+  <div class="cards sec">
+    {works.map((w) => <WorkCard work={w} />)}
   </div>
-  <div class="sec"></div>
 </Base>
