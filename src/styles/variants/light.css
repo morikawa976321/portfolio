@@ -1,10 +1,10 @@
-/* 案 light — 既定(column)と同じ1列の組版で、地を白にする(goshiuhira / takram 寄り) */
+/* 案 light — 既定と同じ組版で白地。色の段は同じく 地 / 文字 / 薄い文字 / 線の4つ */
 html[data-v="light"] {
-  --bg: #ffffff;
-  --fg: #1a1a1a;
-  --fg-2: rgba(26, 26, 26, 0.6);
-  --fg-3: rgba(26, 26, 26, 0.4);
-  --tone: #f0efec;
+  --bg: #fafaf9;
+  --fg: #161616;
+  --fg-2: rgba(22, 22, 22, 0.6);
+  --line: rgba(22, 22, 22, 0.1);
+  --tone: #ebeae6;
   color-scheme: light;
 }
 html[data-v="light"] body {

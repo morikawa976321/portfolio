@@ -56,7 +56,7 @@ const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '
     <footer class="page foot mono">
       <nav>
         {profile.email && <a class="link" href={`mailto:${profile.email}`}>{profile.email}</a>}
-        {profile.links.map((l) => <a class="link" href={l.url}>{l.label}</a>)}
+        {profile.links.map((l) => <a class="link" href={l.url}>{l.label} ↗</a>)}
       </nav>
       <span>updated {updated}</span>
     </footer>

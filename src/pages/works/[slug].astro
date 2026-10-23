@@ -12,14 +12,14 @@ const { work } = Astro.props;
 const { title, year, period, context, role, tools, summary, cover, coverAlt, links } = work.data;
 const { Content } = await render(work);
 
-// 札: 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
+// 年(期間があれば期間)、文脈、担当、道具。無いものは出さない。文字だけで、ボタンのようには見せない
 const facts = [period ?? String(year), context, role, tools.length ? tools.join(', ') : undefined].filter(
   (c): c is string => !!c,
 );
 ---
 
 <Base title={title} description={summary}>
-  <a href="/works/" class="back mono">← works</a>
+  <a href="/works/" class="back link mono">← works</a>
   <article>
     <header class="art-head">
       <h1>{title}</h1>
@@ -29,7 +29,7 @@ const facts = [period ?? String(year), context, role, tools.length ? tools.join(
       </p>
     </header>
     <div class="cover">
-      <Image src={cover} alt={coverAlt} widths={[640, 1280, 1920]} sizes="(min-width: 700px) 640px, 92vw" />
+      <Image src={cover} alt={coverAlt} widths={[900, 1800, 2400]} sizes="(min-width: 1200px) 1200px, 100vw" />
     </div>
     <div class="prose">
       <Content />
@@ -39,7 +39,7 @@ const facts = [period ?? String(year), context, role, tools.length ? tools.join(
         <p class="links mono">
           {links.map((l) => (
             <a class="link" href={l.url}>
-              {l.label}
+              {l.label} ↗
             </a>
           ))}
         </p>
