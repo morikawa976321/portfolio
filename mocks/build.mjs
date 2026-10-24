@@ -1,4 +1,4 @@
-// デザイン案(第6回、docs/visual.md)を1案1ファイルの HTML にまとめる。依存なし。
+// デザイン案(第6回・第7回、docs/visual.md)を1案1ファイルの HTML にまとめる。依存なし。
 //   node mocks/build.mjs
 // dist/<案>.html は単体で開ける(書体だけ Google Fonts から読む)。中身は src/data.js、部品と切り替えは src/core.js で全案共通。
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -13,6 +13,10 @@ const designs = [
   ['b-split', 'B 二面'],
   ['c-catalog', 'C 目録'],
   ['d-planes', 'D 面'],
+  // 第7回: 第6回への本人の判定を受けた改良案
+  ['e-swiss2', 'E 格子・改'],
+  ['f-catalog2', 'F 目録・改'],
+  ['g-column', 'G 一列'],
 ];
 
 await mkdir(join(here, 'dist'), { recursive: true });
