@@ -1,36 +1,34 @@
-/* D 面 — 墨 / 白 / 朱。面が変わるところが節の切れ目で、面の中は余白の段で分ける。
-   墨と白の面は design-system「大きな面の明るさ」(灰 20〜224)の両端。朱は無彩色でないので、この範囲の対象外。
-   朱は連絡先の面にだけ使う(押せる場所が1つに集まる)。朱の上の文字は墨(コントラスト 5.6:1)。白い文字は朱に載せない。 */
+/* D 面 — 明るい灰の2段 / 墨 / 灰。面が変わるところが節の切れ目で、面の中は余白の段で分ける。
+   導入(作品詳細では題の帯)と連絡先は帯の面 #d8d8d8、作品と経歴は地の面 #e0e0e0。どちらも design-system「大きな面の明るさ」(灰 20〜224)の中。
+   薄い文字は帯に対して 4.7:1、地に対して 5.1:1。 */
 :root {
-  --ink: #141414; --paper: #e0e0e0; --acc: #ff4f00;
-  --sub-ink: rgba(224, 224, 224, 0.6); --sub-paper: #5c5c5c;
+  --ink: #141414; --paper: #e0e0e0; --band: #d8d8d8; --sub: #5c5c5c;
   --gutter: clamp(20px, 4vw, 56px);
   color-scheme: light;
 }
 body { background: var(--paper); color: var(--ink); }
-::selection { background: var(--acc); color: var(--ink); }
+::selection { background: var(--ink); color: var(--paper); }
 .page { max-width: 1440px; margin-inline: auto; padding-inline: var(--gutter); }
-.plane.ink { background: var(--ink); color: var(--paper); }
-.plane.ink .sub { color: var(--sub-ink); }
-.plane.paper { background: var(--paper); color: var(--ink); padding-block: 128px 160px; }
-.plane.paper .sub { color: var(--sub-paper); }
-.plane.acc { background: var(--acc); color: var(--ink); }
+.plane { color: var(--ink); }
+.plane .sub { color: var(--sub); }
+.plane.band { background: var(--band); }
+.plane.paper { background: var(--paper); padding-block: 128px 160px; }
 
 .hero { padding-block: 40px 96px; min-height: min(72vh, 720px); display: flex; flex-direction: column; justify-content: space-between; gap: 96px; }
 .big { display: flex; flex-direction: column; gap: 16px; font-size: clamp(48px, 9vw, 128px); line-height: 1.1; font-weight: 500; letter-spacing: 0.02em; }
-.big .en { font-size: clamp(14px, 1.2vw, 17px); line-height: 1.4; letter-spacing: 0; color: var(--sub-ink); }
+.big .en { font-size: clamp(14px, 1.2vw, 17px); line-height: 1.4; letter-spacing: 0; color: var(--sub); }
 .hero-sub { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 16px; align-items: end; }
 .lead { grid-column: 1 / 7; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.7; text-wrap: pretty; }
-.aff { grid-column: 8 / 13; font-size: 13px; line-height: 1.8; color: var(--sub-ink); }
+.aff { grid-column: 8 / 13; font-size: 13px; line-height: 1.8; color: var(--sub); }
 
 .bar { padding-block: 24px; }
 .who { font-size: 15px; font-weight: 500; }
 .who:hover { text-decoration: underline; text-underline-offset: 0.28em; text-decoration-thickness: 1px; }
 .hero-s { padding-block: 64px 96px; }
 .mid { font-size: clamp(32px, 5vw, 64px); line-height: 1.25; font-weight: 500; letter-spacing: 0.01em; }
-.lead-s { margin-top: 16px; font-size: 16px; color: var(--sub-ink); max-width: 40em; }
+.lead-s { margin-top: 16px; font-size: 16px; color: var(--sub); max-width: 40em; }
 .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; row-gap: 16px; margin-top: 64px; }
-.meta dt { font-size: 12px; line-height: 1.6; color: var(--sub-ink); }
+.meta dt { font-size: 12px; line-height: 1.6; color: var(--sub); }
 .meta dd { font-size: 14px; line-height: 1.7; }
 
 .sec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 32px; }
