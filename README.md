@@ -1,6 +1,6 @@
 # portfolio
 
-森川太一のポートフォリオサイト。旧サイト `mf/others/portfolioForPartTimeJob`(2025-07、アルバイト応募用)の作り直しで、読み手は就活の採用担当・面接官。構成の判断は [docs/structure.md](docs/structure.md)、経歴の記入フォームは [docs/profile-form.md](docs/profile-form.md)。
+森川太一のポートフォリオサイト。旧サイト `mf/others/バイト関連/portfolioForPartTimeJob`(2025-07、アルバイト応募用)の作り直しで、読み手は就活の採用担当・面接官。構成の判断は [docs/structure.md](docs/structure.md)、経歴の記入フォームは [docs/profile-form.md](docs/profile-form.md)。
 
 Astro(静的出力)のみに依存。スタイルは素の CSS。
 
@@ -24,7 +24,7 @@ npm run deploy   # ビルドして dist/ を Workers に上げる
 
 ## 作品を足す
 
-載せる作品は [docs/candidate-works.md](docs/candidate-works.md) 冒頭の本人の選定に従う。選定に無い作品は `draft: true` にする。選定の作品はすべてフォルダがあり、写真(`cover`)・一行(`summary`)・本文は未記入でもよい(カードには無地の面が出る)。元の資料の場所は各 `index.md` のコメントにある。
+載せる作品は [docs/candidate-works.md](docs/candidate-works.md) 冒頭の本人の選定に従う。選定に無い作品はフォルダを置かない(本人「のせない作品はcontent/worksから削除していい」2026-10-25)。選定の作品はすべてフォルダがあり、写真(`cover`)・一行(`summary`)・本文は未記入でもよい(カードには無地の面が出る)。元の資料の場所は各 `index.md` のコメントにある。
 
 1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
 2. 動画は `node scripts/encode-video.mjs <元動画> public/media/<slug>/<名前>.mp4` で縮めてから置く
