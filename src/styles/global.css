@@ -5,11 +5,15 @@
    文字はロゴの墨、薄い文字は地に対して 5.1:1。
    本文幅 960px の1列。ページ全体を左右2列に分けない(作品の格子のような一部の2列はよい。本人、2026-10-25)。
    いちばん大きい文字は作品詳細の題の 26px、名前は 18px。
+   写真は本文幅より狭い 832px まで(作品の格子は1枚 400px)で、角を 4px 丸める。
+   本人「画像をもう少しだけ小さくしたい。あと、少しだけ角丸をつけて」(2026-10-25)で、960px(格子は1枚 464px)・角なしから変えた。
    余白は 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 の段。 */
 :root {
   --bg: #e0e0e0;
   --fg: #1a1a1b;
   --sub: #5c5c5c;
+  --img: 832px;
+  --r: 4px;
   --gutter: clamp(20px, 4vw, 40px);
   --mono: 'Intel One Mono', ui-monospace, monospace;
   --ja: 'Noto Sans JP', system-ui, sans-serif;
@@ -124,6 +128,7 @@ main {
   margin-top: 96px;
 }
 .sec-h {
+  max-width: var(--img);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -144,6 +149,7 @@ main {
 
 /* 作品の格子(2列)。写真は 4:3 に切って揃え、作品ページでは切らずに出す */
 .grid {
+  max-width: var(--img);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 56px 32px;
@@ -158,6 +164,7 @@ main {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: var(--r);
 }
 .cap {
   display: flex;
@@ -231,8 +238,10 @@ main {
 }
 .cover {
   width: 100%;
+  max-width: var(--img);
+  border-radius: var(--r);
 }
-/* 本文の文字は 36em までの幅、写真と動画は1列の幅いっぱい */
+/* 本文の文字は 36em までの幅、写真と動画は --img まで */
 .prose {
   margin-top: 48px;
   font-size: 16px;
@@ -254,6 +263,8 @@ main {
 .prose img,
 .prose video {
   width: 100%;
+  max-width: var(--img);
+  border-radius: var(--r);
 }
 .prose h2,
 .prose h3 {
