@@ -55,7 +55,7 @@
 - **SNDC2026**「起きあがりはんこ」(三橋と共同、2026-07-29に一次不通過) — `others/sndc2026/`。派生アプリ `archives/roly-poly-toy-generator`(GA・glb/stl 408組)と `archives/stamp-generator`(three.js+opencascade.js)。どちらも GitHub に無い
 
 ## 自作ソフトウェア(掲載は可。GitHub の morikawa976321 は2026-10-16時点で公開リポジトリ0件で、duocad・monocore も非公開)
-- **duocad** — 人とAIが交互に操作するCAD（Python+Svelte、2026-08-10〜、形状最適化(SIMP)含む）。スクリーンショット `duocad/screenshots/`。duocad で作ったモデル(マイクスタンド・歯ブラシスタンド・36キーのケース)が `duocad-data/models/` にサムネイル付きである
+- **duocad** — 人とAIが交互に操作するCAD（Python+Svelte、2026-08-10〜、形状最適化(SIMP)含む）。スクリーンショット `duocad/screenshots/`。duocad で作ったモデル(マイクスタンド・歯ブラシスタンド・36キーのケース)が `duocad-stable/data/models/` にサムネイル付きである
 - **romaji-slm** — ローマ字の打鍵列をローカルの小型言語モデルで日本語に変換する(2026-10-11〜、本人が常用中)。デモ動画 `mf/romaji-slm.mp4`
 - **minimal-editor** — 設定機能すら持たない、一人で書くためのエディター(Rust/Win32 のネイティブ版、2026-10-14〜、本人が常用中)
 - **monocore** — 個人OS(予定・inbox)。Next.js+Supabase、2026-02〜
