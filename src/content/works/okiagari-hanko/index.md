@@ -13,6 +13,7 @@ coverHint: "赤いケースを1つ置いた写真(横長)"
 # 本人「オノマトペったんもSNDC2026も共同制作。アイデア出しは二人、モデリングやツールや私が作り、プレゼンシートは三橋が作った。適宜二人で意見交換をし意思決定をしていった。」(2026-10-25)。共同制作者の名前はページに出していない
 # 応募の結果は書かない(本人「1次審査非通過は特に書かなくていいだろう」2026-10-25)
 # roly-poly-generator と stamp-generator を含む(本人、2026-10-23)。リポジトリは C:\Users\tm976\cs\archives\roly-poly-toy-generator と C:\Users\tm976\cs\archives\stamp-generator
+# presentation-sheet.jpg は Presensheet.pdf の中の CMYK 画像3枚を、元の RGB のレンダリング(main_001.png・open_001.png・using_001.png)に差し替えてから描画した。CMYK のまま描画すると背景のグレーが茶色に転ぶ(2026-10-25)
 # 本文の事実の出典: concept_text.txt の【採用】、Presensheet.pdf、両リポジトリの README.md と git log
 ---
 ## コンセプト
