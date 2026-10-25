@@ -1,6 +1,6 @@
 // 経歴の正本。値は本人の記入フォーム(docs/profile-form.md)の回答から埋める。
 // confirmed: false の項目は推測で置いた仮の値で、開発サーバーでだけ表示され、本番ビルドには出ない。
-// period は月まで書いてよい(例: 2025.06 —)。作品の期間は年だけにしたが、経歴・研究・コンペは月を残す(本人「経歴・研究・コンペの期間は月を残していい」2026-10-25)。
+// period は月まで書いてよい(例: 2025.06〜)。区切りは作品の期間と同じ波にする(本人「ただのハイフンだと分かりずらいので波にしよう」2026-10-25)。作品の期間は年だけにしたが、経歴・研究・コンペは月を残す(本人「経歴・研究・コンペの期間は月を残していい」2026-10-25)。
 
 export type Item = { period?: string; text: string; confirmed: boolean };
 export type Link = { label: string; url: string };
@@ -24,13 +24,13 @@ export const profile = {
 // 学歴・職歴。新しい順
 export const career: Item[] = [
   {
-    period: '2026.04 —',
+    period: '2026.04〜',
     text: '明治大学大学院 先端数理科学研究科 先端メディアサイエンス専攻 修士課程(2028.03 修了見込み)',
     confirmed: true,
   },
-  { period: '2025.06 —', text: 'Blockchain Lock(KEYVOX) テクニカルデベロッパー インターン', confirmed: true },
+  { period: '2025.06〜', text: 'Blockchain Lock(KEYVOX) テクニカルデベロッパー インターン', confirmed: true },
   {
-    period: '2022.04 — 2026.03',
+    period: '2022.04〜2026.03',
     text: '明治大学 総合数理学部 先端メディアサイエンス学科',
     confirmed: true,
   },
