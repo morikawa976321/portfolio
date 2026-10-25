@@ -1,5 +1,6 @@
 // 経歴の正本。値は本人の記入フォーム(docs/profile-form.md)の回答から埋める。
 // confirmed: false の項目は推測で置いた仮の値で、開発サーバーでだけ表示され、本番ビルドには出ない。
+// period は月まで書いてよい(例: 2025.06 —)。作品の期間は年だけにしたが、経歴・研究・コンペは月を残す(本人「経歴・研究・コンペの期間は月を残していい」2026-10-25)。
 
 export type Item = { period?: string; text: string; confirmed: boolean };
 export type Link = { label: string; url: string };
