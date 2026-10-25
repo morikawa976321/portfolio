@@ -234,10 +234,12 @@ main {
 .lead-s {
   margin-top: 8px;
 }
+/* 年・文脈・担当・道具。項目の幅は中身に合わせ、入らなくなったら次の行へ送る。
+   4等分の格子だと、右に空きがあっても「道具」が1/4の幅で折れていた(本人「ここ、余裕があるのに改行している。しなくていい」2026-10-25) */
 .meta {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
   margin-block: 40px 48px;
 }
 .meta dt {
@@ -349,9 +351,6 @@ main {
   }
   .rows > div {
     grid-template-columns: 1fr;
-  }
-  .meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .profile {
     margin-top: 96px;
