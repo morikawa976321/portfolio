@@ -390,3 +390,9 @@ main {
 .prose > .slot + * {
   margin-top: 48px;
 }
+
+/* グラフ(論文から持ってきた SVG)は本文と同じ 36em まで。写真と同じ 832px に広げると文字が大きくなりすぎる。
+   開発時の src は /_image?href=...svg... なので末尾一致ではなく部分一致にする */
+.prose img[src*='.svg'] {
+  max-width: 36em;
+}

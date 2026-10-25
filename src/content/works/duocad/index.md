@@ -9,7 +9,7 @@ featured: 2
 coverHint: "duocad で作ったモデル(歯ブラシ立てなど)を開いた画面全体。右に AI のパネルが見えるもの(横長)"
 # 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
 # 写真の候補(既存のファイル。mf/duocad/screenshots/): 03=stage4-voxels/overview_iso.png。現行の画面の撮影は無いので、カバーと 01 は新しく撮る(web/scripts/screenshot.mjs がある)
-# コードの大半は Claude が書いた(コミットの約8割に Co-Authored-By)。本文でどう扱うかは本人が決める(docs/profile-form.md の7)
+# コードの大半は Claude が書いた(コミットの約8割に Co-Authored-By)が、本文では触れない(本人「duocadはAIに移譲したことを特に書かなくてもいいだろう」2026-10-25)
 # リポジトリは非公開のままにする(本人確定)。リンクを付けない
 # 本文の事実の出典: duocad-stable の README.md・docs/DESIGN_DECISIONS.md・docs/AI_INTEGRATION.md・docs/STATUS.md・docs/TOPOPT.md、data/models/
 ---

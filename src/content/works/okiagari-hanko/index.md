@@ -3,13 +3,15 @@ title: "起き上がりはんこ"
 year: 2026 # 並びに使う年(最後に手を入れた年)
 period: "2026-04〜2026-06"
 summary: "はんこを収めると重心が安定し、起き上がりこぼしになるケース"
-context: "コンペ(SNDC2026)"
+context: "コンペ(SNDC2026)・共同制作"
+role: "アイデア出し(2人で)・モデリング・形を決めるツール"
 tools: ["Python", "FastAPI", "React", "three.js", "opencascade.js"]
 coverHint: "赤いケースを1つ置いた写真(横長)"
 # 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
 # 写真の候補(既存のファイル。mf/others/sndc2026/): カバー=main_001.png、01=open_001.png、02=using_001.png。03 の画面は撮影が無いので新しく撮る
 # 応募時の作品名は「起きあがりはんこ」(Presensheet.pdf)。題をどちらにするかは本人が決める
-# 三橋さんとの共同制作なので role に自分の担当を書く(docs/structure.md)。応募の結果(一次審査不通過)を本文に書くかは本人が決める
+# 本人「オノマトペったんもSNDC2026も共同制作。アイデア出しは二人、モデリングやツールや私が作り、プレゼンシートは三橋が作った。適宜二人で意見交換をし意思決定をしていった。」(2026-10-25)。共同制作者の名前はページに出していない
+# 応募の結果は書かない(本人「1次審査非通過は特に書かなくていいだろう」2026-10-25)
 # roly-poly-generator と stamp-generator を含む(本人、2026-10-23)。リポジトリは C:\Users\tm976\cs\archives\roly-poly-toy-generator と C:\Users\tm976\cs\archives\stamp-generator
 # 本文の事実の出典: concept_text.txt の【採用】、Presensheet.pdf、両リポジトリの README.md と git log
 ---
