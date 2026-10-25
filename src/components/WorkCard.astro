@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 // 作品1件: 4:3 に切った写真 → 題と年(期間があれば期間)→ 一行。全体が作品ページへのリンク。ホバーは題の下線だけ
+// 写真が未記入なら無地の面、一行が未記入なら出さない
 interface Props {
   work: CollectionEntry<'works'>;
 }
@@ -13,17 +14,23 @@ const { title, year, period, summary, cover, coverAlt } = work.data;
 
 <li>
   <a class="card" href={`/works/${work.id}/`}>
-    <Image
-      class="pic"
-      src={cover}
-      alt={coverAlt}
-      widths={[480, 960]}
-      sizes="(min-width: 1040px) 400px, (min-width: 601px) 46vw, 92vw"
-    />
+    {
+      cover ? (
+        <Image
+          class="pic"
+          src={cover}
+          alt={coverAlt ?? title}
+          widths={[480, 960]}
+          sizes="(min-width: 1024px) 300px, (min-width: 601px) 46vw, 92vw"
+        />
+      ) : (
+        <div class="pic none" />
+      )
+    }
     <div class="cap">
       <h3>{title}</h3>
       <span class="mono sub">{period ?? year}</span>
     </div>
-    <p class="sub line">{summary}</p>
+    {summary && <p class="sub line">{summary}</p>}
   </a>
 </li>

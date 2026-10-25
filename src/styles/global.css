@@ -5,8 +5,9 @@
    文字はロゴの墨、薄い文字は地に対して 5.1:1。
    本文幅 960px の1列。ページ全体を左右2列に分けない(作品の格子のような一部の2列はよい。本人、2026-10-25)。
    いちばん大きい文字は作品詳細の題の 26px、名前は 18px。
-   写真は本文幅より狭い 832px まで(作品の格子は1枚 400px)で、角を 4px 丸める。
-   本人「画像をもう少しだけ小さくしたい。あと、少しだけ角丸をつけて」(2026-10-25)で、960px(格子は1枚 464px)・角なしから変えた。
+   作品ページの写真は本文幅より狭い 832px まで。角を 4px 丸める。
+   本人「画像をもう少しだけ小さくしたい。あと、少しだけ角丸をつけて」(2026-10-25)で、960px・角なしから変えた。
+   作品の格子は 3 / 2 / 1 列(下の .grid)。
    余白は 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 の段。 */
 :root {
   --bg: #e0e0e0;
@@ -128,7 +129,6 @@ main {
   margin-top: 96px;
 }
 .sec-h {
-  max-width: var(--img);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -147,12 +147,17 @@ main {
   font-size: 14px;
 }
 
-/* 作品の格子(2列)。写真は 4:3 に切って揃え、作品ページでは切らずに出す */
+/* 作品の格子。幅で3段階に変える: 3列(1024px 以上。1枚 約300px)→ 2列 → 1列(600px 以下)。
+   トップは選抜の6件を3列 × 2段で出す(本人、2026-10-25)。写真は 4:3 に切って揃え、作品ページでは切らずに出す */
 .grid {
-  max-width: var(--img);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 56px 32px;
+}
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .grid.all {
   margin-top: 64px;
@@ -165,6 +170,10 @@ main {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--r);
+}
+/* 写真がまだ無い作品。地より少し暗い無地の面 */
+.pic.none {
+  background: color-mix(in srgb, var(--fg) 6%, var(--bg));
 }
 .cap {
   display: flex;

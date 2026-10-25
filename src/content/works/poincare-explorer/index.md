@@ -1,0 +1,7 @@
+---
+title: "Poincare_Explorer"
+year: 2026 # 並びに使う年(最後に手を入れた年)。仮
+context: "授業課題"
+# 写真を置いたら cover と coverAlt を書く。一覧カードの1行は summary、本文は下の --- の後に書く(README の「作品を足す」)
+# 資料: meiji/B4/4_コンピューティングトポロジー特論A/(WebGL、2026-01)
+---

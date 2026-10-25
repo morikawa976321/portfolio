@@ -24,7 +24,7 @@ npm run deploy   # ビルドして dist/ を Pages に上げる
 
 ## 作品を足す
 
-載せる作品は [docs/candidate-works.md](docs/candidate-works.md) 冒頭の本人の選定に従う。選定に無い作品は `draft: true` にする。
+載せる作品は [docs/candidate-works.md](docs/candidate-works.md) 冒頭の本人の選定に従う。選定に無い作品は `draft: true` にする。選定の作品はすべてフォルダがあり、写真(`cover`)・一行(`summary`)・本文は未記入でもよい(カードには無地の面が出る)。元の資料の場所は各 `index.md` のコメントにある。
 
 1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
 2. 動画は `node scripts/encode-video.mjs <元動画> public/media/<slug>/<名前>.mp4` で縮めてから置く

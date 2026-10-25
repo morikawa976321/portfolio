@@ -15,14 +15,15 @@ const works = defineCollection({
       title: z.string(),
       // 並びに使う年。長く改良を続けている作品は最後に手を入れた年にし、範囲は period に書く
       year: z.number().int(),
-      // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る
-      summary: z.string(),
+      // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る。未記入なら出さない
+      summary: z.string().optional(),
       period: z.string().optional(), // 例: 2026-05〜2026-06、2022〜2025、2022〜(続いている)。あれば year の代わりに出す
       context: z.string().optional(), // 研究 / 授業課題 / コンペ / 個人制作 など
       role: z.string().optional(), // 共同制作のとき、自分が担った範囲
       tools: z.array(z.string()).default([]),
-      cover: image(),
-      coverAlt: z.string(),
+      // 写真がまだ無い作品は cover を書かない。カードには写真の代わりに無地の面を出す
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
       // トップの「選抜作品」に出す順(小さいほど上)。無ければ作品一覧にだけ出る
       featured: z.number().int().optional(),
       links: z.array(z.object({ label: z.string(), url: z.url() })).default([]),

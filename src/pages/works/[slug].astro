@@ -27,7 +27,7 @@ const facts = (
   <main class="sub-page">
     <article>
       <h1 class="title">{title}</h1>
-      <p class="sub lead-s">{summary}</p>
+      {summary && <p class="sub lead-s">{summary}</p>}
       <dl class="meta">
         {
           facts.map(([k, v]) => (
@@ -38,7 +38,7 @@ const facts = (
           ))
         }
       </dl>
-      <Image class="cover" src={cover} alt={coverAlt} widths={[960, 1920]} sizes="(min-width: 1040px) 832px, 100vw" />
+      {cover && <Image class="cover" src={cover} alt={coverAlt ?? title} widths={[960, 1920]} sizes="(min-width: 1040px) 832px, 100vw" />}
       <div class="prose">
         <Content />
       </div>
