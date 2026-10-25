@@ -28,7 +28,9 @@ export const career: Item[] = [
     text: '明治大学大学院 先端数理科学研究科 先端メディアサイエンス専攻 修士課程(2028.03 修了見込み)',
     confirmed: true,
   },
-  { period: '2025.06〜', text: 'Blockchain Lock(KEYVOX) テクニカルデベロッパー インターン', confirmed: true },
+  // 職種名は「開発インターン」(本人「職種名を外して「Blockchain Lock(KEYVOX) インターン」にして」、続けて「開発インターン、とかで」2026-10-26)。
+  // それまで出していた「テクニカルデベロッパー」は engine から埋めた値で、本人が確かめたのは開始時期だけだった
+  { period: '2025.06〜', text: 'Blockchain Lock(KEYVOX) 開発インターン', confirmed: true },
   {
     period: '2022.04〜2026.03',
     text: '明治大学 総合数理学部 先端メディアサイエンス学科',
