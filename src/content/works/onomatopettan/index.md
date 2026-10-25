@@ -1,12 +1,12 @@
 ---
 title: "オノマトぺったん"
 year: 2025 # 並びに使う年(最後に手を入れた年)
-period: "2025-05〜2025-08"
+# 制作は 2025-05〜2025-08。1年に収まるので period は書かず year だけ出す(本人「同じ年ならまとめてしまっていい。年をまたぐなら2025〜2026のように書いていい。月は載せない」2026-10-25)
 summary: "もこもこ・ぎざぎざ・とげとげ・ぶつぶつ・ごつごつを、印影と手触りで伝える5つのスタンプ"
 context: "コンペ(SNDC2025)・共同制作"
 role: "アイデア出し(2人で)・モデリング"
 tools: ["Python", "OpenSCAD", "Fusion 360"]
-featured: 3
+featured: 2
 coverHint: "5つのスタンプの実物を並べた写真(横長)"
 # 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
 # 写真の候補(既存のファイル。mf/others/sndc2025/): カバー=mockup_production/documents/提出物/ の模型写真1of3.jpg、01=end_result/rendering_images/mat-white_paper_vivid.png、02=end_result/rendering_images/texture_solid.PNG

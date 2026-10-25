@@ -17,7 +17,11 @@ const works = defineCollection({
       year: z.number().int(),
       // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る。未記入なら出さない
       summary: z.string().optional(),
-      period: z.string().optional(), // 例: 2026-05〜2026-06、2022〜2025、2022〜(続いている)。あれば year の代わりに出す
+      // 期間は年だけで書き、月は載せない。1年に収まるなら書かずに year を出す(本人「同じ年ならまとめてしまっていい。年をまたぐなら2025〜2026のように書いていい。月は載せない」2026-10-25)
+      period: z
+        .string()
+        .regex(/^\d{4}〜(\d{4})?$/, '期間は 2022〜2025 か 2026〜(続いている)の形で、年だけで書く')
+        .optional(), // あれば year の代わりに出す
       context: z.string().optional(), // 研究 / 授業課題 / コンペ / 個人制作 など
       role: z.string().optional(), // 共同制作のとき、自分が担った範囲
       tools: z.array(z.string()).default([]),

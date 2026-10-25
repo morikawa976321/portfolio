@@ -7,7 +7,7 @@ year: 2025 # 並びに使う年(最後に手を入れた年)。仮
 tools: ["Fusion 360", "3Dプリンタ"]
 cover: ./monitor_attachment_001.jpg
 coverAlt: "モニタ壁掛けパーツ"
-featured: 6
+featured: 5
 ---
 3Dプリンタにより作れるものが広がった。特に、ある程度厳密な寸法が求められるものには強い。
 

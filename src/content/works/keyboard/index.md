@@ -6,7 +6,7 @@ summary: "3Dプリンタを導入して最初の作品。キーマトリクス�
 tools: ["3Dプリンタ", "手はんだ", "レーザーカット"]
 cover: ./keyboard_003.jpg
 coverAlt: "自作キーボード"
-featured: 5
+featured: 4
 # keymap-lab をおまけとしてこの中に入れる(本人、2026-10-23)
 # 旧サイトの「column-staggered 40% keyboard」(2025)をここにまとめた(本人、2026-10-25)。summary はまだ最初のキーボードだけの説明
 ---
