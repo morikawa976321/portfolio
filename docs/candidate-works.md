@@ -66,7 +66,7 @@
 - `3d-models/`: mATX PCケース(STL 25+、2025-11)、stackable_plate 12サイズ(=販売予定トレイ)、soap_dish(波板の石鹸置き、Python生成・preview.html)、tool_holder(Pythonパラメトリック、断面画像あり)、lighting_diffuser(Python生成。2026-10-14 に mf/lighting-diffuser へ移設、2026-10-16 に閉じて mf/archives/lighting-diffuser)、モニターアタッチメント24/27/32インチ、ラブリコ柱ブラケット群(hook/shelf/hanger_bar)、fan_120mm_stand、aroma_oil_diffuser、centauri_carbon_trash_collector、toothbrush_stand
 - `archives/pokeca_case`(Pythonパラメトリック、実使用)
 - 実物写真は `3d-models/` にほぼ無い。Google フォトの書き出し(下記)に一部ある。作例レンダー10点は `cad-gigs/portfolio/`(トレイ・工具ホルダー・モニターアタッチメント・PCケース・フック・ファンスタンド・アロマディフューザー・プリンタ付属品・工具ケース・歯ブラシスタンド、contact_sheet.png)
-- funomi: ロゴ確定(2026-09-22、`design-system/logo/` に SVG と PNG)、ショップ `product-sales/site` はビルド済みだが商品写真0件・Stripe未接続
+- funomi: ロゴ確定(2026-09-22、`design-system/logo/` に SVG と PNG)、ショップ `funomi/site` はビルド済みだが商品写真0件・Stripe未接続
 
 ## グラフィック・生成アート
 - `processing/vanfu_t_shirt` — 3波源の干渉による波紋。3508×4795px、CMYK(JapanColor2011Coated)の tif と PNG 104枚。完成品(Tシャツ)の写真は無い
