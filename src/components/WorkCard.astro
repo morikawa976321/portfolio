@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { work } = Astro.props;
-const { title, year, period, summary, cover, coverAlt, coverHint } = work.data;
+const { title, year, period, summary, cover, coverAlt, coverFit, coverHint } = work.data;
 ---
 
 <li>
@@ -17,7 +17,7 @@ const { title, year, period, summary, cover, coverAlt, coverHint } = work.data;
     {
       cover ? (
         <Image
-          class="pic"
+          class={coverFit === 'contain' ? 'pic fit' : 'pic'}
           src={cover}
           alt={coverAlt ?? title}
           widths={[480, 960]}

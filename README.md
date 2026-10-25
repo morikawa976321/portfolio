@@ -43,6 +43,7 @@ role: "実装と実験設計"            # 任意: 共同制作のとき自分�
 tools: ["Unity", "Fusion 360"]   # 任意
 cover: ./cover.jpg
 coverAlt: "代替テキスト"
+coverFit: contain                # 任意: 4:3 に切ると見切れるときだけ。切らずに全体を出し、余りは無地の面にする
 coverHint: "カバーに入れる写真の指示"  # 任意: cover が無い間、開発時だけカードに枠を出す
 featured: 3                      # 任意: トップに出す順。無ければ一覧のみ
 links: [{ label: "論文", url: "https://..." }]  # 任意

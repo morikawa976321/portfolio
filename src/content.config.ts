@@ -28,6 +28,9 @@ const works = defineCollection({
       // トップと一覧のカードにだけ出す写真。作品ページには出さない。写真がまだ無い作品は書かず、カードには無地の面を出す
       cover: image().optional(),
       coverAlt: z.string().optional(),
+      // カードでの写真の収め方。cover は 4:3 に切る(既定)。contain は切らずに全体を出し、余った所を無地の面にする。
+      // 切ると見切れたり情報が欠けたりする写真だけ contain にする(本人「4対3にトリミングする段階で変に見切れたり情報が欠落する場合は無理にトリミングせず余白を残しても良い」2026-10-25)
+      coverFit: z.enum(['cover', 'contain']).default('cover'),
       // cover がまだ無いときに、カードの写真の位置へ開発時だけ出す「入れる写真の指示」
       coverHint: z.string().optional(),
       // トップの「選抜作品」に出す順(小さいほど上)。無ければ作品一覧にだけ出る
