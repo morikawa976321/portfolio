@@ -3,13 +3,13 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 // 作品1件: 4:3 に切った写真 → 題と年(期間があれば期間)→ 一行。全体が作品ページへのリンク。ホバーは題の下線だけ
-// 写真が未記入なら無地の面、一行が未記入なら出さない
+// 写真が未記入なら無地の面、一行が未記入なら出さない。開発時だけ、無地の面の代わりに coverHint(入れる写真の指示)の枠を出す
 interface Props {
   work: CollectionEntry<'works'>;
 }
 
 const { work } = Astro.props;
-const { title, year, period, summary, cover, coverAlt } = work.data;
+const { title, year, period, summary, cover, coverAlt, coverHint } = work.data;
 ---
 
 <li>
@@ -23,6 +23,11 @@ const { title, year, period, summary, cover, coverAlt } = work.data;
           widths={[480, 960]}
           sizes="(min-width: 1024px) 300px, (min-width: 601px) 46vw, 92vw"
         />
+      ) : import.meta.env.DEV && coverHint ? (
+        <figure class="slot pic">
+          <b>cover.jpg</b>
+          <span>{coverHint}</span>
+        </figure>
       ) : (
         <div class="pic none" />
       )

@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 
 export async function getStaticPaths() {
@@ -9,7 +8,7 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { title, year, period, context, role, tools, summary, cover, coverAlt, coverHint, links } = work.data;
+const { title, year, period, context, role, tools, summary, links } = work.data;
 const { Content } = await render(work);
 
 // 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
@@ -38,18 +37,7 @@ const facts = (
           ))
         }
       </dl>
-      {
-        cover ? (
-          <Image class="cover" src={cover} alt={coverAlt ?? title} widths={[960, 1920]} sizes="(min-width: 1040px) 832px, 100vw" />
-        ) : (
-          coverHint && (
-            <figure class="slot wide">
-              <b>cover.jpg</b>
-              <span>{coverHint}</span>
-            </figure>
-          )
-        )
-      }
+      {/* カバー(cover)はトップと一覧のカードにだけ出し、ここには出さない(本人「カバー画像がトップと作品ページで重複している。トップ画像が作品ページにまだ出ている。」2026-10-25) */}
       <div class="prose">
         <Content />
       </div>
