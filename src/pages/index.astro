@@ -5,7 +5,7 @@ import WorkCard from '../components/WorkCard.astro';
 import Rows from '../components/Rows.astro';
 import { profile, career, research, awards, visible } from '../data/profile';
 
-// 上から 所属 → 一行 → 選抜作品 → 経歴 → 研究・発表 → 受賞(名前と連絡先は Base)
+// 上から 所属 → 一行 → 選抜作品 → 経歴 → 研究・発表 → 受賞・選出(名前と連絡先は Base)
 const featured = (await getCollection('works', (w) => !w.data.draft && w.data.featured !== undefined)).sort(
   (a, b) => a.data.featured! - b.data.featured!,
 );
@@ -14,7 +14,7 @@ const headline = profile.headline.confirmed || import.meta.env.DEV ? profile.hea
 const sections = [
   { title: '経歴', items: visible(career) },
   { title: '研究・発表', items: visible(research) },
-  { title: '受賞', items: visible(awards) },
+  { title: '受賞・選出', items: visible(awards) },
 ].filter((s) => s.items.length > 0);
 ---
 

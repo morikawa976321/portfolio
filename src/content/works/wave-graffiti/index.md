@@ -4,6 +4,7 @@ year: 2024
 summary: "フリーハンドで描いた線を、音声波形として再生する"
 cover: ./wave_graffiti_001.jpg
 coverAlt: "波の落書き"
+draft: true # 2026-10-23 本人の選定に入っていない。docs/candidate-works.md
 ---
 フリーハンドで描かれた線を、音声波形として再生する。動画では、画面の横幅を1/220(s)に対応させてある。
 

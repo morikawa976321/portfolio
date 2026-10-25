@@ -1,0 +1,11 @@
+// 公開先: Cloudflare Workers の静的アセット(dist/ をそのまま配る)。npm run deploy で上げる。
+// Pages は Workers に統合されつつあり、wrangler 4.152 の `pages project create` は Workers へ回されて失敗するため、こちらを使う(2026-10-25)。
+// portfolio.m-kw.net(2026-10-25 本人が決定)は custom_domain で割り当てる。m-kw.net の DNS は同じ Cloudflare のアカウントにある
+{
+  "name": "portfolio",
+  "compatibility_date": "2026-10-25",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [{ "pattern": "portfolio.m-kw.net", "custom_domain": true }]
+}

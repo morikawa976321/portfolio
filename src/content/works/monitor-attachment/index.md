@@ -5,7 +5,7 @@ summary: "ジェネレーティブデザインで生成した数十グラムの�
 tools: ["Fusion 360", "3Dプリンタ"]
 cover: ./monitor_attachment_001.jpg
 coverAlt: "モニタ壁掛けパーツ"
-featured: 3
+featured: 4
 ---
 Fusion360のジェネレーティブデザインにより生成されたモデルを3Dプリント。数十グラムのパーツが5kgを超えるモニタを支えている。
 

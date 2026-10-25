@@ -46,7 +46,7 @@ export const research: Item[] = [
 
 // 受賞・選出。新しい順
 export const awards: Item[] = [
-  { period: '2025', text: 'SNDC2025 一次審査通過(擬音語スタンプ)', confirmed: false },
+  { period: '2025', text: 'SNDC2025 一次審査通過(擬音語スタンプ)', confirmed: true },
 ];
 
 export const visible = (items: Item[]) =>

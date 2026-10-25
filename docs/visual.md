@@ -235,5 +235,5 @@ G の中に残る2列の部分(PC 幅での作品の格子、作品詳細の写�
 ## いまの状態(2026-10-25)
 
 - 形と配色は G(src/styles/global.css。元のモックは mocks/src/g-column.*)。2026-10-25 に src/ を G に置き換えた。第5回の形と配色の比較の仕組み(`?v=`・`?plain=1`・variants)は archive/round5-site/ に移した(本人「使わないやつは全部どこかしらに残しておいて」)。
-- 初回の公開は最小のコストを優先し、中身は旧サイトの11作品のまま(docs/structure.md「公開」)。公開の後に残るもの: 選抜6件(structure.md)の反映、作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、レイアウト・色・写真の大きさ・書体の最終調整。
+- 2026-10-25 に portfolio.m-kw.net で公開した。最小のコストを優先し、作品は旧サイトの11作品のうち本人の選定に入る6件(docs/structure.md「公開」)。公開の後に残るもの: 選定作品のうち src/ に無いものの追加、作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、レイアウト・色・写真の大きさ・書体の最終調整。
 

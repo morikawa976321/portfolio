@@ -4,7 +4,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && wrangler pages deploy dist --project-name portfolio --branch main"
+    "deploy": "astro build && wrangler deploy"
   },
   "type": "module",
   "dependencies": {
