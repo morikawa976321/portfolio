@@ -2,11 +2,12 @@
 title: "duocad"
 year: 2026 # 並びに使う年(最後に手を入れた年)
 period: "2026〜" # 開発は 2026-08 から。月は出さない
-summary: "人と AI が同じ選択を交互に触りながら形を作る CAD"
+summary: "人と AI の協働のための CAD"
 context: "個人制作"
 tools: ["Python", "OCCT", "Svelte", "three.js", "MCP"]
 featured: 1
-coverHint: "duocad で作ったモデル(歯ブラシ立てなど)を開いた画面全体。右に AI のパネルが見えるもの(横長)"
+cover: ./cover.webp # 本人が撮った画面(2026-10-25)
+coverAlt: "duocad の画面。36キーのキーボードのケースを開いている"
 # 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
 # 写真の候補(既存のファイル。mf/duocad/screenshots/): 03=stage4-voxels/overview_iso.png。現行の画面の撮影は無いので、カバーと 01 は新しく撮る(web/scripts/screenshot.mjs がある)
 # コードの大半は Claude が書いた(コミットの約8割に Co-Authored-By)が、本文では触れない(本人「duocadはAIに移譲したことを特に書かなくてもいいだろう」2026-10-25)
