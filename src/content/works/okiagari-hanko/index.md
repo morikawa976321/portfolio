@@ -6,6 +6,7 @@ summary: "はんこを収めると重心が安定し、起き上がりこぼし�
 context: "コンペ(SNDC2026)・共同制作"
 role: "アイデア出し(2人で)・モデリング・形を決めるツール"
 tools: ["Python", "FastAPI", "React", "three.js", "opencascade.js"]
+featured: 3 # 3Dプリント作品と入れ替えてトップの3番目に(本人「3dp作品をSNDC2026に変えよう。順番は3つ目で」2026-10-25)
 coverHint: "赤いケースを1つ置いた写真(横長)"
 # 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
 # 写真の候補(既存のファイル。mf/others/sndc2026/): カバー=main_001.png、01=open_001.png、02=using_001.png。03・04 はツールを起動して AI が撮った(2026-10-25)
