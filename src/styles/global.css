@@ -260,14 +260,25 @@ main {
 .prose > * + * {
   margin-top: 1.2em;
 }
-.prose > :is(p:has(> img), p:has(> video), video),
-.prose > :is(p:has(> img), p:has(> video), video) + * {
+.prose > :is(p:has(> img), p:has(> video), video, .pair),
+.prose > :is(p:has(> img), p:has(> video), video, .pair) + * {
   margin-top: 48px;
 }
 .prose img,
 .prose video {
   width: 100%;
   border-radius: var(--r);
+}
+/* 縦長の写真・動画を2枚ずつ横に並べる(<div class="pair">)。本文の幅を2つに割るので、全幅の画像と端がそろう。
+   全幅のままだと縦長1枚が画面の高さを超える(mATX PCケースの縦長8点で、AI が足した) */
+.prose > .pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+.prose > .pair > * {
+  margin: 0;
 }
 .prose h2,
 .prose h3 {
