@@ -129,23 +129,10 @@ main {
 .sub-page {
   margin-top: 96px;
 }
-.sec-h {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 24px;
-}
 .sec-t {
+  margin-bottom: 24px;
   font-size: 15px;
   line-height: 1.5;
-}
-.profile .sec-t,
-.contact .sec-t {
-  margin-bottom: 24px;
-}
-.more {
-  font-size: 14px;
 }
 
 /* 作品の格子。幅で3段階に変える: 3列(1024px 以上。1枚 約300px)→ 2列 → 1列(600px 以下)。
@@ -311,7 +298,10 @@ main {
   margin-top: 48px;
   font-size: 14px;
 }
-.back {
+/* ページを移動するリンク。どのページでも、中身を読み終えた直後に左寄せで置く
+   (トップ「すべての作品 →」、一覧「← トップ」、作品ページ「← すべての作品」)。
+   それまでトップだけ作品の見出しの右端にあった(本人「ページを移動するボタンの位置があまり統一されていないので、何とかしたい。」2026-10-25。そろえ方は AI が選んだ) */
+.nav {
   margin-top: 64px;
   font-size: 14px;
 }

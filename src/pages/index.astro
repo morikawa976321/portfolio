@@ -28,13 +28,11 @@ const sections = [
   </div>
   <main>
     <section>
-      <div class="sec-h">
-        <h2 class="sec-t">作品</h2>
-        <a class="link more" href="/works/">すべての作品 →</a>
-      </div>
+      <h2 class="sec-t">作品</h2>
       <ul class="grid">
         {featured.map((w) => <WorkCard work={w} />)}
       </ul>
+      <p class="nav"><a class="link" href="/works/">すべての作品 →</a></p>
     </section>
     {
       sections.length > 0 && (
