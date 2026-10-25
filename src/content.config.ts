@@ -24,6 +24,8 @@ const works = defineCollection({
       // 写真がまだ無い作品は cover を書かない。カードには写真の代わりに無地の面を出す
       cover: image().optional(),
       coverAlt: z.string().optional(),
+      // cover がまだ無いときに、作品ページのカバーの位置へ開発時だけ出す「入れる写真の指示」
+      coverHint: z.string().optional(),
       // トップの「選抜作品」に出す順(小さいほど上)。無ければ作品一覧にだけ出る
       featured: z.number().int().optional(),
       links: z.array(z.object({ label: z.string(), url: z.url() })).default([]),

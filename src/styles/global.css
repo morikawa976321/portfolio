@@ -356,3 +356,37 @@ main {
     margin-top: 96px;
   }
 }
+
+/* 写真の置き場(開発時だけ見える)。本文の Markdown に
+   <figure class="slot"><b>ファイル名</b><span>入れる写真の指示</span></figure> と書き、
+   写真を置いたら ![](./ファイル名) に置き換える。wide は 16:9、無印は 4:3。
+   本番のビルドでは HTML から取り除く(astro.config.mjs の strip-slots) */
+.slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: var(--img);
+  aspect-ratio: 4 / 3;
+  padding: 24px;
+  border-radius: var(--r);
+  outline: 1px dashed var(--sub);
+  outline-offset: -1px;
+  background: color-mix(in srgb, var(--fg) 6%, var(--bg));
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--sub);
+}
+.slot.wide {
+  aspect-ratio: 16 / 9;
+}
+.slot b {
+  font-family: var(--mono);
+  font-weight: 400;
+  color: var(--fg);
+}
+.prose > .slot,
+.prose > .slot + * {
+  margin-top: 48px;
+}

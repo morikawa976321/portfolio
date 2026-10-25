@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { title, year, period, context, role, tools, summary, cover, coverAlt, links } = work.data;
+const { title, year, period, context, role, tools, summary, cover, coverAlt, coverHint, links } = work.data;
 const { Content } = await render(work);
 
 // 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
@@ -38,7 +38,18 @@ const facts = (
           ))
         }
       </dl>
-      {cover && <Image class="cover" src={cover} alt={coverAlt ?? title} widths={[960, 1920]} sizes="(min-width: 1040px) 832px, 100vw" />}
+      {
+        cover ? (
+          <Image class="cover" src={cover} alt={coverAlt ?? title} widths={[960, 1920]} sizes="(min-width: 1040px) 832px, 100vw" />
+        ) : (
+          coverHint && (
+            <figure class="slot wide">
+              <b>cover.jpg</b>
+              <span>{coverHint}</span>
+            </figure>
+          )
+        )
+      }
       <div class="prose">
         <Content />
       </div>

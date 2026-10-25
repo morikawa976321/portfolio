@@ -17,7 +17,7 @@ npm run build    # dist/ に静的ファイル
 Cloudflare Workers の静的アセット(`wrangler.jsonc`、名前 `portfolio`)に載せ、`portfolio.m-kw.net` を custom domain で割り当てている。初回だけ `npx wrangler login` でブラウザから Cloudflare にログインする。
 
 ```bash
-npm run deploy   # ビルドして dist/ を Pages に上げる
+npm run deploy   # ビルドして dist/ を Workers に上げる
 ```
 
 使わなくなった見た目は `archive/` に残してある。
@@ -41,6 +41,7 @@ role: "実装と実験設計"            # 任意: 共同制作のとき自分�
 tools: ["Unity", "Fusion 360"]   # 任意
 cover: ./cover.jpg
 coverAlt: "代替テキスト"
+coverHint: "カバーに入れる写真の指示"  # 任意: cover が無い間、開発時だけ枠を出す
 featured: 3                      # 任意: トップに出す順。無ければ一覧のみ
 links: [{ label: "論文", url: "https://..." }]  # 任意
 draft: true                      # 任意: true なら出さない
@@ -50,6 +51,14 @@ draft: true                      # 任意: true なら出さない
 
 <video src="/media/<slug>/demo.mp4" controls preload="metadata" playsinline></video>
 ```
+
+写真がまだ無い場所には枠を置ける。開発サーバーでだけ破線の枠として見え、本番のビルドでは HTML から消える(`astro.config.mjs` の strip-slots)。写真を置いたら `![](./ファイル名)` に置き換える。
+
+```html
+<figure class="slot wide"><b>01-room.png</b><span>入れる写真の指示</span></figure>
+```
+
+`wide` を付けると 16:9、付けなければ 4:3 の枠になる。
 
 ## 経歴を直す
 
