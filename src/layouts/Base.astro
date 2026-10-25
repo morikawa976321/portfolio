@@ -50,11 +50,8 @@ const hasContact = !!profile.email || profile.links.length > 0;
           <footer class="contact">
             <h2 class="sec-t">連絡先</h2>
             {profile.email && (
-              <p class="mail">
-                <a class="link" href={`mailto:${profile.email}`}>
-                  {profile.email}
-                </a>
-              </p>
+              // メールはリンクにせず文字だけで出す(本人、2026-10-25)
+              <p class="mail">{profile.email}</p>
             )}
             {profile.links.length > 0 && (
               <p class="ext">
