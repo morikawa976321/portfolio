@@ -3,17 +3,18 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import WorkCard from '../../components/WorkCard.astro';
 
-// 全作品を新しい年から。3列の格子
+// 全作品を1つの格子に、year(最後に手を入れた年)の新しい順。年ごとの見出しは付けない:
+// 長く改良を続けている作品が多く、1つの年に置けないため(本人の指摘、2026-10-25)。期間はカードに period で出す
 const works = (await getCollection('works', (w) => !w.data.draft)).sort(
   (a, b) => b.data.year - a.data.year || (a.data.featured ?? 99) - (b.data.featured ?? 99),
 );
 ---
 
-<Base title="Works">
-  <div class="ttl">
-    <h1>works</h1>
-  </div>
-  <div class="cards all sec">
-    {works.map((w) => <WorkCard work={w} sizes="(min-width: 1000px) 30vw, (min-width: 720px) 45vw, 92vw" />)}
-  </div>
+<Base title="作品一覧">
+  <main class="sub-page">
+    <h1 class="title">すべての作品</h1>
+    <ul class="grid all">
+      {works.map((w) => <WorkCard work={w} />)}
+    </ul>
+  </main>
 </Base>

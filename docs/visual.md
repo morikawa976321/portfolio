@@ -234,7 +234,6 @@ G の中に残る2列の部分(PC 幅での作品の格子、作品詳細の写�
 
 ## いまの状態(2026-10-25)
 
-- 形は G(mocks/src/g-column.*)。src/ のサイトはまだ第5回の形で、G は mocks/ にだけある。配色は src/ の既定が ink のままで、本人の決定待ち。2026-10-24 に本人が ink と paper は背景として許容できないと述べたので、残りは charcoal と gray(どちらも「全然平気」)。
-- 配色が決まったら: その値を global.css の :root に入れ、`src/styles/variants/` と Base.astro の切り替え(import.meta.glob と ?v= のスクリプト)、global.css 末尾の `?plain=1` の規則を消す。
-- 本人の作業として残るもの: 作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、選抜6件の確定(printed-items と sampling-theorem は比較用の仮置き)、GitHub を載せるかの判断。
+- 形と配色は G(src/styles/global.css。元のモックは mocks/src/g-column.*)。2026-10-25 に src/ を G に置き換えた。第5回の形と配色の比較の仕組み(`?v=`・`?plain=1`・variants)は archive/round5-site/ に移した(本人「使わないやつは全部どこかしらに残しておいて」)。
+- 初回の公開は最小のコストを優先し、中身は旧サイトの11作品のまま(docs/structure.md「公開」)。公開の後に残るもの: 選抜6件(structure.md)の反映、作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、レイアウト・色・写真の大きさ・書体の最終調整。
 

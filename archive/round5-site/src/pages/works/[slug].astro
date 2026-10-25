@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const works = await getCollection('works', (w) => !w.data.draft);
+  return works.map((work) => ({ params: { slug: work.id }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const { title, year, period, context, role, tools, summary, cover, coverAlt, links } = work.data;
+const { Content } = await render(work);
+
+// 年(期間があれば期間)、文脈、担当、道具。無いものは出さない。文字だけで、ボタンのようには見せない
+const facts = [period ?? String(year), context, role, tools.length ? tools.join(', ') : undefined].filter(
+  (c): c is string => !!c,
+);
+---
+
+<Base title={title} description={summary}>
+  <a href="/works/" class="back link mono">← works</a>
+  <article>
+    <header class="art-head">
+      <h1>{title}</h1>
+      <p class="lead">{summary}</p>
+      <p class="facts mono">
+        {facts.map((f) => <span>{f}</span>)}
+      </p>
+    </header>
+    <div class="cover">
+      <Image src={cover} alt={coverAlt} widths={[900, 1800, 2400]} sizes="(min-width: 1200px) 1200px, 100vw" />
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+    {
+      links.length > 0 && (
+        <p class="links mono">
+          {links.map((l) => (
+            <a class="link" href={l.url}>
+              {l.label} ↗
+            </a>
+          ))}
+        </p>
+      )
+    }
+  </article>
+</Base>

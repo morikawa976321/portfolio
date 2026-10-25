@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// 公開先のサブドメイン(フォーム9)が決まったら site を入れる
-export default defineConfig({});
+// 公開先は Cloudflare Pages の portfolio.m-kw.net(2026-10-25 本人が決定)
+export default defineConfig({
+  site: 'https://portfolio.m-kw.net',
+});

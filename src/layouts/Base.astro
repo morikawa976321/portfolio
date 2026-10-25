@@ -2,20 +2,16 @@
 import '../styles/global.css';
 import { profile } from '../data/profile';
 
-// 見た目の案の比較(docs/visual.md)。開発時だけ src/styles/variants/*.css を全部読み込み、
-// URL の ?v=<name> で <html data-v="<name>"> を付けてその案を当てる。決まったら消す。
-if (import.meta.env.DEV) import.meta.glob('../styles/variants/*.css', { eager: true });
-
+// 全ページ共通の1列: 名前 → 中身 → 連絡先。ナビゲーションは置かず、名前がトップへのリンクを兼ねる(トップでは h1)
 interface Props {
   title?: string;
   description?: string;
+  home?: boolean;
 }
 
-const { title, description = profile.affiliation.text } = Astro.props;
+const { title, description = profile.affiliation.text, home = false } = Astro.props;
 const fullTitle = title ? `${title} — ${profile.name.ja}` : `${profile.name.ja} / ${profile.name.en}`;
-const word = profile.name.en.toLowerCase();
-const now = new Date();
-const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}`;
+const hasContact = !!profile.email || profile.links.length > 0;
 ---
 
 <!doctype html>
@@ -26,19 +22,6 @@ const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {!profile.indexable && <meta name="robots" content="noindex" />}
-    {
-      import.meta.env.DEV && (
-        <script is:inline>
-          (function () {
-            var p = new URLSearchParams(location.search);
-            var v = p.has('v') ? p.get('v') : sessionStorage.getItem('v');
-            if (p.has('v')) sessionStorage.setItem('v', v);
-            if (v) document.documentElement.dataset.v = v;
-            if (p.has('plain')) document.documentElement.dataset.plain = '';
-          })();
-        </script>
-      )
-    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,18 +30,44 @@ const updated = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '
     />
   </head>
   <body>
-    <header class="page head">
-      <a href="/" class="word">{word}</a>
-    </header>
-    <main class="page">
+    <div class="page">
+      {
+        home ? (
+          <h1 class="who">
+            <span class="who-ja">{profile.name.ja}</span>
+            <span class="mono sub">{profile.name.en}</span>
+          </h1>
+        ) : (
+          <a class="who" href="/">
+            <span class="who-ja">{profile.name.ja}</span>
+            <span class="mono sub">{profile.name.en}</span>
+          </a>
+        )
+      }
       <slot />
-    </main>
-    <footer class="page foot mono">
-      <nav>
-        {profile.email && <a class="link" href={`mailto:${profile.email}`}>{profile.email}</a>}
-        {profile.links.map((l) => <a class="link" href={l.url}>{l.label} ↗</a>)}
-      </nav>
-      <span>updated {updated}</span>
-    </footer>
+      {
+        hasContact && (
+          <footer class="contact">
+            <h2 class="sec-t">連絡先</h2>
+            {profile.email && (
+              <p class="mail">
+                <a class="link" href={`mailto:${profile.email}`}>
+                  {profile.email}
+                </a>
+              </p>
+            )}
+            {profile.links.length > 0 && (
+              <p class="ext">
+                {profile.links.map((l) => (
+                  <a class="link" href={l.url} rel="noopener">
+                    {l.label} ↗
+                  </a>
+                ))}
+              </p>
+            )}
+          </footer>
+        )
+      }
+    </div>
   </body>
 </html>

@@ -2,23 +2,28 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-// 作品1件: 16:10 の写真 → 題と年 → 一行。全体が作品ページへのリンク。ホバーは題の下線だけ
+// 作品1件: 4:3 に切った写真 → 題と年(期間があれば期間)→ 一行。全体が作品ページへのリンク。ホバーは題の下線だけ
 interface Props {
   work: CollectionEntry<'works'>;
-  sizes?: string;
 }
 
-const { work, sizes = '(min-width: 720px) 45vw, 92vw' } = Astro.props;
-const { title, year, summary, cover, coverAlt } = work.data;
+const { work } = Astro.props;
+const { title, year, period, summary, cover, coverAlt } = work.data;
 ---
 
-<a class="card" href={`/works/${work.id}/`}>
-  <div class="pic">
-    <Image src={cover} alt={coverAlt} widths={[480, 960, 1440]} sizes={sizes} />
-  </div>
-  <div class="cap">
-    <h3>{title}</h3>
-    <span class="year mono">{year}</span>
-    <p class="sum">{summary}</p>
-  </div>
-</a>
+<li>
+  <a class="card" href={`/works/${work.id}/`}>
+    <Image
+      class="pic"
+      src={cover}
+      alt={coverAlt}
+      widths={[480, 960]}
+      sizes="(min-width: 1040px) 464px, (min-width: 601px) 46vw, 92vw"
+    />
+    <div class="cap">
+      <h3>{title}</h3>
+      <span class="mono sub">{period ?? year}</span>
+    </div>
+    <p class="sub line">{summary}</p>
+  </a>
+</li>

@@ -13,10 +13,11 @@ const works = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      // 並びに使う年。長く改良を続けている作品は最後に手を入れた年にし、範囲は period に書く
       year: z.number().int(),
       // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る
       summary: z.string(),
-      period: z.string().optional(), // 例: 2026-05〜2026-06
+      period: z.string().optional(), // 例: 2026-05〜2026-06、2022〜2025、2022〜(続いている)。あれば year の代わりに出す
       context: z.string().optional(), // 研究 / 授業課題 / コンペ / 個人制作 など
       role: z.string().optional(), // 共同制作のとき、自分が担った範囲
       tools: z.array(z.string()).default([]),

@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Rows from '../components/Rows.astro';
+import { profile, career, research, awards, visible } from '../data/profile';
+
+const featured = (await getCollection('works', (w) => !w.data.draft && w.data.featured !== undefined)).sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
+
+const headline = profile.headline.confirmed || import.meta.env.DEV ? profile.headline.text : '';
+const sections = [
+  { id: 'career', label: 'career', items: visible(career) },
+  { id: 'research', label: 'research', items: visible(research) },
+  { id: 'awards', label: 'awards', items: visible(awards) },
+].filter((s) => s.items.length > 0);
+---
+
+<Base>
+  <section class="hero">
+    <h1>{profile.name.ja}</h1>
+    <p class="en mono">{profile.name.en}</p>
+    <p class="aff">{profile.affiliation.text}</p>
+    {headline && <p class="statement">{headline}</p>}
+  </section>
+
+  <section class="sec" id="works">
+    <div class="sec-head mono">
+      <h2>selected works</h2>
+      <a href="/works/" class="link">all works</a>
+    </div>
+    <div class="cards">
+      {featured.map((w) => <WorkCard work={w} />)}
+    </div>
+  </section>
+
+  {
+    sections.map((s) => (
+      <section class="sec" id={s.id}>
+        <div class="sec-head mono">
+          <h2>{s.label}</h2>
+        </div>
+        <Rows items={s.items} />
+      </section>
+    ))
+  }
+</Base>

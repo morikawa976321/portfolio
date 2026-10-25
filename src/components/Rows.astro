@@ -1,21 +1,25 @@
 ---
 import type { Item } from '../data/profile';
 
-// 経歴・研究・受賞の行。期間 | 本文。未確認の仮の値は .pending(開発時だけ見える)
+// 経歴・研究・受賞の1節。期間 | 本文。未確認の仮の値は .pending(開発時だけ見える)
 interface Props {
+  title: string;
   items: Item[];
 }
 
-const { items } = Astro.props;
+const { title, items } = Astro.props;
 ---
 
-<ul class="rows">
-  {
-    items.map((i) => (
-      <li class:list={['row', { pending: !i.confirmed }]}>
-        <span class="when">{i.period}</span>
-        <span class="text">{i.text}</span>
-      </li>
-    ))
-  }
-</ul>
+<section>
+  <h2 class="sec-t">{title}</h2>
+  <dl class="rows">
+    {
+      items.map((i) => (
+        <div class:list={{ pending: !i.confirmed }}>
+          <dt class="mono sub">{i.period}</dt>
+          <dd>{i.text}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

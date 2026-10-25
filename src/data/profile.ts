@@ -12,8 +12,10 @@ export const profile = {
   },
   // 自己紹介の軸(フォーム10)。1〜2行
   headline: { text: '', confirmed: false },
-  links: [{ label: 'GitHub', url: 'https://github.com/morikawa976321' }] as Link[],
-  email: null as string | null,
+  // GitHub(morikawa976321)は公開リポジトリが0件で、リンク先が空のプロフィールになるので外している。
+  // 公開リポジトリができたら { label: 'GitHub', url: 'https://github.com/morikawa976321' } を戻す
+  links: [] as Link[],
+  email: 'taichi.morikawa.contact@gmail.com' as string | null,
   // 検索エンジンに出すか(フォーム9)。決まるまで noindex
   indexable: false,
 };
@@ -25,11 +27,11 @@ export const career: Item[] = [
     text: '明治大学大学院 先端数理科学研究科 先端メディアサイエンス専攻 修士課程(2028.03 修了見込み)',
     confirmed: true,
   },
-  { period: '', text: 'Blockchain Lock(KEYVOX) テクニカルデベロッパー インターン', confirmed: false },
+  { period: '2025.06 —', text: 'Blockchain Lock(KEYVOX) テクニカルデベロッパー インターン', confirmed: true },
   {
     period: '2022.04 — 2026.03',
     text: '明治大学 総合数理学部 先端メディアサイエンス学科',
-    confirmed: false,
+    confirmed: true,
   },
 ];
 
