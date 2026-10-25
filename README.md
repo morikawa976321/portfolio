@@ -63,6 +63,18 @@ draft: true                      # 任意: true なら出さない
 
 `wide` を付けると 16:9、付けなければ 4:3 の枠になる。
 
+## 文章を書く
+
+一行(`summary`)と本文の文章は本人が書く(2026-10-25 に全作品の文章を外した。docs/structure.md「公開」)。
+
+1. VS Code でこのフォルダを開き、端末で `npm run dev` を動かす
+2. ブラウザで `http://localhost:4321/works/<slug>/` を開き、VS Code と横に並べる
+3. `src/content/works/<slug>/index.md` を書いて保存すると、ブラウザの表示がすぐ変わる
+   - 一行は frontmatter の `summary: ""` の `""` の中。VS Code の全体検索(Ctrl+Shift+F)で `summary:` を探すと、全作品の一行が1つの欄に並ぶ
+   - 本文は2つ目の `---` の後。写真(`![](...)`)や動画の間に段落を書くと、その位置に出る。`<div class="pair">`〜`</div>` は2枚を横に並べる枠なので、その中には書かない
+   - 見出しは `## 見出し`
+4. 公開は `npm run deploy`
+
 ## 経歴を直す
 
 `src/data/profile.ts` が正本。`confirmed: false` の項目は開発サーバーでだけ破線つきで見え、本番ビルドには出ない。本人が確認したら `true` にする。

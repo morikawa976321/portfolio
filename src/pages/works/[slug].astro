@@ -22,7 +22,8 @@ const facts = (
 ).filter((f): f is readonly [string, string] => !!f[1]);
 ---
 
-<Base title={title} description={summary}>
+{/* summary は未記入の間 "" で置いてある。空なら Base の既定の説明文を使う */}
+<Base title={title} description={summary || undefined}>
   <main class="sub-page">
     <article class="work">
       <div class="bar">
