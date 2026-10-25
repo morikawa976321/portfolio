@@ -271,5 +271,5 @@ G の中に残る2列の部分(PC 幅での作品の格子、作品詳細の写�
 ## いまの状態(2026-10-25)
 
 - 形と配色は G(src/styles/global.css。元のモックは mocks/src/g-column.*)。2026-10-25 に src/ を G に置き換えた。第5回の形と配色の比較の仕組み(`?v=`・`?plain=1`・variants)は archive/round5-site/ に移した(本人「使わないやつは全部どこかしらに残しておいて」)。
-- 2026-10-25 に portfolio.m-kw.net で公開した。作品は選定の16件から vanfu-Tシャツを外した15件(2026-10-25本人)で、写真・文章は本人が順に入れていく(docs/structure.md「公開」)。残るもの: 作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、レイアウト・色・写真の大きさ・書体の最終調整。
+- 2026-10-25 に portfolio.m-kw.net で公開した。作品は選定の16件から vanfu-Tシャツを外し、context-engine と3Dプリント作品をいったん出さない13件(2026-10-25本人)で、写真・文章は本人が順に入れていく(docs/structure.md「公開」)。残るもの: 作品写真の撮り直し(同じ背景と光)、一行の軸(profile.ts の headline)、作品の文脈と担当(各 index.md の context / role)、レイアウト・色・写真の大きさ・書体の最終調整。
 

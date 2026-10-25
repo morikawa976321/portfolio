@@ -9,4 +9,6 @@ coverAlt: "輪郭抽出と残像"
 ---
 再帰性反射材を背景にして、赤外線カメラで撮影する。画像処理で輪郭を抽出し、特定のフレーム同士を重ね合わせることで視覚的な効果を得る。
 
+![輪郭抽出と残像](./afterimage_001.jpg)
+
 <video src="/media/outline-afterimage/afterimage_002.mp4" controls preload="metadata" playsinline></video>

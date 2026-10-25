@@ -5,6 +5,7 @@ year: 2025 # 並びに使う年(最後に手を入れた年)。仮
 # mATX PCケースは別の作品(matx-pc-case)。旧サイトの「3Dプリントした小物」(2022)と「モニタ壁掛けパーツの3Dプリント」(2025)をここにまとめた
 # 資料: mf/3d-models/、作例レンダー cad-gigs/portfolio/、実物写真は Google フォトの書き出し(docs/candidate-works.md)
 tools: ["Fusion 360", "3Dプリンタ"]
+draft: true # いったん出さない(本人「現時点でコンテキストエンジン、3Dプリント作品の2点は一旦非表示にしておいてほしい。今後内容を詰めて追加します」2026-10-25)
 cover: ./monitor_attachment_001.jpg
 coverAlt: "モニタ壁掛けパーツ"
 ---

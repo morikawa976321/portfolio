@@ -16,5 +16,7 @@ const works = (await getCollection('works', (w) => !w.data.draft)).sort(
     <ul class="grid all">
       {works.map((w) => <WorkCard work={w} />)}
     </ul>
+    {/* 作品ページの「← すべての作品」と同じ形。一覧が長いスマホで、末尾から先頭の名前まで戻らずに済むように(本人「作品一覧ページにトップへ戻るボタンがあった方がいいかもしれない」2026-10-25) */}
+    <p class="back"><a class="link" href="/">← トップ</a></p>
   </main>
 </Base>
