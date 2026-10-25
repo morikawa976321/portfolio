@@ -7,6 +7,7 @@
    いちばん大きい文字は作品詳細の題の 26px、名前は 18px。
    作品ページの写真は本文幅より狭い 832px まで。角を 4px 丸める。
    本人「画像をもう少しだけ小さくしたい。あと、少しだけ角丸をつけて」(2026-10-25)で、960px・角なしから変えた。
+   作品ページは題・一行・本文・写真をすべてこの 832px の幅にそろえる(本人「タイトル、画像、本文で横幅が違う。」2026-10-25)。
    作品の格子は 3 / 2 / 1 列(下の .grid)。
    余白は 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 の段。 */
 :root {
@@ -222,14 +223,16 @@ main {
   padding-top: 1px;
 }
 
-/* 作品ページ */
+/* 作品ページ。中身はすべて写真と同じ --img の幅 */
+.work {
+  max-width: var(--img);
+}
 .title {
   font-size: 26px;
   line-height: 1.4;
 }
 .lead-s {
   margin-top: 8px;
-  max-width: 40em;
 }
 .meta {
   display: grid;
@@ -247,23 +250,15 @@ main {
 }
 .cover {
   width: 100%;
-  max-width: var(--img);
   border-radius: var(--r);
 }
-/* 本文の文字は 36em までの幅、写真と動画は --img まで */
 .prose {
   margin-top: 48px;
   font-size: 16px;
   line-height: 1.9;
 }
-.prose > * {
-  max-width: 36em;
-}
 .prose > * + * {
   margin-top: 1.2em;
-}
-.prose > :is(p:has(> img), p:has(> video), video) {
-  max-width: none;
 }
 .prose > :is(p:has(> img), p:has(> video), video),
 .prose > :is(p:has(> img), p:has(> video), video) + * {
@@ -272,7 +267,6 @@ main {
 .prose img,
 .prose video {
   width: 100%;
-  max-width: var(--img);
   border-radius: var(--r);
 }
 .prose h2,
@@ -391,8 +385,16 @@ main {
   margin-top: 48px;
 }
 
-/* グラフ(論文から持ってきた SVG)は本文と同じ 36em まで。写真と同じ 832px に広げると文字が大きくなりすぎる。
+/* グラフ(論文から持ってきた SVG)は、写真と同じ幅の 16:9 の白い面の中に収める。グラフそのものを幅いっぱいに
+   広げると文字が大きくなりすぎる。白はグラフの地の色(地の3色の外)。スマホでは面を作らず幅いっぱいにする。
    開発時の src は /_image?href=...svg... なので末尾一致ではなく部分一致にする */
 .prose img[src*='.svg'] {
-  max-width: 36em;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #fff;
+}
+@media (max-width: 600px) {
+  .prose img[src*='.svg'] {
+    aspect-ratio: auto;
+  }
 }
