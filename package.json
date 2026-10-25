@@ -3,11 +3,15 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler pages deploy dist --project-name portfolio --branch main"
   },
   "type": "module",
   "dependencies": {
     "astro": "^7.4.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
 }

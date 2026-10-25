@@ -12,6 +12,16 @@ npm run dev      # http://localhost:4321
 npm run build    # dist/ に静的ファイル
 ```
 
+## 公開する
+
+Cloudflare Pages のプロジェクト `portfolio` に載せ、`portfolio.m-kw.net` を割り当てている。初回だけ `npx wrangler login` でブラウザから Cloudflare にログインする。
+
+```bash
+npm run deploy   # ビルドして dist/ を Pages に上げる
+```
+
+使わなくなった見た目は `archive/` に残してある。
+
 ## 作品を足す
 
 1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
