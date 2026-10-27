@@ -3,10 +3,11 @@ title: "duocad"
 year: "2026〜"
 summary: ""
 context: "個人制作"
+role: ""
 tools: ["Python", "OCCT", "Svelte", "three.js", "MCP"]
 cover: ./cover.webp
-coverAlt: "duocad の画面。36キーのキーボードのケースを開いている"
 coverFit: contain
+draft: false
 ---
 <figure class="slot wide"><b>01-select.png</b><span>面がいくつか選ばれて色が付いている作業中の画面。AI のパネルに依頼の文が見えるとよい</span></figure>
 

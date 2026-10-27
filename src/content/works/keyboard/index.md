@@ -2,10 +2,12 @@
 title: "自作キーボード"
 year: "2022〜2025"
 summary: ""
+context: ""
+role: ""
 tools: ["3Dプリンタ", "手はんだ", "レーザーカット"]
 cover: ./04-current-top.jpg
-coverAlt: "現行機を上から見たところ。透けるオレンジのアクリル板に、黒いキーが左右に分かれて縦にずれて並ぶ。下に親指で押すキーが左右2つずつ"
 coverFit: contain
+draft: false
 ---
 ## 初号機(2022)
 

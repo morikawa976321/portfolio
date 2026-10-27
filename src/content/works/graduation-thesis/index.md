@@ -3,9 +3,11 @@ title: "卒業論文"
 year: 2026
 summary: ""
 context: "研究"
+role: ""
 tools: ["Unity", "Meta Quest 3S", "Python"]
 cover: ./cover.png
-coverAlt: "予備実験の VR 空間。街に立つアバタの足元に、ピンクの円が描かれている"
+coverFit: cover
+draft: false
 ---
 ![予備実験の VR 空間。街に立つアバタの足元に、ピンクの円が描かれている](./cover.png)
 

@@ -2,10 +2,12 @@
 title: "ワットチェッカー"
 year: 2023
 summary: ""
+context: ""
+role: ""
 tools: ["Arduino", "電流トランス", "7セグメントディスプレイ"]
 cover: ./watt_checker_001.jpg
-coverAlt: "ワットチェッカー"
 coverFit: contain
+draft: false
 ---
 ![ワットチェッカー](./watt_checker_001.jpg)
 

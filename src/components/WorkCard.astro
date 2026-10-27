@@ -4,12 +4,13 @@ import type { CollectionEntry } from 'astro:content';
 
 // 作品1件: 4:3 に切った写真 → 題と年 → 一行。全体が作品ページへのリンク。ホバーは題の下線だけ
 // 写真が未記入なら無地の面、一行が未記入なら出さない
+// 写真の alt は空にする。すぐ下の題と同じカードの中なので、作品名を入れると読み上げが二重になる(本人「作品名二重読み上げ防止のためalt=""にしておいて。」2026-10-27)
 interface Props {
   work: CollectionEntry<'works'>;
 }
 
 const { work } = Astro.props;
-const { title, year, summary, cover, coverAlt, coverFit } = work.data;
+const { title, year, summary, cover, coverFit } = work.data;
 ---
 
 <li>
@@ -19,7 +20,7 @@ const { title, year, summary, cover, coverAlt, coverFit } = work.data;
         <Image
           class={coverFit === 'contain' ? 'pic fit' : 'pic'}
           src={cover}
-          alt={coverAlt ?? title}
+          alt=""
           widths={[480, 960]}
           sizes="(min-width: 1024px) 300px, (min-width: 601px) 46vw, 92vw"
         />

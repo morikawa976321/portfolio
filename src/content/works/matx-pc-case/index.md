@@ -3,8 +3,11 @@ title: "mATX PCケース"
 year: 2026
 summary: ""
 context: "個人制作"
+role: ""
+tools: []
 cover: ./05-v2-inside.jpg
-coverAlt: "側面を外したところ。上に電源、中ほどに CPU クーラーとグラフィックボード、下に2つのファン"
+coverFit: cover
+draft: false
 ---
 <div class="pair">
 

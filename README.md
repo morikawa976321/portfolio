@@ -30,20 +30,19 @@ npm run deploy   # ビルドして dist/ を Workers に上げる
 
 1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
 2. 動画は `node scripts/encode-video.mjs <元動画> public/media/<slug>/<名前>.mp4` で縮めてから置く
-3. `index.md` の形:
+3. `index.md` の形。値が無くても title のほかの8項目すべてを書き、文字の項目は `""` のままにする:
 
 ```markdown
 ---
 title: "作品名"
 year: 2026                       # 年をまたぐなら "2022〜2025"、続いているなら "2026〜"。月は書かない
-summary: "一覧カードに出す1行。何を作ったかを言い切る"
-context: "研究"                  # 任意: 研究 / 授業課題 / コンペ / 個人制作
-role: "実装と実験設計"            # 任意: 共同制作のとき自分の担当
-tools: ["Unity", "Fusion 360"]   # 任意
-cover: ./cover.jpg
-coverAlt: "代替テキスト"
-coverFit: contain                # 任意: 4:3 に切ると見切れるときだけ。切らずに全体を出し、余りは無地の面にする
-draft: true                      # 任意: true なら出さない
+summary: ""                      # 一覧カードに出す1行。何を作ったかを言い切る
+context: ""                      # 研究 / 授業課題 / コンペ / 個人制作
+role: ""                         # 共同制作のとき自分の担当
+tools: []                        # 例 ["Unity", "Fusion 360"]
+cover: ""                        # 例 ./cover.jpg。カードの写真の alt は空(下の題と二重に読まれないため)
+coverFit: cover                  # 4:3 に切ると見切れるときだけ contain。切らずに全体を出し、余りは無地の面にする
+draft: false                     # true なら出さない
 ---
 
 本文。画像は ![](./01.jpg)、リンクは [論文](https://...)、動画は次の1行。

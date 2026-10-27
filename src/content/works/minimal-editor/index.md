@@ -3,9 +3,11 @@ title: "minimal-editor"
 year: 2026
 summary: ""
 context: "個人制作"
+role: ""
+tools: []
 cover: ./cover.png
-coverAlt: "minimal-editor の画面。広い窓の中央に、幅の狭い筆記欄の本文だけが並ぶ"
 coverFit: contain
+draft: false
 ---
 ![minimal-editor の画面。広い窓の中央に、幅の狭い筆記欄の本文だけが並ぶ](./cover.png)
 

@@ -1,10 +1,13 @@
 ---
 title: "3Dプリント作品"
 year: 2025
+summary: ""
+context: ""
+role: ""
 tools: ["Fusion 360", "3Dプリンタ"]
-draft: true
 cover: ./monitor_attachment_001.jpg
-coverAlt: "モニタ壁掛けパーツ"
+coverFit: cover
+draft: true
 ---
 3Dプリンタにより作れるものが広がった。特に、ある程度厳密な寸法が求められるものには強い。
 
