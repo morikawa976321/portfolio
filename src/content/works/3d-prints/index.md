@@ -1,10 +1,10 @@
 ---
 title: "3Dプリント作品"
-year: 2025
-summary: ""
-context: ""
+year: "2021〜"
+summary: "自分で使うものを自分でデザインする"
+context: "個人制作"
 role: ""
-tools: ["Fusion 360", "3Dプリンタ"]
+tools: ["Fusion 360", "duocad", "3Dプリンター"]
 cover: ./monitor_attachment_001.jpg
 coverFit: cover
 ---

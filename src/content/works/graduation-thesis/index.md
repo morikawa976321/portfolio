@@ -1,7 +1,7 @@
 ---
 title: "卒業論文"
 year: 2026
-summary: ""
+summary: "可視化されたパーソナルスペースの大きさによって対人距離が変化することを調査した"
 context: "研究"
 role: ""
 tools: ["Unity", "Meta Quest 3S", "Python"]

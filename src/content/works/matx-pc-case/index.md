@@ -1,10 +1,10 @@
 ---
 title: "mATX PCケース"
-year: 2026
-summary: ""
+year: 2025
+summary: "ネジも接着剤もいらない、パネルをはめるだけで自重で安定するPCケース"
 context: "個人制作"
 role: ""
-tools: []
+tools: ["Fusion 360", "3Dプリンター"]
 cover: ./05-v2-inside.jpg
 coverFit: cover
 ---

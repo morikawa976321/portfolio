@@ -2,7 +2,7 @@
 
 index.md の frontmatter から移したコメント。サイトには出ない(読み込むのは index.md だけ)。
 
-- year: 仮
+- year, summary: 本人が書いた(2026-10-27)
 - coverFit: 4:3 に切ると表の端の列と画面の題が切れるので、余白を残して全体を出す(どれを余白にするかは AI が選んだ)
 - 資料: mf/monocore
 - cover はローカルの Supabase にダミーの家計(scripts/finance-dummy.sql。本人の実データではない架空の値)を入れて AI が撮った /finance(2026-10-25)

@@ -1,9 +1,9 @@
 ---
 title: "オノマトぺったん"
 year: 2025
-summary: ""
+summary: "「言葉に触れる」スタンプ"
 context: "コンペ(SNDC2025)・共同制作"
-role: "アイデア出し(2人で)・モデリング"
+role: "アイデア出し(共同)・モデリング/レンダリング"
 tools: ["Python", "OpenSCAD", "Fusion 360"]
 cover: ./presentation-sheet.jpg
 coverFit: contain

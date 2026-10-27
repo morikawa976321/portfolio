@@ -1,10 +1,10 @@
 ---
 title: "自作キーボード"
-year: "2022〜2025"
-summary: ""
-context: ""
+year: "2022〜"
+summary: "試作と改良を続ける、私のためのキーボード"
+context: "個人制作"
 role: ""
-tools: ["3Dプリンタ", "手はんだ", "レーザーカット"]
+tools: ["3Dプリンター", "電子工作", "レーザーカッター"]
 cover: ./04-current-top.jpg
 coverFit: contain
 ---

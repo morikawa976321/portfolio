@@ -1,7 +1,7 @@
 ---
 title: "duocad"
 year: "2026〜"
-summary: ""
+summary: "人とAIの協働を前提に設計された3D CAD"
 context: "個人制作"
 role: ""
 tools: ["Python", "OCCT", "Svelte", "three.js", "MCP"]

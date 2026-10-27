@@ -1,7 +1,7 @@
 ---
 title: "context-engine"
-year: 2026
-summary: ""
+year: "2026〜"
+summary: "AIによって自動で育つ私の文脈集"
 context: "個人制作"
 role: ""
 tools: []

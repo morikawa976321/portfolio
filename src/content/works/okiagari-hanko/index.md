@@ -1,9 +1,9 @@
 ---
 title: "起き上がりはんこ"
 year: 2026
-summary: ""
+summary: "使わない時間にフォーカスしたはんこ"
 context: "コンペ(SNDC2026)・共同制作"
-role: "アイデア出し(2人で)・モデリング・形を決めるツール"
+role: "アイデア出し(共同)・モデリング/レンダリング・形状探索ツール作成"
 tools: ["Python", "FastAPI", "React", "three.js", "opencascade.js"]
 cover: ./presentation-sheet.jpg
 coverFit: contain

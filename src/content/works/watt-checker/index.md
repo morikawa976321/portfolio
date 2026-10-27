@@ -1,10 +1,10 @@
 ---
 title: "ワットチェッカー"
 year: 2023
-summary: ""
-context: ""
+summary: "コンセントと家電の間に挟んで使う消費電力計"
+context: "個人制作"
 role: ""
-tools: ["Arduino", "電流トランス", "電源トランス"]
+tools: ["Arduino", "電子工作"]
 cover: ./watt_checker_001.jpg
 coverFit: contain
 ---
