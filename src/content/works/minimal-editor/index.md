@@ -1,7 +1,7 @@
 ---
 title: "minimal-editor"
 year: "2026〜"
-summary: "AIから離れて文章をかくための軽量なエディター"
+summary: "AIから離れて静かに文章を書くための軽量なエディター"
 context: "個人制作"
 role: ""
 tools: ["Rust", "Win32 API"]

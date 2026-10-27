@@ -1,7 +1,7 @@
 ---
 title: "monocore"
 year: "2026〜"
-summary: "スケジュール、タスク、資産といった日々変化する私の情報を一元管理するためのパーソナルツール"
+summary: "日々変化する私の情報を一元管理するためのパーソナルツール"
 context: "個人制作"
 role: ""
 tools: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"]
