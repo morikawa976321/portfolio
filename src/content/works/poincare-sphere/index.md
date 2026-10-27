@@ -1,5 +1,5 @@
 ---
-title: "poincareSphere(ポアンカレスフィア)"
+title: "poincareSphere"
 year: 2025
 summary: "双曲空間を、内側の住人の視点と外からの視点で同時に描くシミュレーター"
 context: "授業課題"
