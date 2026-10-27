@@ -4,7 +4,7 @@ year: 2023
 summary: ""
 context: ""
 role: ""
-tools: ["Arduino Nano", "電流トランス", "電源トランス", "7セグメントディスプレイ"]
+tools: ["Arduino", "電流トランス", "電源トランス"]
 cover: ./watt_checker_001.jpg
 coverFit: contain
 draft: false

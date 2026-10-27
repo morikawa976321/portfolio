@@ -4,7 +4,7 @@ year: 2026
 summary: ""
 context: "個人制作"
 role: ""
-tools: ["Python", "PyTorch", "ONNX Runtime", "zenz", "Mozc 辞書", "C#"]
+tools: ["Python", "zenz", "Mozc 辞書"]
 cover: ./cover.png
 coverFit: cover
 draft: false
