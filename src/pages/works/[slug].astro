@@ -8,13 +8,13 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
-const { title, year, period, context, role, tools, summary, links } = work.data;
+const { title, year, context, role, tools, summary } = work.data;
 const { Content } = await render(work);
 
-// 年(期間があれば期間)、文脈、担当、道具。無いものは出さない
+// 年、文脈、担当、道具。無いものは出さない
 const facts = (
   [
-    ['年', period ?? String(year)],
+    ['年', String(year)],
     ['文脈', context],
     ['担当', role],
     ['道具', tools.length ? tools.join(' / ') : undefined],
@@ -45,17 +45,6 @@ const facts = (
       <div class="prose">
         <Content />
       </div>
-      {
-        links.length > 0 && (
-          <p class="links">
-            {links.map((l) => (
-              <a class="link" href={l.url} rel="noopener">
-                {l.label} ↗
-              </a>
-            ))}
-          </p>
-        )
-      }
       <p class="nav end"><a class="link" href="/works/">← すべての作品</a></p>
     </article>
   </main>

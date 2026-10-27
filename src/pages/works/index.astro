@@ -2,11 +2,15 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import WorkCard from '../../components/WorkCard.astro';
+import { featured } from '../../data/featured';
 
-// 全作品を1つの格子に、year(最後に手を入れた年)の新しい順。年ごとの見出しは付けない:
-// 長く改良を続けている作品が多く、1つの年に置けないため(本人の指摘、2026-10-25)。期間はカードに period で出す
+// 全作品を1つの格子に、最後に手を入れた年の新しい順。年ごとの見出しは付けない:
+// 長く改良を続けている作品が多く、1つの年に置けないため(本人の指摘、2026-10-25)。期間はカードに year で出す
+// "2022〜2025" は 2025、続いている "2026〜" は今年として並べる。同じ年の中は featured.ts の順が先
+const lastYear = (y: number | string) => (typeof y === 'number' ? y : Number(y.split('〜')[1] || new Date().getFullYear()));
+const rank = (id: string) => (featured.includes(id) ? featured.indexOf(id) : featured.length);
 const works = (await getCollection('works', (w) => !w.data.draft)).sort(
-  (a, b) => b.data.year - a.data.year || (a.data.featured ?? 99) - (b.data.featured ?? 99),
+  (a, b) => lastYear(b.data.year) - lastYear(a.data.year) || rank(a.id) - rank(b.id),
 );
 ---
 

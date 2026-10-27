@@ -1,15 +1,11 @@
 ---
 title: "monocore"
-year: 2026 # 並びに使う年(最後に手を入れた年)。仮
+year: 2026
 summary: ""
 context: "個人制作"
 cover: ./cover.png
 coverAlt: "monocore の家計の見通しの画面。上に残高の推移と予測の折れ線、下に月末残高の表と計画の表"
-coverFit: contain # 4:3 に切ると表の端の列と画面の題が切れるので、余白を残して全体を出す(どれを余白にするかは AI が選んだ)
-# 写真を置いたら cover と coverAlt を書く。一覧カードの1行は summary、本文は下の --- の後に書く(README の「作品を足す」)
-# 資料: mf/monocore
-# cover はローカルの Supabase にダミーの家計(scripts/finance-dummy.sql。本人の実データではない架空の値)を入れて AI が撮った /finance(2026-10-25)
-# 01〜04 も同じローカルの Supabase に、予定・日のメモ・Inbox・止まっているプロジェクト・ニュース記事・レポートの架空の値を入れて撮った(2026-10-25。本人「スケジュールとニュースとレポートについてもダミーデータを作ってスクショを撮って」)。記事のソース名(Sample Tech 等)・見出し・サムネイルも架空。撮影後にローカルの DB は元の行に戻した
+coverFit: contain
 ---
 ![monocore の家計の見通しの画面。上に残高の推移と予測の折れ線、下に月末残高の表と計画の表](./cover.png)
 

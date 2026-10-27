@@ -3,6 +3,7 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // 1作品 = src/content/works/<slug>/ の1フォルダ。index.md と画像を同じ場所に置く。
+// 出典や値を決めた経緯は同じフォルダの notes.md に書く(読み込まないのでサイトには出ない)。トップに出す作品は src/data/featured.ts。
 // 動画は astro:assets が扱えないので public/media/<slug>/ に置き、本文から /media/... で参照する。
 const works = defineCollection({
   loader: glob({
@@ -13,15 +14,15 @@ const works = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      // 並びに使う年。長く改良を続けている作品は最後に手を入れた年にし、範囲は period に書く
-      year: z.number().int(),
+      // 年だけで書き、月は載せない。1年に収まるなら 2025、年をまたぐなら "2022〜2025"、続いているなら "2026〜"
+      // (本人「同じ年ならまとめてしまっていい。年をまたぐなら2025〜2026のように書いていい。月は載せない」2026-10-25)。
+      // 一覧の並びには最後の年を使う(続いているものは今年。src/pages/works/index.astro)
+      year: z.union([
+        z.number().int(),
+        z.string().regex(/^\d{4}〜(\d{4})?$/, '年をまたぐときは "2022〜2025" か "2026〜"(続いている)の形で、年だけで書く'),
+      ]),
       // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る。未記入なら出さない
       summary: z.string().optional(),
-      // 期間は年だけで書き、月は載せない。1年に収まるなら書かずに year を出す(本人「同じ年ならまとめてしまっていい。年をまたぐなら2025〜2026のように書いていい。月は載せない」2026-10-25)
-      period: z
-        .string()
-        .regex(/^\d{4}〜(\d{4})?$/, '期間は 2022〜2025 か 2026〜(続いている)の形で、年だけで書く')
-        .optional(), // あれば year の代わりに出す
       context: z.string().optional(), // 研究 / 授業課題 / コンペ / 個人制作 など
       role: z.string().optional(), // 共同制作のとき、自分が担った範囲
       tools: z.array(z.string()).default([]),
@@ -31,11 +32,6 @@ const works = defineCollection({
       // カードでの写真の収め方。cover は 4:3 に切る(既定)。contain は切らずに全体を出し、余った所を無地の面にする。
       // 切ると見切れたり情報が欠けたりする写真だけ contain にする(本人「4対3にトリミングする段階で変に見切れたり情報が欠落する場合は無理にトリミングせず余白を残しても良い」2026-10-25)
       coverFit: z.enum(['cover', 'contain']).default('cover'),
-      // cover がまだ無いときに、カードの写真の位置へ開発時だけ出す「入れる写真の指示」
-      coverHint: z.string().optional(),
-      // トップの「選抜作品」に出す順(小さいほど上)。無ければ作品一覧にだけ出る
-      featured: z.number().int().optional(),
-      links: z.array(z.object({ label: z.string(), url: z.url() })).default([]),
       draft: z.boolean().default(false),
     }),
 });

@@ -1,21 +1,13 @@
 ---
 title: "オノマトぺったん"
-year: 2025 # 並びに使う年(最後に手を入れた年)
-# 制作は 2025-05〜2025-08。1年に収まるので period は書かず year だけ出す(本人「同じ年ならまとめてしまっていい。年をまたぐなら2025〜2026のように書いていい。月は載せない」2026-10-25)
+year: 2025
 summary: ""
 context: "コンペ(SNDC2025)・共同制作"
 role: "アイデア出し(2人で)・モデリング"
 tools: ["Python", "OpenSCAD", "Fusion 360"]
-featured: 2
-cover: ./presentation-sheet.jpg # 本人の指定(「SNDC2つについてはプレゼンシートをカバーに使う」2026-10-25)。本文の最後にも同じ画像がある
+cover: ./presentation-sheet.jpg
 coverAlt: "オノマトぺったんのプレゼンシート。5つのスタンプと印影の下に「さわさわ、にぎにぎ、ぎゅっ、ぺったん。」とある"
-coverFit: contain # 4:3 に切るとシートの端の文字が切れるので、余白を残して全体を出す(どれを余白にするかは AI が選んだ)
-# 写真を置いたら cover と coverAlt を書き、本文の <figure class="slot"> を ![](./ファイル名) に置き換える
-# 写真の候補(既存のファイル。mf/others/sndc2025/): 01=end_result/rendering_images/mat-white_paper_vivid.png、02=end_result/rendering_images/texture_solid.PNG
-# 本人「オノマトペったんもSNDC2026も共同制作。アイデア出しは二人、モデリングやツールや私が作り、プレゼンシートは三橋が作った。適宜二人で意見交換をし意思決定をしていった。」(2026-10-25)。共同制作者の名前はページに出していない
-# 公開しないもの: 請求書・契約書、事務局の連絡先
-# presentation-sheet.jpg は PDF の中の CMYK 画像を、元の RGB のレンダリング(end_result/rendering_images/rendering.png)に差し替えてから描画した。CMYK のまま描画すると背景のグレーが茶色に転ぶ(本人「色味が全く変わってしまっている」2026-10-25)
-# 本文の事実の出典: end_result/onomatopettan_presentationsheet.pdf、end_result/stamp_*.py、mockup_production/
+coverFit: contain
 ---
 <figure class="slot wide"><b>01-render.png</b><span>5つのスタンプと、その印影を白い紙の上に並べた画像</span></figure>
 
