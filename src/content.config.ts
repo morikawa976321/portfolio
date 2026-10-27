@@ -25,7 +25,9 @@ const works = defineCollection({
       ]),
       // 一覧カードの1行。本文の言い換えではなく、何を作ったかを言い切る。未記入なら出さない
       summary: z.string().optional(),
-      context: z.string().optional(), // 研究 / 授業課題 / コンペ / 個人制作 など
+      // 研究 / 授業課題 / コンペ / 個人制作 など。場(コンペ等)と人数(個人・共同)の値が混ざっているのは意図どおりで、軸を分けない
+      // (本人「いまのままでいい。混在していていいと思う。」2026-10-27)
+      context: z.string().optional(),
       role: z.string().optional(), // 共同制作のとき、自分が担った範囲
       tools: z.array(z.string()).default([]),
       // トップと一覧のカードにだけ出す写真。作品ページには出さない。写真がまだ無い作品は "" にし、カードには無地の面を出す
