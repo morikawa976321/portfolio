@@ -7,7 +7,6 @@ role: ""
 tools: []
 cover: ./cover.png
 coverFit: contain
-draft: false
 ---
 ![minimal-editor の画面。広い窓の中央に、幅の狭い筆記欄の本文だけが並ぶ](./cover.png)
 

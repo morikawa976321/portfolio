@@ -3,8 +3,9 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // 1作品 = src/content/works/<slug>/ の1フォルダ。index.md と画像を同じ場所に置く。
-// index.md には値が無くてもtitle 以外の8項目をすべて書く(本人「使っていなくてもすべてのindex.mdに8つすべてをいれて。""にしておけばいい」2026-10-27)。
-// 文字の項目は ""、tools は []、coverFit と draft は既定値(cover / false)にする。
+// index.md には値が無くてもtitle 以外の7項目をすべて書く(本人「使っていなくてもすべてのindex.mdに8つすべてをいれて。""にしておけばいい」2026-10-27。そのあと draft を廃止して7つになった)。
+// 文字の項目は ""、tools は []、coverFit は既定値(cover)にする。
+// 作品はすべて出す。出さない作品はフォルダごと消し、戻すときは git 履歴から(本人「draftを廃止して。全部出す。」2026-10-27)。
 // 出典や値を決めた経緯は同じフォルダの notes.md に書く(読み込まないのでサイトには出ない)。トップに出す作品は src/data/featured.ts。
 // 動画は astro:assets が扱えないので public/media/<slug>/ に置き、本文から /media/... で参照する。
 const works = defineCollection({
@@ -36,7 +37,6 @@ const works = defineCollection({
       // カードでの写真の収め方。cover は 4:3 に切る(既定)。contain は切らずに全体を出し、余った所を無地の面にする。
       // 切ると見切れたり情報が欠けたりする写真だけ contain にする(本人「4対3にトリミングする段階で変に見切れたり情報が欠落する場合は無理にトリミングせず余白を残しても良い」2026-10-25)
       coverFit: z.enum(['cover', 'contain']).default('cover'),
-      draft: z.boolean().default(false),
     }),
 });
 

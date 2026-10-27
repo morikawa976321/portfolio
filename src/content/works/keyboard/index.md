@@ -7,7 +7,6 @@ role: ""
 tools: ["3Dプリンタ", "手はんだ", "レーザーカット"]
 cover: ./04-current-top.jpg
 coverFit: contain
-draft: false
 ---
 ## 初号機(2022)
 

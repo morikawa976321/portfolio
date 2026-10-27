@@ -7,7 +7,6 @@ role: ""
 tools: ["赤外線カメラ", "再帰性反射材"]
 cover: ./afterimage_001.jpg
 coverFit: contain
-draft: false
 ---
 ![輪郭抽出と残像](./afterimage_001.jpg)
 

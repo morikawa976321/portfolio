@@ -7,7 +7,6 @@ role: ""
 tools: ["Fusion 360", "3Dプリンタ"]
 cover: ./monitor_attachment_001.jpg
 coverFit: cover
-draft: true
 ---
 3Dプリンタにより作れるものが広がった。特に、ある程度厳密な寸法が求められるものには強い。
 

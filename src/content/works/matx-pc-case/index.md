@@ -7,7 +7,6 @@ role: ""
 tools: []
 cover: ./05-v2-inside.jpg
 coverFit: cover
-draft: false
 ---
 <div class="pair">
 

@@ -7,10 +7,10 @@ import { profile, career, research, awards, visible } from '../data/profile';
 import { featured as featuredIds } from '../data/featured';
 
 // 上から 所属 → 一行 → 作品(src/data/featured.ts の順)→ 経歴 → 研究・コンペ(名前と連絡先は Base)
-const works = await getCollection('works', (w) => !w.data.draft);
+const works = await getCollection('works');
 const featured = featuredIds.map((id) => {
   const w = works.find((w) => w.id === id);
-  if (!w) throw new Error(`featured.ts の ${id} が src/content/works に無いか、draft になっている`);
+  if (!w) throw new Error(`featured.ts の ${id} が src/content/works に無い`);
   return w;
 });
 

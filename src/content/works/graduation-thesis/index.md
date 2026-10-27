@@ -7,7 +7,6 @@ role: ""
 tools: ["Unity", "Meta Quest 3S", "Python"]
 cover: ./cover.png
 coverFit: cover
-draft: false
 ---
 ![予備実験の VR 空間。街に立つアバタの足元に、ピンクの円が描かれている](./cover.png)
 

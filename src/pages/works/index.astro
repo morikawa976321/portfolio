@@ -9,7 +9,7 @@ import { featured } from '../../data/featured';
 // "2022〜2025" は 2025、続いている "2026〜" は今年として並べる。同じ年の中は featured.ts の順が先
 const lastYear = (y: number | string) => (typeof y === 'number' ? y : Number(y.split('〜')[1] || new Date().getFullYear()));
 const rank = (id: string) => (featured.includes(id) ? featured.indexOf(id) : featured.length);
-const works = (await getCollection('works', (w) => !w.data.draft)).sort(
+const works = (await getCollection('works')).sort(
   (a, b) => lastYear(b.data.year) - lastYear(a.data.year) || rank(a.id) - rank(b.id),
 );
 ---

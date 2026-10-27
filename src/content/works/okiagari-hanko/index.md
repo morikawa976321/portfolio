@@ -7,7 +7,6 @@ role: "アイデア出し(2人で)・モデリング・形を決めるツール"
 tools: ["Python", "FastAPI", "React", "three.js", "opencascade.js"]
 cover: ./presentation-sheet.jpg
 coverFit: contain
-draft: false
 ---
 <figure class="slot"><b>01-open.png</b><span>ケースを上下に分け、中に立っているはんこが見える分解図</span></figure>
 

@@ -7,7 +7,6 @@ role: ""
 tools: []
 cover: ./cover.png
 coverFit: contain
-draft: false
 ---
 ![monocore の家計の見通しの画面。上に残高の推移と予測の折れ線、下に月末残高の表と計画の表](./cover.png)
 

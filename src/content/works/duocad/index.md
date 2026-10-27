@@ -7,7 +7,6 @@ role: ""
 tools: ["Python", "OCCT", "Svelte", "three.js", "MCP"]
 cover: ./cover.webp
 coverFit: contain
-draft: false
 ---
 <figure class="slot wide"><b>01-select.png</b><span>面がいくつか選ばれて色が付いている作業中の画面。AI のパネルに依頼の文が見えるとよい</span></figure>
 

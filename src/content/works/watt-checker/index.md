@@ -7,7 +7,6 @@ role: ""
 tools: ["Arduino", "電流トランス", "電源トランス"]
 cover: ./watt_checker_001.jpg
 coverFit: contain
-draft: false
 ---
 ![ワットチェッカー](./watt_checker_001.jpg)
 
