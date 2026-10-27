@@ -1,7 +1,7 @@
 ---
 title: "romaji-slm"
 year: "2026〜"
-summary: "文脈を考慮して自動で変換してくれる日本語IME"
+summary: "文脈を考慮して自動で変換する日本語IME"
 context: "個人制作"
 role: ""
 tools: ["Python", "zenz", "Mozc 辞書"]
