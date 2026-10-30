@@ -22,6 +22,7 @@ export const profile = {
 };
 
 // 学歴・職歴。新しい順
+// funomi(自作プロダクト販売・CAD受注)は載せない。サイトが未公開で商品も1つだけのため(本人「いますぐはのせられない」2026-10-30)
 export const career: Item[] = [
   {
     period: '2026.04〜',
