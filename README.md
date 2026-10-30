@@ -1,78 +1,68 @@
 # portfolio
 
-森川太一のポートフォリオサイト。旧サイト `mf/others/バイト関連/portfolioForPartTimeJob`(2025-07、アルバイト応募用)の作り直しで、読み手は就活の採用担当・面接官。構成の判断は [docs/structure.md](docs/structure.md)、見た目の判断は [docs/visual.md](docs/visual.md)。
+森川太一の作品ポートフォリオサイトのソースコードです。
 
-**docs/ は判断とその理由・経緯の記録で、今の状態の記録ではない。** 掲載作品・トップの選抜・一行や本文の記入状況・経歴の値は docs に書かず、`src/content/works/`・`src/data/featured.ts`・`src/data/profile.ts` を見る。docs の記述が src と食い違ったら src が正(2026-10-30 本人「以後同様のミスがないようにdocsは更新するか、削除するか、過去のものであることを明記して」。AI が docs/structure.md の古い記述を読んで、記入済みの一行を未記入と答えたのを受けて)。
+**公開中のサイト: https://portfolio.m-kw.net**
 
-Astro(静的出力)のみに依存。スタイルは素の CSS。
+![トップページ](docs/images/readme-top.jpg)
+
+## 特徴
+
+- フレームワークは [Astro](https://astro.build/)（静的出力）だけ。スタイルは素の CSS
+- 作品1件が1フォルダ（`src/content/works/<slug>/`）。Markdown と画像を置けば一覧と作品ページができる
+- 経歴は `src/data/profile.ts`、トップに出す作品と順番は `src/data/featured.ts` にまとめている
+- Cloudflare Workers の静的アセットとして配信
 
 ## 動かす
+
+Node.js が必要です。
 
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # dist/ に静的ファイル
+npm run build    # dist/ に静的ファイルを出力
 ```
 
-## 公開する
+## 構成
 
-Cloudflare Workers の静的アセット(`wrangler.jsonc`、名前 `portfolio`)に載せ、`portfolio.m-kw.net` を custom domain で割り当てている。初回だけ `npx wrangler login` でブラウザから Cloudflare にログインする。
-
-```bash
-npm run deploy   # ビルドして dist/ を Workers に上げる
 ```
-
-使わなくなった見た目は `archive/` に残してある。
+src/
+  content/works/<slug>/   作品ごとの index.md と画像
+  data/profile.ts         経歴
+  data/featured.ts        トップに出す作品
+public/media/             動画など
+scripts/                  動画の圧縮などの補助スクリプト
+docs/                     構成・見た目の判断の記録
+```
 
 ## 作品を足す
 
-載せる作品は [docs/candidate-works.md](docs/candidate-works.md) 冒頭の本人の選定に従う。選定に無い作品はフォルダを置かない(本人「のせない作品はcontent/worksから削除していい」2026-10-25)。写真(`cover`)・一行(`summary`)・本文は未記入でも出せる(写真が無いカードには無地の面が出る)。元の資料の場所や値を決めた経緯は、各フォルダの `notes.md` にある(サイトは `index.md` しか読まないので、出典のメモはこちらに書き、frontmatter にはコメントを書かない)。
-
-カバー(`cover`)はトップと一覧のカードにだけ出し、作品ページには出さない(本人「カバー画像がトップと作品ページで重複している。トップ画像が作品ページにまだ出ている。」2026-10-25)。カバーと本文の写真は互いに独立に選ぶ(本人「カバーと本文は独立させて。」2026-10-25。AI がカバーと同じ写真を本文から抜いたのに対して)。カバーの写真は、どの作品でも本文のどこかに置く(本人「すべての作品についてカバー画像は本文にも含めてほしい」2026-10-25)。動画のコマをカバーにしたときは、同じコマを動画の `poster` にする(romaji-slm)。
-
-1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
-2. 動画は `node scripts/encode-video.mjs <元動画> public/media/<slug>/<名前>.mp4` で縮めてから置く
-3. `index.md` の形。値が無くても title のほかの7項目すべてを書き、文字の項目は `""` のままにする:
+`src/content/works/<slug>/index.md` を作ります（slug は半角英小文字とハイフン）。
 
 ```markdown
 ---
 title: "作品名"
-year: 2026                       # 年をまたぐなら "2022〜2025"、続いているなら "2026〜"。月は書かない
-summary: ""                      # 一覧カードに出す1行。何を作ったかを言い切る
-context: ""                      # 研究 / 授業課題 / コンペ / 個人制作
-role: ""                         # 共同制作のとき自分の担当
-tools: []                        # 例 ["Unity", "Fusion 360"]
-cover: ""                        # 例 ./cover.jpg。カードの写真の alt は空(下の題と二重に読まれないため)
-coverFit: cover                  # 4:3 に切ると見切れるときだけ contain。切らずに全体を出し、余りは無地の面にする
+year: 2026
+summary: "一覧カードに出す1行"
+context: "個人制作"
+role: ""
+tools: ["Python"]
+cover: ./cover.jpg
+coverFit: cover
 ---
 
-本文。画像は ![](./01.jpg)、リンクは [論文](https://...)、動画は次の1行。
-
-<video src="/media/<slug>/demo.mp4" controls preload="metadata" playsinline></video>
+本文。画像は ![](./01.jpg)
 ```
 
-写真がまだ無い場所には枠を置ける。開発サーバーでだけ破線の枠として見え、本番のビルドでは HTML から消える(`astro.config.mjs` の strip-slots)。写真を置いたら `![](./ファイル名)` に置き換える。
+細かい書式と編集の手順は [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) にあります。
 
-```html
-<figure class="slot wide"><b>01-room.png</b><span>入れる写真の指示</span></figure>
+## 公開する
+
+```bash
+npx wrangler login   # 初回だけ
+npm run deploy       # ビルドして Cloudflare Workers に上げる
 ```
 
-`wide` を付けると 16:9、付けなければ 4:3 の枠になる。
+## ライセンス
 
-トップに出す作品とその順は `src/data/featured.ts` の並び。
-
-## 文章を書く
-
-一行(`summary`)と本文の文章は本人が書く。どこまで書いたかは各 `index.md` を見る。
-
-1. VS Code でこのフォルダを開き、端末で `npm run dev` を動かす
-2. ブラウザで `http://localhost:4321/works/<slug>/` を開き、VS Code と横に並べる
-3. `src/content/works/<slug>/index.md` を書いて保存すると、ブラウザの表示がすぐ変わる
-   - 一行は frontmatter の `summary: ""` の `""` の中。VS Code の全体検索(Ctrl+Shift+F)で `summary:` を探すと、全作品の一行が1つの欄に並ぶ
-   - 本文は2つ目の `---` の後。写真(`![](...)`)や動画の間に段落を書くと、その位置に出る。`<div class="pair">`〜`</div>` は2枚を横に並べる枠なので、その中には書かない
-   - 見出しは `## 見出し`
-4. 公開は `npm run deploy`
-
-## 経歴を直す
-
-`src/data/profile.ts` が正本。`confirmed: false` の項目は開発サーバーでだけ破線つきで見え、本番ビルドには出ない。本人が確認したら `true` にする。
+[MIT](LICENSE)
