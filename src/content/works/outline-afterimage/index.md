@@ -10,4 +10,4 @@ coverFit: contain
 ---
 再帰性反射材を背景にして赤外線カメラで人を撮り、輪郭だけを白い線で取り出す。そこに過去のフレームの輪郭を重ねて残像を付ける。重ねるフレームの選び方を変えると、同じ動きから違う映像ができる。
 
-<video src="/media/outline-afterimage/afterimage_002.mp4" controls preload="metadata" playsinline></video>
+<video src="/media/outline-afterimage/afterimage_002.mp4" poster="/media/outline-afterimage/afterimage_002-poster.jpg" controls preload="metadata" playsinline></video>

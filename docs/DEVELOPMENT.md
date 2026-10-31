@@ -42,6 +42,7 @@ npm run deploy   # ビルドして dist/ を Workers に上げる
 
 1. `src/content/works/<slug>/` を作り、`index.md` と画像を入れる(slug は ASCII kebab-case)
 2. 動画は `node scripts/encode-video.mjs <元動画> public/media/<slug>/<名前>.mp4` で縮めてから置く
+   - 再生前に出す静止画(`poster`)を同じ場所に `<名前>-poster.jpg` として置く(`ffmpeg -i <名前>.mp4 -ss <秒> -frames:v 1 -q:v 3 <名前>-poster.jpg`)。無いとブラウザは最初のコマを出し、iOS Safari では何も出ないことがある。コマは中身が一目で分かるところを選ぶ(本人「いい感じのところをposterに設定しておいて」2026-11-01。3本のコマは AI が選んだ)
 3. `index.md` の形。値が無くても title のほかの7項目すべてを書き、文字の項目は `""` のままにする:
 
 ```markdown
@@ -58,7 +59,7 @@ coverFit: cover                  # 4:3 に切ると見切れるときだけ cont
 
 本文。画像は ![](./01.jpg)、リンクは [論文](https://...)、動画は次の1行。
 
-<video src="/media/<slug>/demo.mp4" controls preload="metadata" playsinline></video>
+<video src="/media/<slug>/demo.mp4" poster="/media/<slug>/demo-poster.jpg" controls preload="metadata" playsinline></video>
 ```
 
 写真がまだ無い場所には枠を置ける。開発サーバーでだけ破線の枠として見え、本番のビルドでは HTML から消える(`astro.config.mjs` の strip-slots)。写真を置いたら `![](./ファイル名)` に置き換える。

@@ -35,6 +35,6 @@ Fusion 360 上で最適なパーツ配置を検討しつつ設計した。手元
 </div>
 
 <div class="pair">
-<video src="/media/matx-pc-case/09-v2-top-panel.mp4" controls preload="metadata" playsinline aria-label="上面のパネルをはめるところの動画"></video>
-<video src="/media/matx-pc-case/10-v2-side-panel.mp4" controls preload="metadata" playsinline aria-label="側面のパネルを付けるところの動画"></video>
+<video src="/media/matx-pc-case/09-v2-top-panel.mp4" poster="/media/matx-pc-case/09-v2-top-panel-poster.jpg" controls preload="metadata" playsinline aria-label="上面のパネルをはめるところの動画"></video>
+<video src="/media/matx-pc-case/10-v2-side-panel.mp4" poster="/media/matx-pc-case/10-v2-side-panel-poster.jpg" controls preload="metadata" playsinline aria-label="側面のパネルを付けるところの動画"></video>
 </div>
