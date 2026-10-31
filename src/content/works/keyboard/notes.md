@@ -18,3 +18,4 @@ index.md の frontmatter から移したコメント。サイトには出ない(
   - 36キーの段落は `mf/others/electronics/keyboard/keymap_36_spec.md`・`keymap_36_design_notes.md`。試作がどこまで進んだかは書いていない
   - keymap-lab の説明はそのリポジトリ(`cs/archives/keymap-lab`、GitHub の morikawa976321/keymap-lab、公開)の README
   - 見出し「次の36キー」は AI が足した
+- 06-keymap-lab.jpg は keymap-lab リポジトリの `docs/images/readme-screen.jpg` をそのまま写した(1600×1000、EXIF なし)。本文の末尾に置いたのは本人の指定(「keymap-labの画像も末尾に乗せて」2026-10-31)
