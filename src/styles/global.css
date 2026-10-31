@@ -250,8 +250,8 @@ main {
 .prose > * + * {
   margin-top: 1.2em;
 }
-.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic),
-.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic) + * {
+.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic, .trio),
+.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic, .trio) + * {
   margin-top: 48px;
 }
 .prose img,
@@ -293,6 +293,27 @@ main {
 }
 .prose > .mosaic > :last-child {
   grid-column: 3 / 5;
+}
+/* 3枚を1つの塊にする(<div class="trio">)。1枚目を左に上下いっぱい、右に2枚を上下に重ねる。
+   段の高さは右の2枚が決め、1枚目はその高さに合わせて少し切る。左右を 3:4 にしたのは、縦長(9:16)1枚と横長(約3:2)2枚の高さがほぼそろう比だから
+   (本人「左に1枚、右に上下で2枚の1ブロックにして」2026-10-31。ワットチェッカー) */
+.prose > .trio {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
+  gap: 16px;
+}
+.prose > .trio > * {
+  margin: 0;
+}
+.prose > .trio > :first-child {
+  grid-row: 1 / 3;
+  position: relative;
+}
+.prose > .trio > :first-child img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
 }
 .prose h2,
 .prose h3 {
