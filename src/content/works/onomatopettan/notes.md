@@ -10,3 +10,6 @@ index.md の frontmatter から移したコメント。サイトには出ない(
 - 公開しないもの: 請求書・契約書、事務局の連絡先
 - presentation-sheet.jpg は PDF の中の CMYK 画像を、元の RGB のレンダリング(end_result/rendering_images/rendering.png)に差し替えてから描画した。CMYK のまま描画すると背景のグレーが茶色に転ぶ(本人「色味が全く変わってしまっている」2026-10-25)
 - 本文の事実の出典: end_result/onomatopettan_presentationsheet.pdf、end_result/stamp_*.py、mockup_production/
+- 本文の使い方(見る・触る・押す・読む)の出典: mockup_production/documents/提出物/追加資料.pdf。手で感じたものと読む言葉が「つながる」の根拠は experiments_and_drafts/ideas.txt の「印影と音や感触を対応させる（五感がつながる（クロスモーダル））」。本文の言い回しは AI が書いた(2026-10-31)
+- 凹凸の作り方の出典: end_result/stamp_*.py(ぶつぶつ=半径1.4mmの球420点、もこもこ=半径8〜10mmの球150点、とげとげ=法線向きの円錐、ごつごつ=球面上20点の凸包、ぎざぎざ=ぎざぎざの断面を rotate_extrude)
+- 模型の作り方(3Dプリントかどうか等)は確認していないので本文に書いていない
