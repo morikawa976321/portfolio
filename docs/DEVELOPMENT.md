@@ -16,6 +16,14 @@ npm run dev      # http://localhost:4321
 npm run build    # dist/ に静的ファイル
 ```
 
+表示の確認には Playwright(Chromium)を使う。初回だけ `npx playwright install chromium`。`npm run dev` を動かしたまま、次でスクリーンショットを撮る(既定の幅は 1280 と 390。横にはみ出したページは標準出力に出る)。
+
+```bash
+node scripts/shot.mjs <出力フォルダ> / /works/ /works/duocad/ --width=1280,390 --full
+```
+
+Git Bash から `/` で始まるパスを渡すと Windows のパスに書き換えられるので、PowerShell から動かす。
+
 ## 公開する
 
 Cloudflare Workers の静的アセット(`wrangler.jsonc`、名前 `portfolio`)に載せ、`portfolio.m-kw.net` を custom domain で割り当てている。初回だけ `npx wrangler login` でブラウザから Cloudflare にログインする。
