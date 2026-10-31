@@ -250,8 +250,8 @@ main {
 .prose > * + * {
   margin-top: 1.2em;
 }
-.prose > :is(p:has(> img), p:has(> video), video, .pair),
-.prose > :is(p:has(> img), p:has(> video), video, .pair) + * {
+.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic),
+.prose > :is(p:has(> img), p:has(> video), video, .pair, .mosaic) + * {
   margin-top: 48px;
 }
 .prose img,
@@ -269,6 +269,30 @@ main {
 }
 .prose > .pair > * {
   margin: 0;
+}
+/* 4枚を1つの塊にする(<div class="mosaic">)。1枚目を左半分に上下いっぱい、右半分は上に2枚・下に1枚。
+   段の高さは右の3枚が決め、1枚目はその高さに合わせて左右を少し切る(本人「最初の4枚を一ブロックにまとめて」2026-10-31。mATX PCケース) */
+.prose > .mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.prose > .mosaic > * {
+  margin: 0;
+}
+.prose > .mosaic > :first-child {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  position: relative;
+}
+.prose > .mosaic > :first-child img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.prose > .mosaic > :last-child {
+  grid-column: 3 / 5;
 }
 .prose h2,
 .prose h3 {
