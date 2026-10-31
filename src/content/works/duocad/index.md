@@ -8,10 +8,11 @@ tools: ["Python", "OCCT", "Svelte", "three.js", "MCP"]
 cover: ./cover.webp
 coverFit: contain
 ---
-<figure class="slot wide"><b>01-select.png</b><span>面がいくつか選ばれて色が付いている作業中の画面。AI のパネルに依頼の文が見えるとよい</span></figure>
+3DモデリングにAIを統合する流れは加速しているが、既存の多くの3DCADは、反復作業まですべてユーザーがやるか、すべてをAIに任せるかのいずれかに偏っている。モデリング作業で優先してAIに投げるべきは「何十本もある辺をクリックしてひとつずつ選択する」といった操作のはずである。duocadでは、「辺を一つ選択する」といった細かい粒度の操作まで、すべての操作をユーザーもAIも行える。これによりユーザーは、
+1. AIに「上向きの面を構成する辺をすべて選択して」という指示を行う。
+2. AIの選択を見て過不足があれば手動で修正する。
+3. 操作を実行する。
+
+といった互いの得意な部分を生かした交互操作が可能になる。
 
 ![duocad の画面。36キーのキーボードのケースを開いている](./cover.webp)
-
-<figure class="slot"><b>02-models.jpg</b><span>duocad で作ったモデル(歯ブラシ立て・マイクスタンド・キーボードのケース)の実物か画面</span></figure>
-
-<figure class="slot wide"><b>03-topopt.png</b><span>形状最適化の結果(材料を削って骨組みになった形)</span></figure>
