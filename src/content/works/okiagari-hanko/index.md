@@ -8,6 +8,10 @@ tools: ["Python", "FastAPI", "React", "three.js", "opencascade.js"]
 cover: ./presentation-sheet.jpg
 coverFit: contain
 ---
+![起きあがりはんこのプレゼンシート。赤いケースとはんこの画像に、コンセプトの文が添えてある](./presentation-sheet.jpg)
+
+プレゼンシートは共同制作者が作った。
+
 はんこは、1年の大半を引き出しの奥で過ごす。使うのは書類に押すほんの一瞬で、それ以外の時間は誰の目にも触れない。この作品では使わない時間のほうに目を向け、しまっておくのではなく、机や棚に飾っておけるはんこを目指した。
 
 ケースは、はんこを収めると起き上がりこぼしになる。はんこがおもりになって重心が下がるので、倒しても元の姿勢に戻り、使わない間もゆらゆらと揺れている。使うときはケースを上下に分けて、はんこを取り出す。
@@ -21,7 +25,3 @@ coverFit: contain
 ![stamp-generator の画面。3つの寸法の入力と、はんこの 3D 表示と断面図](./04-stamp-generator.png)
 
 ツールのソースコード: [roly-poly-toy-generator](https://github.com/morikawa976321/roly-poly-toy-generator)・[stamp-generator](https://github.com/morikawa976321/stamp-generator)
-
-プレゼンシートは共同制作者が作った。
-
-![起きあがりはんこのプレゼンシート。赤いケースとはんこの画像に、コンセプトの文が添えてある](./presentation-sheet.jpg)
