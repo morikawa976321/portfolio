@@ -8,6 +8,8 @@ tools: ["Fusion 360", "3Dプリンター"]
 cover: ./05-v2-inside.jpg
 coverFit: cover
 ---
+![側面を外したところ。上に電源、中ほどに CPU クーラーとグラフィックボード、下に2つのファン](./05-v2-inside.jpg)
+
 <div class="pair">
 
 ![ケースを後ろから見たところ。黒い細かな穴の板に、電源・マザーボード・グラフィックボードの端子とファン](./03-v2-back.jpg)
@@ -25,8 +27,6 @@ coverFit: cover
 ![CAD モデルに、電源・CPU クーラー・グラフィックボード・ファンの外形を入れたところ](./08-v2-cad-parts.png)
 
 </div>
-
-![側面を外したところ。上に電源、中ほどに CPU クーラーとグラフィックボード、下に2つのファン](./05-v2-inside.jpg)
 
 <div class="pair">
 <video src="/media/matx-pc-case/09-v2-top-panel.mp4" controls preload="metadata" playsinline aria-label="上面のパネルをはめるところの動画"></video>
