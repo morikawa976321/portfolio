@@ -50,7 +50,12 @@ export const research: Item[] = [
 
 // 受賞・選出。新しい順
 export const awards: Item[] = [
-  { period: '2025', text: 'SNDC2025 一次審査通過(オノマトぺったん)', confirmed: true },
+  // コンペ名は略称(SNDC2025)ではなく作品ページの本文と同じ正式名で書く(本人、2026-11-03)
+  {
+    period: '2025',
+    text: 'SHACHIHATA New Product Design Competition 2025 一次審査通過(オノマトぺったん)',
+    confirmed: true,
+  },
 ];
 
 // 資格。新しい順。学歴・職歴ではないので経歴には入れない(本人「経歴じゃなくない？研究コンペの方がまだ近い」2026-11-03)
