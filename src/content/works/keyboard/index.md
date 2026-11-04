@@ -31,5 +31,3 @@ coverFit: contain
 
 
 ![現行機を裏から見たところ。透けるアクリル板越しに、スイッチの裏をつなぐ銅線と中央の RP2040-Zero が見える](./05-current-bottom.jpg)
-
-キー配列を考えるツールのソースコード: [keymap-lab](https://github.com/morikawa976321/keymap-lab)
