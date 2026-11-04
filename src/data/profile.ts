@@ -19,9 +19,11 @@ export const profile = {
     text: '自分で使う道具を、ハードもソフトも自分で設計して作る。\n作って、使って、直す反復のなかで洗練されていく。',
     confirmed: true,
   },
-  // GitHub(morikawa976321)は公開リポジトリが0件で、リンク先が空のプロフィールになるので外している。
-  // 公開リポジトリができたら { label: 'GitHub', url: 'https://github.com/morikawa976321' } を戻す
-  links: [] as Link[],
+  // 連絡先の「リンク」の行に並ぶ順(本人がURLを示した、2026-11-04)
+  links: [
+    { label: 'GitHub', url: 'https://github.com/morikawa976321' },
+    { label: 'X', url: 'https://x.com/112358tm' },
+  ] as Link[],
   email: 'taichi.morikawa.contact@gmail.com' as string | null,
   // 検索エンジンに出すか(フォーム9)。出す(本人「出す」2026-11-04)。false にすると全ページに noindex が付く(Base.astro)
   indexable: true,

@@ -368,15 +368,10 @@ main {
 .contact {
   margin-top: 128px;
 }
-.mail {
-  font-size: 17px;
-  line-height: 1.5;
-}
 .ext {
   display: flex;
-  gap: 24px;
-  margin-top: 8px;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 4px 24px;
 }
 
 /* 開発時だけ: 未確認の仮の値(.pending)は破線で示す。本番ビルドには出ない(src/data/profile.ts の visible) */

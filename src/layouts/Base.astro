@@ -64,19 +64,28 @@ const ogImage = new URL('/og.jpg', Astro.site).href;
         hasContact && (
           <footer class="contact">
             <h2 class="sec-t">連絡先</h2>
-            {profile.email && (
-              // メールはリンクにせず文字だけで出す(本人、2026-10-25)
-              <p class="mail">{profile.email}</p>
-            )}
-            {profile.links.length > 0 && (
-              <p class="ext">
-                {profile.links.map((l) => (
-                  <a class="link" href={l.url} rel="noopener">
-                    {l.label} ↗
-                  </a>
-                ))}
-              </p>
-            )}
+            {/* 経歴と同じ左右の組みで、行は メール / リンク の2つ。AI が並べた10案から本人が選んだ(「Gで入れて」2026-11-04) */}
+            <dl class="rows">
+              {profile.email && (
+                // メールはリンクにせず文字だけで出す(本人、2026-10-25)
+                <div>
+                  <dt class="sub">メール</dt>
+                  <dd>{profile.email}</dd>
+                </div>
+              )}
+              {profile.links.length > 0 && (
+                <div>
+                  <dt class="sub">リンク</dt>
+                  <dd class="ext">
+                    {profile.links.map((l) => (
+                      <a class="link" href={l.url} rel="noopener">
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </dd>
+                </div>
+              )}
+            </dl>
           </footer>
         )
       }
