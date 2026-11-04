@@ -5,7 +5,9 @@
   "name": "portfolio",
   "compatibility_date": "2026-10-25",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    // 無い URL には dist/404.html(src/pages/404.astro)を 404 の状態で返す
+    "not_found_handling": "404-page"
   },
   "routes": [{ "pattern": "portfolio.m-kw.net", "custom_domain": true }]
 }

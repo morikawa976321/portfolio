@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+
+// 無い URL を開いたときのページ。Cloudflare が 404 の状態で返す(wrangler.jsonc の not_found_handling)。
+// これが無いと中身の無い 404 が返り、真っ白な画面で行き止まりになっていた
+---
+
+<Base title="ページが見つかりません">
+  <main class="sub-page">
+    <div class="bar">
+      <h1 class="title">ページが見つかりません</h1>
+      <p class="nav"><a class="link" href="/">← トップ</a></p>
+    </div>
+    <p class="sub lead-s">URL が変わったか、ページが無くなっています。</p>
+    <p class="nav end"><a class="link" href="/works/">すべての作品 →</a></p>
+  </main>
+</Base>
