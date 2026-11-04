@@ -1,12 +1,15 @@
 ---
 // 一時ページ: GitHub と X のリンクの出し方の比較用。採用案を Base.astro と global.css に入れたら消す
+// 第1回(A〜E)で本人が A か E に絞った(2026-11-04「AかE ほかにはない？」)。第2回は A・E とその派生 F〜J
 import '../styles/global.css';
-import { profile } from '../data/profile';
+import Rows from '../components/Rows.astro';
+import { profile, career } from '../data/profile';
 
 const links = [
   { label: 'GitHub', handle: 'morikawa976321', host: 'github.com/morikawa976321', url: 'https://github.com/morikawa976321' },
   { label: 'X', handle: '@112358tm', host: 'x.com/112358tm', url: 'https://x.com/112358tm' },
 ];
+const career1 = career.filter((c) => c.confirmed).slice(0, 2);
 ---
 
 <!doctype html>
@@ -21,28 +24,22 @@ const links = [
       .v { padding-block: 40px 64px; border-top: 1px dashed var(--sub); }
       .tag { margin-bottom: 28px; font-family: var(--mono); font-size: 12px; color: var(--link); }
       .v .contact { margin-top: 48px; }
-      .gap { margin-top: 24px; font-size: 13px; }
-      /* B: 名前 + ハンドル */
-      .b-ext { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 8px; font-size: 14px; }
-      .b-ext .sub { margin-right: 8px; font-size: 13px; }
-      /* C: URL をそのまま縦に */
-      .c-ext { display: grid; row-gap: 4px; margin-top: 8px; font-size: 14px; }
-      /* D: 名前の下 */
-      .d-ext { display: flex; gap: 20px; margin-top: 8px; font-size: 13px; }
-      /* E: 経歴と同じ行の組み */
-      .v-e .rows dd { font-size: 15px; }
+      /* 等幅の中の ↗ は細い斜線に見えるので、矢印だけ本文の書体に戻す */
+      .arw { font-family: var(--ja); }
+      /* G: メールの行とリンクの行 */
+      .g-ext { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+      /* H: 見出しの行の右 */
+      .h-ext { display: flex; gap: 24px; font-size: 14px; }
+      .bar .sec-t { margin-bottom: 0; }
+      /* I: メールと同じ行 */
+      .i-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; }
+      .i-line .ext { margin-top: 0; }
+      /* J: 経歴の節の続き(.profile の 64px 間隔) */
+      .v .profile { margin-top: 0; }
     </style>
   </head>
   <body>
     <div class="page">
-      <section class="v">
-        <p class="tag">現状 — メールだけ</p>
-        <footer class="contact">
-          <h2 class="sec-t">連絡先</h2>
-          <p class="mail">{profile.email}</p>
-        </footer>
-      </section>
-
       <section class="v">
         <p class="tag">A 文字リンク — いまのコードにある書式(links を埋めるだけ)</p>
         <footer class="contact">
@@ -55,58 +52,10 @@ const links = [
       </section>
 
       <section class="v">
-        <p class="tag">B 名前 + ハンドル — どのアカウントかが先に見える</p>
+        <p class="tag">E 経歴と同じ行の組み — 左に種類、右にハンドル(矢印を本文の書体に直した)</p>
         <footer class="contact">
           <h2 class="sec-t">連絡先</h2>
-          <p class="mail">{profile.email}</p>
-          <p class="b-ext">
-            {
-              links.map((l) => (
-                <span>
-                  <span class="sub">{l.label}</span>
-                  <a class="link mono" href={l.url} rel="noopener">{l.handle} ↗</a>
-                </span>
-              ))
-            }
-          </p>
-        </footer>
-      </section>
-
-      <section class="v">
-        <p class="tag">C URL をそのまま — 印刷・スクリーンショットでも行き先が読める</p>
-        <footer class="contact">
-          <h2 class="sec-t">連絡先</h2>
-          <p class="mail">{profile.email}</p>
-          <p class="c-ext">
-            {links.map((l) => <a class="link mono" href={l.url} rel="noopener">{l.host} ↗</a>)}
-          </p>
-        </footer>
-      </section>
-
-      <section class="v">
-        <p class="tag">D 名前の下に置く — 開いてすぐ見える(メールは下の連絡先に残す)</p>
-        <div class="who">
-          <span class="who-ja">{profile.name.ja}</span>
-          <span class="mono sub">{profile.name.en}</span>
-        </div>
-        <p class="d-ext">
-          {links.map((l) => <a class="link" href={l.url} rel="noopener">{l.label} ↗</a>)}
-        </p>
-        <div class="intro">
-          <p class="sub aff">{profile.affiliation.text}</p>
-        </div>
-        <p class="gap sub">(作品・経歴…)</p>
-        <footer class="contact">
-          <h2 class="sec-t">連絡先</h2>
-          <p class="mail">{profile.email}</p>
-        </footer>
-      </section>
-
-      <section class="v v-e">
-        <p class="tag">E 経歴と同じ行の組み — 左に種類、右に値</p>
-        <footer class="contact">
-          <h2 class="sec-t">連絡先</h2>
-          <dl class="rows" style="margin-top: 16px">
+          <dl class="rows">
             <div>
               <dt class="sub">メール</dt>
               <dd>{profile.email}</dd>
@@ -115,12 +64,102 @@ const links = [
               links.map((l) => (
                 <div>
                   <dt class="sub">{l.label}</dt>
-                  <dd><a class="link mono" href={l.url} rel="noopener">{l.handle} ↗</a></dd>
+                  <dd><a class="link" href={l.url} rel="noopener"><span class="mono">{l.handle}</span> <span class="arw">↗</span></a></dd>
                 </div>
               ))
             }
           </dl>
         </footer>
+      </section>
+
+      <section class="v">
+        <p class="tag">F E の値を URL に — 行き先がそのまま読める</p>
+        <footer class="contact">
+          <h2 class="sec-t">連絡先</h2>
+          <dl class="rows">
+            <div>
+              <dt class="sub">メール</dt>
+              <dd>{profile.email}</dd>
+            </div>
+            {
+              links.map((l) => (
+                <div>
+                  <dt class="sub">{l.label}</dt>
+                  <dd><a class="link" href={l.url} rel="noopener"><span class="mono">{l.host}</span> <span class="arw">↗</span></a></dd>
+                </div>
+              ))
+            }
+          </dl>
+        </footer>
+      </section>
+
+      <section class="v">
+        <p class="tag">G A と E の中間 — 行は2つだけ(メール / リンク)</p>
+        <footer class="contact">
+          <h2 class="sec-t">連絡先</h2>
+          <dl class="rows">
+            <div>
+              <dt class="sub">メール</dt>
+              <dd>{profile.email}</dd>
+            </div>
+            <div>
+              <dt class="sub">リンク</dt>
+              <dd class="g-ext">
+                {links.map((l) => <a class="link" href={l.url} rel="noopener">{l.label} ↗</a>)}
+              </dd>
+            </div>
+          </dl>
+        </footer>
+      </section>
+
+      <section class="v">
+        <p class="tag">H 見出しの行の右に置く — 「作品 … すべての作品 →」と同じ位置</p>
+        <footer class="contact">
+          <div class="bar sec">
+            <h2 class="sec-t">連絡先</h2>
+            <p class="h-ext">
+              {links.map((l) => <a class="link" href={l.url} rel="noopener">{l.label} ↗</a>)}
+            </p>
+          </div>
+          <p class="mail">{profile.email}</p>
+        </footer>
+      </section>
+
+      <section class="v">
+        <p class="tag">I A を1行に — メールと同じ行に並べる(狭い画面では折り返す)</p>
+        <footer class="contact">
+          <h2 class="sec-t">連絡先</h2>
+          <div class="i-line">
+            <p class="mail">{profile.email}</p>
+            <p class="ext">
+              {links.map((l) => <a class="link" href={l.url} rel="noopener">{l.label} ↗</a>)}
+            </p>
+          </div>
+        </footer>
+      </section>
+
+      <section class="v">
+        <p class="tag">J E を経歴の続きに置く — 連絡先を独立させず、経歴・研究と同じ間隔の1節にする</p>
+        <div class="profile">
+          <Rows title="経歴(実物の一部)" items={career1} />
+          <section>
+            <h2 class="sec-t">連絡先</h2>
+            <dl class="rows">
+              <div>
+                <dt class="sub">メール</dt>
+                <dd>{profile.email}</dd>
+              </div>
+              {
+                links.map((l) => (
+                  <div>
+                    <dt class="sub">{l.label}</dt>
+                    <dd><a class="link" href={l.url} rel="noopener"><span class="mono">{l.handle}</span> <span class="arw">↗</span></a></dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </section>
+        </div>
       </section>
     </div>
   </body>
