@@ -124,6 +124,9 @@ a.who:hover .who-ja {
   line-height: 1.8;
   max-width: 36em;
   text-wrap: pretty;
+  /* 文中の改行(profile.ts の headline の \n)をそのまま出す。改行の位置は文の側が持ち、
+     狭い幅では各行の中でふつうに折り返す。文の切れ目で改行する(本人「変える」2026-11-04) */
+  white-space: pre-line;
 }
 
 main {
