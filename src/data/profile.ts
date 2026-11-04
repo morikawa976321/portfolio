@@ -23,8 +23,8 @@ export const profile = {
   // 公開リポジトリができたら { label: 'GitHub', url: 'https://github.com/morikawa976321' } を戻す
   links: [] as Link[],
   email: 'taichi.morikawa.contact@gmail.com' as string | null,
-  // 検索エンジンに出すか(フォーム9)。決まるまで noindex
-  indexable: false,
+  // 検索エンジンに出すか(フォーム9)。出す(本人「出す」2026-11-04)。false にすると全ページに noindex が付く(Base.astro)
+  indexable: true,
 };
 
 // 学歴・職歴。新しい順
