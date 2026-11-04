@@ -17,3 +17,5 @@ duocad では、「辺をひとつ選ぶ」といった細かい粒度の操作�
 3. 選んだ辺にフィレットをかける。
 
 ![duocad の画面。36キーのキーボードのケースを開いている](./01-screen.png)
+
+ソースコード: [duocad](https://github.com/morikawa976321/duocad)
