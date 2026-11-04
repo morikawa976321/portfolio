@@ -111,15 +111,18 @@ a.who:hover .who-ja {
   text-underline-offset: 0.28em;
   text-decoration-thickness: 1px;
 }
+/* 所属は名前の側に寄せ、一行紹介とは離して「名前+所属」と「紹介」の2つのまとまりにする。
+   所属→紹介の間が名前→所属より狭いと、所属と紹介がひとつづきに見えるため(本人「所属と紹介文がひとつづきにみえる」、
+   比較した案から「いったんDでいいや」2026-11-04) */
 .intro {
-  margin-top: 24px;
+  margin-top: 12px;
 }
 .aff {
   font-size: 14px;
   line-height: 1.7;
 }
 .lead {
-  margin-top: 12px;
+  margin-top: 40px;
   font-size: 17px;
   line-height: 1.8;
   max-width: 36em;
