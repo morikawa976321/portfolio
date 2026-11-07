@@ -15,8 +15,8 @@ OUT = Path(__file__).resolve().parent.parent / 'src/content/works/context-engine
 # 4:3。作品ページの写真の幅 832px の2倍
 W, H = 1664, 1248
 # サイトの3色(src/styles/global.css)。橙は本文中のリンク専用なので使わない。
-# 地だけはページの地 #e0e0e0 でなく、写真の無いカードと同じ無地の面(墨6%)にする。ページと同じ色だとカードの縁が見えない
-BG, FG, SUB = '#d4d4d4', '#1a1a1b', '#474747'
+# 地だけはページの地 #f0f0f0 でなく、写真の無いカードと同じ無地の面(墨6%)にする。ページと同じ色だとカードの縁が見えない
+BG, FG, SUB = '#e3e3e3', '#1a1a1b', '#474747'
 FONTS = Path.home() / 'AppData/Local/Microsoft/Windows/Fonts'
 MONO = str(FONTS / 'IntelOneMono-Regular.otf')
 JA = str(FONTS / 'NotoSansJP-Regular.otf')

@@ -12,7 +12,7 @@ const FS = +(process.env.ICON_FS ?? 104);
 const FONT = process.env.ICON_FONT ?? '"Intel One Mono"';
 const FLOW = +(process.env.ICON_FLOW ?? 18);
 const OUT = process.env.ICON_OUT ?? 'public';
-const INK = '#1a1a1b', PAPER = '#e0e0e0'; // サイトの --fg と --bg
+const INK = '#1a1a1b', PAPER = '#f0f0f0'; // サイトの --fg と --bg
 
 // OGP の写真: トップの先頭4件のカバーを 4:3 に切ったもの。[ファイル, 切り出し枠(元画像の px) か null=中央切り]
 const OGP_PHOTOS = [
